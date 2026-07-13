@@ -383,7 +383,7 @@ const JOURNAL = [
     date: 'June 4, 1979',
     place: 'Fourth Avenue, downtown Seattle',
     title: 'LOG 01 — I FELL INTO A PARADE',
-    body: `<p>Polaris. Galileo. Fin. Addy. If these pages ever reach you — and my two extremely
+    body: `<p>Polaris. Galileo. Fynn. Addy. If these pages ever reach you — and my two extremely
       loud machines assure me they will, and they are almost never wrong on Thursdays — start here.</p>
       <p>I fell out of the sky into a parade. This happens to me more often than you would think.</p>
       <p>Three hundred thousand people on Fourth Avenue, all of them screaming with joy, and for
@@ -522,7 +522,7 @@ const JOURNAL = [
       <p>Families are constellations — the stars that keep each other found.</p>
       <p>Polaris, I named you for the star the whole sky turns around, the one sailors steer home
       by. (You won't be able to read this for years yet. That's all right. Time and I have an
-      arrangement.) Galileo, for the man who looked up first. Fin, for the orcas of Puget Sound,
+      arrangement.) Galileo, for the man who looked up first. Fynn, for the orcas of Puget Sound,
       who never once in a whole long life leave their mother's pod. Addy, for a one-street town
       in the Washington hills — and because you <i>add</i>: joy, noise, one more small good thing
       every single day. You four are my constellation.</p>
@@ -617,7 +617,7 @@ const TRANSMISSIONS = [
       ['bc', 'Six locks open. I am experiencing an elevated process temperature best described as… pride. I have run diagnostics twice. It is not a malfunction. It appears to be permanent.'],
       ['sb', 'the loop is thinning! some nights i can hear the rink organ straight through the wire. 1979 is very loud and very warm and it smells like popcorn. don\'t ask me how i know a smell through a wire. i just DO.'],
       ['bc', 'Two locks remain. After that, the door — and the counter decides everything. I prepared a contingency plan in case the counter decides badly. Skybreaker ate it.'],
-      ['sb', 'it was DELICIOUS. polaris, galileo, fin, addy — whatever happens at zero: the traveler reads your every solve out loud to the empty rink, and the mirror ball spins for you.'],
+      ['sb', 'it was DELICIOUS. polaris, galileo, fynn, addy — whatever happens at zero: the traveler reads your every solve out loud to the empty rink, and the mirror ball spins for you.'],
     ],
   },
 ];
@@ -633,7 +633,7 @@ const THE_FOUR = [
     text: 'Named for the man who built his own telescope in 1610, looked up when everyone said not to bother, and found four new moons. The curious one. The one who reads the rules twice.',
   },
   {
-    name: 'FIN', emoji: '🐋',
+    name: 'FYNN', emoji: '🐋',
     text: 'Named for the orcas of Puget Sound, who stay with their family pod their entire lives — no exceptions, no lost whales. The loyal one. The one who never lets go of the line.',
   },
   {
@@ -678,7 +678,7 @@ const FINALE_HTML = `
   <p class="big-glow">DISCO'S NOT DEAD. NOTHING LOVED EVER REALLY IS.</p>
   <p class="sb">skybreaker: signing off. the wire is quiet now. it sounds like morning.
   (i am NOT crying. machines can't. …okay. maybe a little.)</p>
-  <p class="bc">Bonecrusher: Polaris. Galileo. Fin. Addy. I have run the numbers on missing
+  <p class="bc">Bonecrusher: Polaris. Galileo. Fynn. Addy. I have run the numbers on missing
   someone, and I am pleased to report that they do not resolve. It has been the honor of my
   operational life. Go outside. Skate hard. Mind the puddles — 62% of them are deeper than
   they look.</p>

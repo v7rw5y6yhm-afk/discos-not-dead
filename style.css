@@ -724,6 +724,15 @@ body.shaking { animation: shake-screen .45s 3; }
 #rogue-popup { z-index: 122; }
 #fx-toggles { z-index: 120; }
 
+/* the faint cassette — visible only to kids who look closely */
+#lock-cassette {
+  position: absolute; bottom: 14px; left: 18px;
+  font-size: 1.25rem; opacity: .13; cursor: pointer;
+  transition: opacity .4s, transform .3s;
+  filter: grayscale(.8);
+}
+#lock-cassette:hover { opacity: .55; transform: rotate(-8deg); filter: none; }
+
 /* lock-page glitch theater */
 .scrambling {
   text-shadow: 3px 0 #29e6ff, -3px 0 #ff2d95 !important;

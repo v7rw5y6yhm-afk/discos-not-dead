@@ -169,6 +169,13 @@ function setupLock() {
   // if we're pre-unlock, knocks from a previous session shouldn't count yet
   if (!lockOpen()) { state.knocks = 0; save(); }
 
+  // the faint cassette in the corner — the road to Side B (password-gated there)
+  const tape = $('#lock-cassette');
+  if (tape) tape.addEventListener('click', () => {
+    FX.init(); FX.warp();
+    location.href = 'sideb.html';
+  });
+
   startLockGlitches();
 }
 
@@ -575,7 +582,7 @@ function mountCipher(box) {
 /* ---------- corruption flicker on home page --------------------------- */
 const BLEEDS = [
   'FIND THE CHILDREN', 'LOOP 48 RUNNING', 'THE WIRE HOLDS', 'FORWARD IS THE ONLY ROAD BACK',
-  'POLARIS · GALILEO · FIN · ADDY', 'SIGNAL ORIGIN: 1979', 'THE COUNTER DECIDES',
+  'POLARIS · GALILEO · FYNN · ADDY', 'SIGNAL ORIGIN: 1979', 'THE COUNTER DECIDES',
 ];
 function startBleeds() {
   setInterval(() => {
@@ -949,7 +956,13 @@ document.addEventListener('keydown', e => {
   // typed words only outside inputs
   if (/^(INPUT|TEXTAREA)$/.test(e.target.tagName)) return;
   if (e.key.length === 1) typedBuf = (typedBuf + e.key.toUpperCase()).slice(-12);
-  if (typedBuf.endsWith('LARRY')) { typedBuf = ''; summonLarry(); }
+  if (typedBuf.endsWith('POTATO')) {
+    typedBuf = '';
+    try { sessionStorage.setItem('dnd_sideb_ok', '1'); } catch (err) { /* gate will ask again */ }
+    FX.warp();
+    location.href = 'sideb.html';
+  }
+  else if (typedBuf.endsWith('LARRY')) { typedBuf = ''; summonLarry(); }
   else if (typedBuf.endsWith('PLATYPUS')) {
     typedBuf = '';
     FX.screenGlitch();

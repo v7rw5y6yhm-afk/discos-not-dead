@@ -392,17 +392,18 @@ const BOT = {
 
     if (has('hint', 'clue', 'help', 'stuck', 'i give up', 'too hard')) return this.giveHint();
 
-    if (has('polaris', 'galileo', 'addy') || /\bfin\b/.test(msg)) {
-      if (has('my name', 'i am', "i'm", 'this is')) {
+    const kid = fuzzyKidName(msg);
+    if (kid) {
+      if (has('my name', 'i am', "i'm", 'im ', 'this is')) {
         return [
           ['sb', 'IT\'S YOU IT\'S YOU IT\'S REALLY YOU!!! ✨✨✨'],
-          ['bc', 'Confirmed: one of the Four is present. This is the best data I have ever received. Welcome. We have been waiting forty-seven years, and it was worth every second.'],
-          ['sb', 'the traveler is going to FLIP. okay not literally. okay maybe literally, they do that.'],
+          ['bc', `Confirmed: ${kid} is present. This is the best data I have ever received. Welcome. We have been waiting forty-seven years, and it was worth every second.`],
+          ['sb', '(and i don\'t care HOW you spell it. i know it\'s you. i\'m VERY good at names. it\'s my THING.)'],
         ];
       }
       return [
-        ['bc', 'That name is one of the Four. The traveler speaks of them the way the organ speaks of Saturday night.'],
-        ['sb', 'if that\'s YOUR name… say "my name is ___"!!! GO ON. SAY IT.'],
+        ['bc', `That name — ${kid} — is one of the Four. The traveler speaks of them the way the organ speaks of Saturday night.`],
+        ['sb', 'if that\'s YOUR name… say "my name is ___"!!! GO ON. SAY IT. spell it however you want, i\'ll know.'],
       ];
     }
 
@@ -601,6 +602,86 @@ const BOT = {
 
 /* runtime (non-seeded) pick — different every time for the bot */
 function pickRuntime(arr) { return arr[Math.floor(Math.random() * arr.length)]; }
+
+/* ---------------- fuzzy kid-name recognition -------------------- */
+/* Any reasonable misspelling of the Four gets recognized:
+   Fynn/Finn/Fin/Fyn, Addy/Addie/Adi/Ady/Addi, Polaris/Poleris/…,
+   Galileo/Gallileo/Galelio/… — edit distance does the heavy lifting. */
+function editDist(a, b) {
+  const m = a.length, n = b.length;
+  if (Math.abs(m - n) > 2) return 99;
+  const row = Array.from({ length: n + 1 }, (_, i) => i);
+  for (let i = 1; i <= m; i++) {
+    let prev = row[0]; row[0] = i;
+    for (let j = 1; j <= n; j++) {
+      const tmp = row[j];
+      row[j] = Math.min(row[j] + 1, row[j - 1] + 1, prev + (a[i - 1] === b[j - 1] ? 0 : 1));
+      prev = tmp;
+    }
+  }
+  return row[n];
+}
+const KID_ALIASES = {
+  FYNN: ['fynn', 'finn', 'fin', 'fyn', 'phin', 'phinn', 'phynn', 'fynne'],
+  ADDY: ['addy', 'addie', 'adie', 'adi', 'ady', 'addi', 'addey', 'addee', 'adde'],
+  POLARIS: ['polaris'],
+  GALILEO: ['galileo'],
+};
+/* ordinary words that live one typo away from a kid's name — never fuzzy-match these */
+const KID_STOPWORDS = new Set([
+  'fine', 'find', 'fun', 'fan', 'fund', 'fond', 'fend', 'faint', 'final',
+  'and', 'any', 'add', 'adds', 'added', 'ado', 'andy', 'lady', 'daddy',
+  'paddy', 'caddy', 'buddy', 'body', 'aide', 'audio', 'idea',
+]);
+function fuzzyKidName(raw) {
+  const words = (raw || '').toLowerCase().replace(/[^a-z\s]/g, ' ').split(/\s+/).filter(w => w.length >= 3);
+  // pass 1: exact alias matches always win
+  for (const w of words) {
+    for (const [canon, aliases] of Object.entries(KID_ALIASES)) {
+      if (aliases.includes(w)) return canon;
+    }
+  }
+  // pass 2: fuzzy — misspellings welcome, everyday words excluded
+  for (const w of words) {
+    if (KID_STOPWORDS.has(w)) continue;
+    for (const [canon, aliases] of Object.entries(KID_ALIASES)) {
+      for (const a of aliases) {
+        const tol = a.length <= 4 ? 1 : 2;
+        if (editDist(w, a) <= tol) return canon;
+      }
+    }
+  }
+  return null;
+}
+
+/* ---------------- extend the lock-page refusal pool -------------- */
+/* Handwritten taunts + generated ones → the pool climbs past 240,
+   and app.js draws from a shuffle bag, so repeats are vanishingly rare. */
+(function extendLockTaunts() {
+  if (typeof LOCK_TAUNTS === 'undefined') return;
+  const mk = (i) => {
+    const thing = pick(G_THINGS), thing2 = pick(G_THINGS), adj = pick(G_ADJS);
+    const conseq = pick(G_CONSEQ), pct = rint(3, 99), n = rint(7, 9999);
+    switch (i % 10) {
+      case 0: return ['bc', `Door report: sealed. ${thing} report: ${adj}. Your report: persistent. I admire it. The answer is still no.`];
+      case 1: return ['sb', `i asked ${thing} if we could open early. it said no. IT SAID NO. i'm as shocked as you are.`];
+      case 2: return ['bc', `I have consulted ${thing}. We are in agreement: the door opens at zero, and not one second before.`];
+      case 3: return ['sb', `fun fact while you wait: behind this door, ${thing} is ${adj} right now. that's all i can legally say.`];
+      case 4: return ['bc', `Simulation #${n}: I open the door early. Result: ${conseq}. Request denied, with warmth.`];
+      case 5: return ['sb', `you knocked!! ${thing} heard it!! everyone in here is VERY excited. the door remains so, so closed.`];
+      case 6: return ['bc', `Please direct all complaints to ${thing}. It does not accept complaints. That is precisely why we chose it.`];
+      case 7: return ['sb', `if you knock ${rint(3, 99)} more times, absolutely nothing will happen. i checked. it was adorable though.`];
+      case 8: return ['bc', `Current door strength: ${pct}% ${adj}. Your knuckles: no match. The countdown: undefeated.`];
+      default: return ['sb', `the countdown whispered "${rint(2, 59)}" to me earlier. i don't speak countdown. it sounded VERY official.`];
+    }
+  };
+  const seen = new Set(LOCK_TAUNTS.map(t => t[1]));
+  let guard = 0;
+  while (LOCK_TAUNTS.length < 240 && guard++ < 8000) {
+    const t = mk(guard);
+    if (!seen.has(t[1])) { seen.add(t[1]); LOCK_TAUNTS.push(t); }
+  }
+})();
 
 /* ---------------- extend the lock-page refusals ----------------- */
 /* Pads LOCK_TAUNTS (from data.js) with generated one-liners so the

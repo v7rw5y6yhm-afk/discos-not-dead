@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SIDE B — do not play for grown-ups</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📼</text></svg>">
+<link rel="stylesheet" href="style.css">
+<style>
+  body { display: flex; flex-direction: column; align-items: center; justify-content: center;
+         min-height: 100vh; text-align: center; padding: 1.5rem; gap: 1.1rem; }
+  .sb-warn {
+    color: var(--red); font-family: var(--mono); font-size: .9rem; letter-spacing: .15em;
+    border: 1px solid rgba(255,59,59,.5); border-radius: 6px; padding: .4rem 1rem;
+    text-shadow: 0 0 10px rgba(255,59,59,.6);
+  }
+  h1 {
+    font-size: clamp(1.4rem, 5vw, 2.6rem); color: var(--gold); letter-spacing: .06em;
+    text-shadow: 0 0 16px rgba(255,209,102,.5); max-width: 640px; text-wrap: balance;
+  }
+  .sb-sub { color: var(--dim); font-family: var(--mono); font-size: .8rem; max-width: 520px; line-height: 1.7; }
+  #cassette-btn { background: none; border: none; cursor: pointer; transition: transform .15s; }
+  #cassette-btn:hover { transform: scale(1.04) rotate(-1deg); }
+  #cassette-btn:active { transform: scale(.98); }
+  .cassette-svg { width: min(420px, 88vw); filter: drop-shadow(0 8px 30px rgba(255,45,149,.25)); }
+  .reel-spokes { transform-origin: center; transform-box: fill-box; }
+  .playing .reel-spokes { animation: reelspin 1.6s linear infinite; }
+  @keyframes reelspin { to { transform: rotate(360deg); } }
+  #play-hint { color: var(--cyan); font-family: var(--mono); font-size: .9rem; min-height: 1.4em; }
+  .sb-back { color: #4b3572; font-family: var(--mono); font-size: .75rem; text-decoration: none; margin-top: 1rem; }
+  .sb-back:hover { color: var(--pink); }
+  /* password gate */
+  #gate {
+    position: fixed; inset: 0; z-index: 50; background: #050308;
+    display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1rem; padding: 1.5rem;
+  }
+  #gate.open { display: none; }
+  #gate .g-title { color: var(--pink); font-family: var(--mono); letter-spacing: .2em; font-size: 1rem; }
+  #gate input {
+    background: #0b0714; color: var(--cyan); border: 1px solid #3a2560; border-radius: 6px;
+    font-family: var(--mono); font-size: 1.1rem; padding: .7rem 1rem; text-align: center;
+    letter-spacing: .2em; text-transform: uppercase; width: min(320px, 80vw);
+  }
+  #gate input:focus { outline: none; border-color: var(--cyan); box-shadow: 0 0 12px rgba(41,230,255,.3); }
+  #gate .g-fb { color: var(--red); font-family: var(--mono); font-size: .85rem; min-height: 1.4em; }
+  #gate .g-hint { color: var(--dim); font-family: var(--mono); font-size: .72rem; }
+</style>
+</head>
+<body>
+
+<div id="gate">
+  <div class="g-title">🔐 RESTRICTED FREQUENCY</div>
+  <div class="g-hint">this page is for four specific children. password required.</div>
+  <form id="gate-form">
+    <input type="text" id="gate-input" autocomplete="off" spellcheck="false" placeholder="password" autofocus>
+  </form>
+  <div class="g-fb" id="gate-fb"></div>
+</div>
+
+<div class="sb-warn">⚠ FOR POLARIS · GALILEO · FYNN · ADDY — EYES (AND EARS) ONLY ⚠</div>
+<h1>DO NOT let your uncle/dad listen.</h1>
+<p class="sb-sub">you know what happened LAST time a grown-up played a Side B.
+fourteen minutes of memory. several beard hairs. we are STILL finding the beard hairs.
+put in headphones. check behind you. okay. go.</p>
+
+<button type="button" id="cassette-btn" aria-label="play Side B">
+  <svg class="cassette-svg" id="cassette" viewBox="0 0 460 290" xmlns="http://www.w3.org/2000/svg">
+    <rect x="6" y="6" width="448" height="278" rx="18" fill="#1c1030" stroke="#3a2560" stroke-width="4"/>
+    <rect x="26" y="26" width="408" height="120" rx="10" fill="#f2e6c9"/>
+    <text x="230" y="62" text-anchor="middle" font-family="Menlo, monospace" font-size="26" font-weight="bold" fill="#c0392b" letter-spacing="6">SIDE B</text>
+    <text x="230" y="92" text-anchor="middle" font-family="Comic Sans MS, cursive" font-size="16" fill="#5a3620">roll-a-rama · ABSOLUTELY NOT (for grown-ups)</text>
+    <text x="230" y="120" text-anchor="middle" font-family="Menlo, monospace" font-size="11" fill="#8a6a45">— T. (if found, return to 1979)</text>
+    <rect x="120" y="160" width="220" height="76" rx="38" fill="#0b0714" stroke="#3a2560" stroke-width="3"/>
+    <g class="reel-spokes">
+      <circle cx="165" cy="198" r="26" fill="#241638" stroke="#8a95a8" stroke-width="4"/>
+      <line x1="165" y1="176" x2="165" y2="220" stroke="#8a95a8" stroke-width="4"/>
+      <line x1="143" y1="198" x2="187" y2="198" stroke="#8a95a8" stroke-width="4"/>
+    </g>
+    <g class="reel-spokes">
+      <circle cx="295" cy="198" r="26" fill="#241638" stroke="#8a95a8" stroke-width="4"/>
+      <line x1="295" y1="176" x2="295" y2="220" stroke="#8a95a8" stroke-width="4"/>
+      <line x1="273" y1="198" x2="317" y2="198" stroke="#8a95a8" stroke-width="4"/>
+    </g>
+    <circle cx="60" cy="256" r="7" fill="#3a2560"/>
+    <circle cx="400" cy="256" r="7" fill="#3a2560"/>
+    <text x="230" y="264" text-anchor="middle" font-family="Menlo, monospace" font-size="13" fill="#9b8bb4">▶ CLICK TO PLAY</text>
+  </svg>
+</button>
+<div id="play-hint">volume up. headphones on. grown-ups out of the room.</div>
+
+<audio id="sideb-audio" src="audio/side-b.mp3" preload="none"></audio>
+<a class="sb-back" href="./">← back to the locked door (act natural)</a>
+
+<script>
+(function () {
+  const gate = document.getElementById('gate');
+  const input = document.getElementById('gate-input');
+  const fb = document.getElementById('gate-fb');
+  const DENIALS = [
+    'nope. the mirror ball is judging you.',
+    'incorrect. a vacuum named Larry just laughed at you.',
+    'no. hint: it is a vegetable. a HEROIC vegetable.',
+    'still no. it mashes. it fries. it saves timelines.',
+  ];
+  let denyIdx = 0;
+  try { if (sessionStorage.getItem('dnd_sideb_ok') === '1') gate.classList.add('open'); } catch (e) {}
+  function tryPassword() {
+    const guess = input.value.toUpperCase().replace(/[^A-Z]/g, '');
+    if (guess === 'POTATO') {
+      try { sessionStorage.setItem('dnd_sideb_ok', '1'); } catch (e) {}
+      gate.classList.add('open');
+    } else if (guess) {
+      fb.textContent = DENIALS[denyIdx++ % DENIALS.length];
+      input.value = '';
+    }
+  }
+  document.getElementById('gate-form').addEventListener('submit', e => {
+    e.preventDefault();
+    tryPassword();
+  });
+  input.addEventListener('keydown', e => {
+    if (e.key === 'Enter' || e.key === 'Return' || e.keyCode === 13) { e.preventDefault(); tryPassword(); }
+  });
+
+  const audio = document.getElementById('sideb-audio');
+  const btn = document.getElementById('cassette-btn');
+  const cassette = document.getElementById('cassette');
+  const hint = document.getElementById('play-hint');
+  btn.addEventListener('click', () => {
+    if (audio.paused) {
+      audio.play();
+      cassette.classList.add('playing');
+      hint.textContent = '▶ playing… (the reels only spin for the four of you)';
+    } else {
+      audio.pause();
+      cassette.classList.remove('playing');
+      hint.textContent = '⏸ paused. check the hallway. resume when clear.';
+    }
+  });
+  audio.addEventListener('ended', () => {
+    cassette.classList.remove('playing');
+    hint.textContent = 'end of side B. rewind by clicking again. tell NO ONE with a beard.';
+    audio.currentTime = 0;
+  });
+})();
+</script>
+</body>
+</html>
