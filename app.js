@@ -668,6 +668,28 @@ if (dottieSig) dottieSig.addEventListener('click', () => {
   }
 });
 
+/* ---------- frame 19 (the corrupted photo) ---------- */
+let frame19Clicks = 0;
+const frame19 = $('#photo-corrupted');
+if (frame19) frame19.addEventListener('click', () => {
+  FX.init();
+  frame19Clicks++;
+  FX.screenGlitch(frame19Clicks >= 3);
+  if (frame19Clicks === 1) {
+    roguePiece([
+      ['bc', 'Please stop touching frame 19. We have been trying to recover it for eleven loops. The static bites.'],
+      ['sb', 'it doesn\'t BITE, it NIBBLES. touch it again. see what happens.'],
+    ], '🖼 FRAME 19 — DO NOT TOUCH');
+  } else if (frame19Clicks === 3) {
+    roguePiece([
+      ['sb', 'okay okay listen. the missing half of frame 19 shows WHO the figure is. we can\'t recover it from our side. but the traveler said: "the frame develops when the counter reaches zero."'],
+      ['bc', 'July 31. 11:59 PM. The photograph finishes itself. I have goosebumps, which is remarkable, because I do not have skin.'],
+    ], '🖼 FRAME 19 — PARTIAL RECOVERY');
+  } else {
+    roguePiece([nextChatterPiece()[0]], '🖼 FRAME 19 — STILL STATIC');
+  }
+});
+
 /* ---------- the cassette (side B) ---------- */
 let sideBWarned = false;
 $('#cassette').addEventListener('click', () => {

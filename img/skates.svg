@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <defs>
+    <linearGradient id="bench" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#9a6a3d"/>
+      <stop offset="1" stop-color="#6a4526"/>
+    </linearGradient>
+    <linearGradient id="bg2" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#3d2b3d"/>
+      <stop offset="1" stop-color="#5a3d4a"/>
+    </linearGradient>
+    <linearGradient id="boot" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f2e2c4"/>
+      <stop offset="1" stop-color="#d9bd94"/>
+    </linearGradient>
+    <radialGradient id="vig" cx=".5" cy=".5" r=".75">
+      <stop offset=".55" stop-color="#000" stop-opacity="0"/>
+      <stop offset="1" stop-color="#000" stop-opacity=".5"/>
+    </radialGradient>
+    <filter id="grain">
+      <feTurbulence type="fractalNoise" baseFrequency=".8" numOctaves="2" result="n"/>
+      <feColorMatrix in="n" type="saturate" values="0"/>
+      <feComponentTransfer><feFuncA type="linear" slope=".14" intercept="0"/></feComponentTransfer>
+    </filter>
+  </defs>
+
+  <!-- blurry rink background -->
+  <rect width="800" height="600" fill="url(#bg2)"/>
+  <g opacity=".4" filter="blur(3px)">
+    <circle cx="150" cy="120" r="8" fill="#ff2d95"/>
+    <circle cx="300" cy="80" r="6" fill="#29e6ff"/>
+    <circle cx="520" cy="110" r="8" fill="#ffd166"/>
+    <circle cx="660" cy="150" r="6" fill="#ff2d95"/>
+    <circle cx="420" cy="60" r="5" fill="#fff"/>
+  </g>
+
+  <!-- bench -->
+  <rect x="0" y="400" width="800" height="90" fill="url(#bench)"/>
+  <rect x="0" y="490" width="800" height="110" fill="#241a17"/>
+  <g stroke="#4a2c18" stroke-width="3" opacity=".6">
+    <line x1="0" y1="430" x2="800" y2="430"/><line x1="0" y1="462" x2="800" y2="462"/>
+  </g>
+
+  <!-- LEFT SKATE -->
+  <g transform="translate(220 180) rotate(-4)">
+    <path d="M40 60 Q36 20 60 12 Q92 2 118 14 L126 60 L138 150 Q140 170 120 176 L30 176 Q10 172 14 150 Z" fill="url(#boot)" stroke="#b39469" stroke-width="4"/>
+    <!-- lace zigzag -->
+    <g stroke="#c0392b" stroke-width="5" fill="none" stroke-linecap="round">
+      <path d="M62 40 L98 52 M98 34 L62 58 M62 76 L98 88 M98 70 L62 94 M62 112 L98 124"/>
+    </g>
+    <circle cx="60" cy="38" r="4" fill="#8a6a45"/><circle cx="100" cy="38" r="4" fill="#8a6a45"/>
+    <circle cx="60" cy="76" r="4" fill="#8a6a45"/><circle cx="100" cy="76" r="4" fill="#8a6a45"/>
+    <circle cx="60" cy="112" r="4" fill="#8a6a45"/><circle cx="100" cy="112" r="4" fill="#8a6a45"/>
+    <!-- lace bow -->
+    <path d="M70 26 Q60 12 76 14 Q84 16 80 28 M90 26 Q102 12 88 12" stroke="#c0392b" stroke-width="5" fill="none" stroke-linecap="round"/>
+    <!-- sole + trucks + wheels -->
+    <rect x="18" y="176" width="126" height="14" rx="6" fill="#7a4a2b"/>
+    <rect x="40" y="190" width="16" height="12" fill="#57504a"/>
+    <rect x="104" y="190" width="16" height="12" fill="#57504a"/>
+    <circle cx="42" cy="216" r="17" fill="#e07a2b" stroke="#a34d12" stroke-width="4"/>
+    <circle cx="118" cy="216" r="17" fill="#e07a2b" stroke="#a34d12" stroke-width="4"/>
+    <circle cx="42" cy="216" r="5" fill="#f2e2c4"/><circle cx="118" cy="216" r="5" fill="#f2e2c4"/>
+    <!-- toe stop -->
+    <circle cx="18" cy="196" r="9" fill="#c0392b"/>
+  </g>
+
+  <!-- RIGHT SKATE (leaning against the first) -->
+  <g transform="translate(420 200) rotate(9)">
+    <path d="M40 60 Q36 20 60 12 Q92 2 118 14 L126 60 L138 150 Q140 170 120 176 L30 176 Q10 172 14 150 Z" fill="url(#boot)" stroke="#b39469" stroke-width="4"/>
+    <g stroke="#c0392b" stroke-width="5" fill="none" stroke-linecap="round">
+      <path d="M62 40 L98 52 M98 34 L62 58 M62 76 L98 88 M98 70 L62 94 M62 112 L98 124"/>
+    </g>
+    <circle cx="60" cy="38" r="4" fill="#8a6a45"/><circle cx="100" cy="38" r="4" fill="#8a6a45"/>
+    <circle cx="60" cy="76" r="4" fill="#8a6a45"/><circle cx="100" cy="76" r="4" fill="#8a6a45"/>
+    <circle cx="60" cy="112" r="4" fill="#8a6a45"/><circle cx="100" cy="112" r="4" fill="#8a6a45"/>
+    <path d="M70 26 Q60 12 76 14 Q84 16 80 28 M90 26 Q102 12 88 12" stroke="#c0392b" stroke-width="5" fill="none" stroke-linecap="round"/>
+    <rect x="18" y="176" width="126" height="14" rx="6" fill="#7a4a2b"/>
+    <rect x="40" y="190" width="16" height="12" fill="#57504a"/>
+    <rect x="104" y="190" width="16" height="12" fill="#57504a"/>
+    <circle cx="42" cy="216" r="17" fill="#e07a2b" stroke="#a34d12" stroke-width="4"/>
+    <circle cx="118" cy="216" r="17" fill="#e07a2b" stroke="#a34d12" stroke-width="4"/>
+    <circle cx="42" cy="216" r="5" fill="#f2e2c4"/><circle cx="118" cy="216" r="5" fill="#f2e2c4"/>
+    <circle cx="18" cy="196" r="9" fill="#c0392b"/>
+  </g>
+
+  <!-- rental tag on a string -->
+  <g transform="rotate(12 560 300)">
+    <line x1="540" y1="255" x2="575" y2="310" stroke="#c9b79b" stroke-width="3"/>
+    <rect x="556" y="306" width="70" height="42" rx="5" fill="#f2e6c9" stroke="#b39469" stroke-width="3"/>
+    <text x="591" y="325" text-anchor="middle" font-family="Trebuchet MS, sans-serif" font-size="16" font-weight="bold" fill="#5a3620">№ 79</text>
+    <text x="591" y="341" text-anchor="middle" font-family="Trebuchet MS, sans-serif" font-size="9" fill="#8a6a45">SOUTHGATE</text>
+  </g>
+
+  <!-- fades -->
+  <rect width="800" height="600" fill="#c9925a" opacity=".12"/>
+  <rect width="800" height="600" filter="url(#grain)"/>
+  <rect width="800" height="600" fill="url(#vig)"/>
+</svg>

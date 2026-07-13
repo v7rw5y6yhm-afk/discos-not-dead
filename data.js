@@ -259,6 +259,11 @@ const JOURNAL = [
       the championship in 1978. They went home, laced their skates — shoes, sorry, shoes — and
       came back and won everything. Losing is only the end of the story if you stop skating.</p>
       <p>I have not stopped. I don't intend to start.</p>
+      <figure class="photo journal-photo">
+        <img src="img/parade.svg" alt="the championship parade on Fourth Avenue, June 4, 1979">
+        <figcaption>found pressed between the journal pages — fourth avenue, june 4.
+        (skybreaker says someone photobombed. i don't see anyone. — b.)</figcaption>
+      </figure>
       <p>— T.</p>
       <p class="mono dim">P.S. If a cassette tape ever offers you a Side B: don't.
       Long story. Ask your uncle. Actually — don't ask your uncle.</p>`,
@@ -374,6 +379,10 @@ const JOURNAL = [
       in the Washington hills — and because you <i>add</i>: joy, noise, one more small good thing
       every single day. You four are my constellation.</p>
       <p>Steer by each other.</p>
+      <figure class="photo journal-photo">
+        <img src="img/kingdome.svg" alt="the Kingdome at dusk from across Elliott Bay">
+        <figcaption>the concrete moon, from the water — the traveler's own snapshot, july 17.</figcaption>
+      </figure>
       <p>— T.</p>`,
   },
   {
@@ -420,6 +429,10 @@ const JOURNAL = [
       <p>When the counter hits zero, the door opens — from your side.
       It always had to be from your side.</p>
       <p>Skate hard. Steer by each other. Leave the light on.</p>
+      <figure class="photo journal-photo">
+        <img src="img/rink-floor.svg" alt="the Southgate rink floor under the mirror ball, last skate of the summer">
+        <figcaption>last skate of loop 48. if you look by the organ… that's me. waving at you.</figcaption>
+      </figure>
       <p>Staying alive,</p>
       <p>— T. <span class="mono">(loop 48, and last)</span></p>`,
   },

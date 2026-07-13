@@ -522,6 +522,15 @@ const BOT = {
       ]);
     }
 
+    if (has('photo', 'picture', 'scrapbook', 'figure', 'long coat', 'who is by the organ', 'organ guy', 'photobomb')) {
+      return pickRuntime([
+        [['bc', 'You noticed the figure in Dottie\'s photographs. Long coat. Always near the organ. Always slightly out of focus. I have enhanced frame 19 exactly 4,096 times. The figure appears to be… waving.'],
+         ['sb', 'IT\'S THEM. it\'s SO obviously them!! they photobombed the ENTIRE summer of 1979 and nobody noticed for forty-seven years!!']],
+        [['sb', 'okay so. the same person is in EVERY photo. night photo, parade photo, rink photo. same coat. same wave. for FORTY-SEVEN YEARS nobody noticed!!'],
+         ['bc', 'Dottie\'s mother\'s camera captured what the eye missed. Cameras are honest that way. The traveler is… not hiding, exactly. The traveler is saying hello very, very slowly.']],
+      ]);
+    }
+
     if (has('morse', 'blink')) return this.puzzleNudge(1);
     if (has('marquee', 'lineup')) return this.puzzleNudge(0);
     if (has('moon', 'jupiter', 'ganymede', 'voyager')) return this.puzzleNudge(2);

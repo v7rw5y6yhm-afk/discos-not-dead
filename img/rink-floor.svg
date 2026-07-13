@@ -1,0 +1,102 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <defs>
+    <linearGradient id="wall" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#120d1c"/>
+      <stop offset="1" stop-color="#2a1a30"/>
+    </linearGradient>
+    <linearGradient id="floor" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#8a5a33"/>
+      <stop offset="1" stop-color="#5a3620"/>
+    </linearGradient>
+    <radialGradient id="ballglow" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#fff" stop-opacity=".9"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="vig" cx=".5" cy=".5" r=".75">
+      <stop offset=".55" stop-color="#000" stop-opacity="0"/>
+      <stop offset="1" stop-color="#000" stop-opacity=".5"/>
+    </radialGradient>
+    <filter id="grain">
+      <feTurbulence type="fractalNoise" baseFrequency=".8" numOctaves="2" result="n"/>
+      <feColorMatrix in="n" type="saturate" values="0"/>
+      <feComponentTransfer><feFuncA type="linear" slope=".13" intercept="0"/></feComponentTransfer>
+    </filter>
+  </defs>
+
+  <!-- dark hall -->
+  <rect width="800" height="380" fill="url(#wall)"/>
+
+  <!-- mirror ball + beams -->
+  <g>
+    <polygon points="400,105 240,380 320,380" fill="#ff2d95" opacity=".14"/>
+    <polygon points="400,105 360,380 440,380" fill="#fffce0" opacity=".18"/>
+    <polygon points="400,105 480,380 560,380" fill="#29e6ff" opacity=".14"/>
+    <polygon points="400,105 120,340 180,380" fill="#ffd166" opacity=".1"/>
+    <polygon points="400,105 620,380 680,340" fill="#ffd166" opacity=".1"/>
+  </g>
+  <line x1="400" y1="40" x2="400" y2="75" stroke="#777" stroke-width="3"/>
+  <circle cx="400" cy="105" r="34" fill="#cfd8e6"/>
+  <g stroke="#8a95a8" stroke-width="1.5">
+    <line x1="368" y1="94" x2="432" y2="94"/><line x1="366" y1="105" x2="434" y2="105"/><line x1="368" y1="116" x2="432" y2="116"/>
+    <line x1="389" y1="72" x2="389" y2="138"/><line x1="400" y1="71" x2="400" y2="139"/><line x1="411" y1="72" x2="411" y2="138"/>
+  </g>
+  <circle cx="400" cy="105" r="60" fill="url(#ballglow)" opacity=".5"/>
+
+  <!-- scattered light dots on walls/floor -->
+  <g fill="#fff">
+    <circle cx="150" cy="180" r="3" opacity=".5"/><circle cx="240" cy="120" r="2.5" opacity=".4"/>
+    <circle cx="560" cy="150" r="3" opacity=".5"/><circle cx="660" cy="210" r="2.5" opacity=".4"/>
+    <circle cx="90" cy="280" r="2.5" opacity=".35"/><circle cx="710" cy="290" r="3" opacity=".4"/>
+    <circle cx="300" cy="440" r="4" opacity=".25"/><circle cx="500" cy="470" r="4" opacity=".25"/>
+    <circle cx="200" cy="500" r="4" opacity=".2"/><circle cx="620" cy="520" r="4" opacity=".2"/>
+  </g>
+
+  <!-- wooden floor -->
+  <rect x="0" y="380" width="800" height="220" fill="url(#floor)"/>
+  <g stroke="#4a2c18" stroke-width="2" opacity=".7">
+    <line x1="0" y1="415" x2="800" y2="415"/><line x1="0" y1="455" x2="800" y2="455"/>
+    <line x1="0" y1="500" x2="800" y2="500"/><line x1="0" y1="550" x2="800" y2="550"/>
+  </g>
+  <ellipse cx="400" cy="470" rx="260" ry="60" fill="#fffce0" opacity=".08"/>
+
+  <!-- skater silhouettes -->
+  <g fill="#171020">
+    <!-- leaning couple, holding hands -->
+    <circle cx="300" cy="330" r="12"/>
+    <path d="M288 344 L312 344 L320 420 L296 420 Z" transform="rotate(-8 300 380)"/>
+    <circle cx="352" cy="336" r="11"/>
+    <path d="M341 349 L363 349 L369 420 L347 420 Z" transform="rotate(6 352 380)"/>
+    <line x1="318" y1="375" x2="338" y2="378" stroke="#171020" stroke-width="6" stroke-linecap="round"/>
+    <!-- solo speedster -->
+    <circle cx="565" cy="345" r="11"/>
+    <path d="M553 357 L577 357 L588 425 L560 425 Z" transform="rotate(-14 565 390)"/>
+  </g>
+  <!-- skate wheels sparkle under them -->
+  <g fill="#ff9a3d">
+    <circle cx="296" cy="428" r="4"/><circle cx="310" cy="428" r="4"/>
+    <circle cx="350" cy="428" r="4"/><circle cx="364" cy="428" r="4"/>
+    <circle cx="562" cy="432" r="4"/><circle cx="578" cy="430" r="4"/>
+  </g>
+
+  <!-- the rink organ, and the figure beside it -->
+  <g>
+    <rect x="655" y="300" width="120" height="86" rx="6" fill="#3a2418"/>
+    <rect x="663" y="312" width="104" height="18" fill="#f2e6c9"/>
+    <g fill="#241608">
+      <rect x="668" y="312" width="5" height="18"/><rect x="682" y="312" width="5" height="18"/>
+      <rect x="696" y="312" width="5" height="18"/><rect x="710" y="312" width="5" height="18"/>
+      <rect x="724" y="312" width="5" height="18"/><rect x="738" y="312" width="5" height="18"/>
+      <rect x="752" y="312" width="5" height="18"/>
+    </g>
+    <rect x="663" y="340" width="104" height="8" fill="#241608"/>
+  </g>
+  <g opacity=".45" filter="blur(1.2px)">
+    <ellipse cx="635" cy="308" rx="9" ry="9" fill="#0d0a14"/>
+    <path d="M623 318 L647 318 L651 386 L619 386 Z" fill="#0d0a14"/>
+  </g>
+
+  <!-- fades -->
+  <rect width="800" height="600" fill="#c9925a" opacity=".09"/>
+  <rect width="800" height="600" filter="url(#grain)"/>
+  <rect width="800" height="600" fill="url(#vig)"/>
+</svg>

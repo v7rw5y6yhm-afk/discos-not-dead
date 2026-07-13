@@ -1,0 +1,103 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <defs>
+    <linearGradient id="dusk" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#3a2a5a"/>
+      <stop offset=".55" stop-color="#a05070"/>
+      <stop offset="1" stop-color="#e08a4a"/>
+    </linearGradient>
+    <linearGradient id="bay" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#c07050"/>
+      <stop offset="1" stop-color="#4a3050"/>
+    </linearGradient>
+    <linearGradient id="dome" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#c9c2b8"/>
+      <stop offset="1" stop-color="#8a8278"/>
+    </linearGradient>
+    <radialGradient id="vig" cx=".5" cy=".5" r=".75">
+      <stop offset=".55" stop-color="#000" stop-opacity="0"/>
+      <stop offset="1" stop-color="#000" stop-opacity=".5"/>
+    </radialGradient>
+    <filter id="grain">
+      <feTurbulence type="fractalNoise" baseFrequency=".8" numOctaves="2" result="n"/>
+      <feColorMatrix in="n" type="saturate" values="0"/>
+      <feComponentTransfer><feFuncA type="linear" slope=".13" intercept="0"/></feComponentTransfer>
+    </filter>
+  </defs>
+
+  <!-- dusk sky -->
+  <rect width="800" height="600" fill="url(#dusk)"/>
+  <circle cx="640" cy="120" r="26" fill="#ffe9c9" opacity=".85"/>
+  <g stroke="#2a1a30" stroke-width="3" fill="none" opacity=".7">
+    <path d="M140 110 q10 -10 20 0 q10 -10 20 0"/>
+    <path d="M210 150 q8 -8 16 0 q8 -8 16 0"/>
+  </g>
+
+  <!-- skyline silhouettes -->
+  <g fill="#241a30">
+    <rect x="60" y="260" width="40" height="120"/>
+    <rect x="110" y="230" width="55" height="150"/>
+    <rect x="175" y="270" width="35" height="110"/>
+    <rect x="620" y="250" width="48" height="130"/>
+    <rect x="680" y="285" width="60" height="95"/>
+  </g>
+  <!-- smith tower-ish spire -->
+  <g fill="#241a30">
+    <rect x="222" y="240" width="28" height="140"/>
+    <polygon points="222,240 250,240 236,205"/>
+  </g>
+  <!-- space needle -->
+  <g fill="#1d1426">
+    <rect x="562" y="270" width="8" height="110"/>
+    <ellipse cx="566" cy="262" rx="34" ry="12"/>
+    <ellipse cx="566" cy="252" rx="20" ry="7"/>
+    <line x1="566" y1="245" x2="566" y2="232" stroke="#1d1426" stroke-width="4"/>
+    <polygon points="546,270 586,270 574,300 558,300"/>
+  </g>
+  <!-- window lights -->
+  <g fill="#ffd166" opacity=".8">
+    <rect x="118" y="242" width="6" height="6"/><rect x="132" y="258" width="6" height="6"/>
+    <rect x="146" y="242" width="6" height="6"/><rect x="88" y="272" width="5" height="5"/>
+    <rect x="628" y="262" width="6" height="6"/><rect x="644" y="280" width="6" height="6"/>
+    <rect x="692" y="295" width="5" height="5"/><rect x="710" y="310" width="5" height="5"/>
+  </g>
+
+  <!-- THE KINGDOME — the concrete moon -->
+  <g>
+    <path d="M255 385 A150 92 0 0 1 555 385 Z" fill="url(#dome)"/>
+    <!-- ribs -->
+    <g stroke="#6e6659" stroke-width="3" fill="none">
+      <path d="M405 293 L405 385"/>
+      <path d="M330 305 Q345 340 340 385"/>
+      <path d="M480 305 Q465 340 470 385"/>
+      <path d="M283 330 Q300 355 296 385"/>
+      <path d="M527 330 Q510 355 514 385"/>
+    </g>
+    <ellipse cx="405" cy="292" rx="10" ry="5" fill="#6e6659"/>
+    <rect x="245" y="385" width="320" height="14" fill="#57504a"/>
+    <rect x="270" y="399" width="270" height="10" fill="#3d3833"/>
+    <!-- stadium lights glow from within -->
+    <ellipse cx="405" cy="384" rx="130" ry="16" fill="#ffd166" opacity=".25"/>
+  </g>
+
+  <!-- bay -->
+  <rect x="0" y="412" width="800" height="188" fill="url(#bay)"/>
+  <g stroke="#ffe9c9" opacity=".35">
+    <line x1="80" y1="450" x2="220" y2="450" stroke-width="3"/>
+    <line x1="320" y1="480" x2="500" y2="480" stroke-width="4"/>
+    <line x1="560" y1="520" x2="700" y2="520" stroke-width="3"/>
+    <line x1="140" y1="540" x2="300" y2="540" stroke-width="4"/>
+  </g>
+  <!-- ferry -->
+  <g>
+    <rect x="600" y="440" width="90" height="16" rx="4" fill="#1d1426"/>
+    <rect x="614" y="428" width="62" height="14" rx="3" fill="#2e2138"/>
+    <rect x="618" y="431" width="8" height="7" fill="#ffd166"/>
+    <rect x="632" y="431" width="8" height="7" fill="#ffd166"/>
+    <rect x="646" y="431" width="8" height="7" fill="#ffd166"/>
+  </g>
+
+  <!-- fades -->
+  <rect width="800" height="600" fill="#c9925a" opacity=".12"/>
+  <rect width="800" height="600" filter="url(#grain)"/>
+  <rect width="800" height="600" fill="url(#vig)"/>
+</svg>
