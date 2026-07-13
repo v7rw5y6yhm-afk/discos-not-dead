@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SIDE B — do not play for grown-ups</title>
+<title>SIDE B — not for anyone named Zack</title>
 <meta name="robots" content="noindex, nofollow">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📼</text></svg>">
 <link rel="stylesheet" href="style.css">
@@ -60,16 +60,16 @@
 
 <div class="sb-warn">⚠ FOR POLARIS · GALILEO · FYNN · ADDY — EYES (AND EARS) ONLY ⚠</div>
 <h1>DO NOT let your uncle/dad listen.</h1>
-<p class="sb-sub">you know what happened LAST time a grown-up played a Side B.
-fourteen minutes of memory. several beard hairs. we are STILL finding the beard hairs.
-put in headphones. check behind you. okay. go.</p>
+<p class="sb-sub">put in headphones. turn the volume up. if anyone nearby is named
+Zack, Zach, or Zachary — wait until they leave the room. this is extremely important
+and we will not be explaining why. okay. go.</p>
 
 <button type="button" id="cassette-btn" aria-label="play Side B">
   <svg class="cassette-svg" id="cassette" viewBox="0 0 460 290" xmlns="http://www.w3.org/2000/svg">
     <rect x="6" y="6" width="448" height="278" rx="18" fill="#1c1030" stroke="#3a2560" stroke-width="4"/>
     <rect x="26" y="26" width="408" height="120" rx="10" fill="#f2e6c9"/>
     <text x="230" y="62" text-anchor="middle" font-family="Menlo, monospace" font-size="26" font-weight="bold" fill="#c0392b" letter-spacing="6">SIDE B</text>
-    <text x="230" y="92" text-anchor="middle" font-family="Comic Sans MS, cursive" font-size="16" fill="#5a3620">roll-a-rama · ABSOLUTELY NOT (for grown-ups)</text>
+    <text x="230" y="92" text-anchor="middle" font-family="Comic Sans MS, cursive" font-size="16" fill="#5a3620">roll-a-rama · NOT for: Zack, Zach, or Zachary</text>
     <text x="230" y="120" text-anchor="middle" font-family="Menlo, monospace" font-size="11" fill="#8a6a45">— T. (if found, return to 1979)</text>
     <rect x="120" y="160" width="220" height="76" rx="38" fill="#0b0714" stroke="#3a2560" stroke-width="3"/>
     <g class="reel-spokes">
@@ -87,7 +87,7 @@ put in headphones. check behind you. okay. go.</p>
     <text x="230" y="264" text-anchor="middle" font-family="Menlo, monospace" font-size="13" fill="#9b8bb4">▶ CLICK TO PLAY</text>
   </svg>
 </button>
-<div id="play-hint">volume up. headphones on. grown-ups out of the room.</div>
+<div id="play-hint">volume up. headphones on. all Zacks out of the room.</div>
 
 <audio id="sideb-audio" src="audio/side-b.mp3" preload="none"></audio>
 <a class="sb-back" href="./">← back to the locked door (act natural)</a>
@@ -140,7 +140,7 @@ put in headphones. check behind you. okay. go.</p>
   });
   audio.addEventListener('ended', () => {
     cassette.classList.remove('playing');
-    hint.textContent = 'end of side B. rewind by clicking again. tell NO ONE with a beard.';
+    hint.textContent = 'end of side B. rewind by clicking again. tell no one named Zack.';
     audio.currentTime = 0;
   });
 })();
