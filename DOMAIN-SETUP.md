@@ -1,6 +1,12 @@
 # Connecting discosnotdead.com
 
-Status: domain confirmed AVAILABLE (checked July 12, 2026). Not yet purchased.
+Status: ✅ COMPLETE (July 12, 2026). Domain purchased at Squarespace ($10 first year,
+renews $20/yr, auto-renew ON, expires Jul 12 2027). All 5 DNS records live, GitHub Pages
+custom domain set, HTTPS enforced. https://discosnotdead.com serves the site;
+www and the old github.io URL both redirect to it.
+
+⚠ REMAINDER: verify the ICANN email (from Squarespace) within 15 days of purchase
+or the domain gets suspended. Check the zacknbliss@gmail.com inbox.
 
 ## Step 1 — Buy the domain (you do this part, ~5 minutes)
 
