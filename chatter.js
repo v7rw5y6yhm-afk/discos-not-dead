@@ -601,3 +601,34 @@ const BOT = {
 
 /* runtime (non-seeded) pick — different every time for the bot */
 function pickRuntime(arr) { return arr[Math.floor(Math.random() * arr.length)]; }
+
+/* ---------------- extend the lock-page refusals ----------------- */
+/* Pads LOCK_TAUNTS (from data.js) with generated one-liners so the
+   pre-opening comedy almost never repeats. */
+(function extendLockTaunts() {
+  if (typeof LOCK_TAUNTS === 'undefined') return;
+  const mk = (kind) => {
+    const thing = pick(G_THINGS), thing2 = pick(G_THINGS), adj = pick(G_ADJS);
+    const conseq = pick(G_CONSEQ), pct = rint(3, 99), n = rint(2, 999);
+    switch (kind % 12) {
+      case 0: return ['bc', `Door report: sealed. ${thing} report: ${adj}. You report: persistent. I admire it. Still no.`];
+      case 1: return ['sb', `i asked ${thing} if we could open early. it said no. IT SAID NO. i'm as shocked as you are.`];
+      case 2: return ['bc', `I have consulted ${thing}. We are in full agreement: the door opens at zero, and not one second before.`];
+      case 3: return ['sb', `while you wait: did you know ${thing} in here is ${adj}?? it is. i checked this morning.`];
+      case 4: return ['bc', `Simulation #${n}: I open the door early. Result: ${conseq}. Request denied, with warmth.`];
+      case 5: return ['sb', `you knocked!! ${thing} heard it!! everyone in here is very excited. the door is still SO closed though.`];
+      case 6: return ['bc', `Please direct all complaints to ${thing}. It does not accept complaints. That is precisely why we chose it.`];
+      case 7: return ['sb', `if you knock ${n} more times, absolutely nothing will happen. i counted once. it was ADORABLE though.`];
+      case 8: return ['bc', `Current door strength: ${pct}% ${adj}. Your knuckles: valiant. The counter: undefeated.`];
+      case 9: return ['sb', `behind this door, ${thing} and ${thing2} are getting ready for you. i've said too much. I'VE SAID TOO MUCH.`];
+      case 10: return ['bc', `Opening early risks ${conseq}. We ran it past ${thing}. ${pct}% chance. The door remains a wall with ambitions.`];
+      default: return ['sb', `the countdown is at "some number"!! i don't read countdown. it sounds ${adj} though. very official.`];
+    }
+  };
+  const seen = new Set(LOCK_TAUNTS.map(t => t[1]));
+  let guard = 0;
+  while (LOCK_TAUNTS.length < 250 && guard++ < 5000) {
+    const t = mk(guard);
+    if (!seen.has(t[1])) { seen.add(t[1]); LOCK_TAUNTS.push(t); }
+  }
+})();

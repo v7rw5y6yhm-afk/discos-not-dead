@@ -106,19 +106,30 @@ function setupLock() {
     }, 6000);
   }
 
+  // shuffle-bags: nothing repeats until a whole pool is exhausted
+  const makeBag = (pool) => {
+    let bag = [];
+    return () => {
+      if (!bag.length) bag = pool.map((_, i) => i).sort(() => Math.random() - 0.5);
+      return pool[bag.pop()];
+    };
+  };
+  const drawTaunt = makeBag(LOCK_TAUNTS);
+  const drawPokeTitle = makeBag(LOCK_POKE_TITLE);
+  const drawPokeCount = makeBag(LOCK_POKE_COUNT);
+
   // poking things is encouraged (and unproductive)
-  let pokeFlip = 0;
   $('.lock-title', lock).addEventListener('click', () => {
     FX.init(); FX.screenGlitch();
-    sayLock(LOCK_POKE_TITLE[pokeFlip++ % LOCK_POKE_TITLE.length]);
+    sayLock(drawPokeTitle());
   });
   $('#lock-count').addEventListener('click', () => {
     FX.init(); FX.bleep();
-    sayLock(LOCK_POKE_COUNT[pokeFlip++ % LOCK_POKE_COUNT.length]);
+    sayLock(drawPokeCount());
   });
 
   // the ball: comedy wall before zero, door after zero
-  let lockClicks = 0, tauntIdx = Math.floor(Math.random() * LOCK_TAUNTS.length);
+  let lockClicks = 0;
   ball.addEventListener('click', () => {
     FX.init();
     ball.classList.remove('bump'); void ball.offsetWidth; ball.classList.add('bump');
@@ -129,7 +140,7 @@ function setupLock() {
       if (LOCK_MILESTONES[lockClicks]) {
         sayLock(LOCK_MILESTONES[lockClicks]);
       } else {
-        sayLock(LOCK_TAUNTS[tauntIdx++ % LOCK_TAUNTS.length]);
+        sayLock(drawTaunt());
       }
       return;
     }
@@ -157,6 +168,76 @@ function setupLock() {
 
   // if we're pre-unlock, knocks from a previous session shouldn't count yet
   if (!lockOpen()) { state.knocks = 0; save(); }
+
+  startLockGlitches();
+}
+
+/* ---------- lock-page glitch theater ---------- */
+const GLITCH_CHARS = '▓▒░█<>/\\|#%&@!?*∆';
+function scrambleEl(el, restoreText, ms = 400) {
+  if (!el || FX.reduced) return;
+  const scram = restoreText.split('').map(c =>
+    (c === ' ' || Math.random() < 0.45) ? c : GLITCH_CHARS[Math.floor(Math.random() * GLITCH_CHARS.length)]
+  ).join('');
+  el.textContent = scram;
+  el.classList.add('scrambling');
+  setTimeout(() => { el.textContent = restoreText; el.classList.remove('scrambling'); }, ms);
+}
+function spawnTearBars(n = 3) {
+  if (FX.reduced) return;
+  const lock = $('#lock');
+  for (let i = 0; i < n; i++) {
+    const bar = document.createElement('div');
+    bar.className = 'tear-bar';
+    bar.style.top = Math.random() * 100 + '%';
+    bar.style.animationDelay = (i * 0.12) + 's';
+    lock.appendChild(bar);
+    setTimeout(() => bar.remove(), 1200);
+  }
+}
+function lockGlitchBurst() {
+  const lock = $('#lock');
+  if (!lock || lock.classList.contains('gone')) return;
+  const roll = Math.random();
+  if (roll < 0.28) {
+    scrambleEl($('.lock-title', lock), "DISCO'S NOT DEAD", 450);
+    if (Math.random() < 0.5) FX.glitchSound();
+  } else if (roll < 0.5) {
+    // countdown corrupts briefly; the 1-second tick restores the real digits
+    const count = $('#lock-count');
+    if (count) scrambleEl(count, count.textContent, 350);
+    FX.typeTick();
+  } else if (roll < 0.72) {
+    spawnTearBars(2 + Math.floor(Math.random() * 3));
+    if (Math.random() < 0.4) FX.glitchSound();
+  } else if (roll < 0.88) {
+    const st = $('#lock-status');
+    if (st) {
+      const original = st.textContent;
+      st.textContent = ['[[ SIGNAL BLEED :: 1979 ]]', '[[ CARRIER LOST — RETRYING ]]',
+        '[[ 19:79:19:79 ]]', '[[ WHO IS KNOCKING ]]', '[[ THE WIRE HOLDS ]]'][Math.floor(Math.random() * 5)];
+      st.classList.add('bleed-red');
+      setTimeout(() => { st.textContent = original; st.classList.remove('bleed-red'); }, 1300);
+    }
+  } else {
+    FX.screenGlitch(Math.random() < 0.3);
+  }
+}
+let lockGlitchesRunning = false;
+function startLockGlitches() {
+  if (lockGlitchesRunning) return;
+  lockGlitchesRunning = true;
+  (function loop() {
+    const delay = 5000 + Math.random() * 9000;
+    setTimeout(() => {
+      if (!$('#lock').classList.contains('gone') && document.visibilityState === 'visible') {
+        lockGlitchBurst();
+        loop();
+      } else {
+        lockGlitchesRunning = false;
+      }
+    }, delay);
+  })();
 }
 
 /* ---------- navigation ------------------------------------------ */

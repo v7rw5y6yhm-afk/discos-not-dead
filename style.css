@@ -723,3 +723,30 @@ body.shaking { animation: shake-screen .45s 3; }
 #chat-window { z-index: 121; }
 #rogue-popup { z-index: 122; }
 #fx-toggles { z-index: 120; }
+
+/* lock-page glitch theater */
+.scrambling {
+  text-shadow: 3px 0 #29e6ff, -3px 0 #ff2d95 !important;
+  animation: jitter .1s infinite;
+}
+.tear-bar {
+  position: absolute; left: 0; right: 0; height: 3px;
+  background: linear-gradient(90deg,
+    transparent 0%, rgba(41,230,255,.7) 12%, rgba(255,45,149,.8) 45%,
+    rgba(255,255,255,.9) 50%, rgba(255,45,149,.8) 55%, rgba(41,230,255,.7) 88%, transparent 100%);
+  mix-blend-mode: screen; pointer-events: none;
+  animation: tear-sweep 1.1s ease-in-out forwards;
+}
+@keyframes tear-sweep {
+  0% { transform: translateX(-30%) scaleY(1); opacity: 0; }
+  15% { opacity: 1; }
+  50% { transform: translateX(10%) scaleY(2.5); }
+  100% { transform: translateX(35%) scaleY(1); opacity: 0; }
+}
+#lock-status.bleed-red {
+  color: var(--red); text-shadow: 0 0 8px rgba(255,59,59,.8);
+  animation: jitter .12s infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .scrambling, .tear-bar, #lock-status.bleed-red { animation: none; }
+}
