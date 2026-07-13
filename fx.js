@@ -105,7 +105,7 @@ const FX = {
     if (!clean) return;
     const u = new SpeechSynthesisUtterance(clean);
     if (who === 'bc') { u.pitch = 0.35; u.rate = 0.85; u.voice = this.pickVoice(false); }
-    else              { u.pitch = 1.8;  u.rate = 1.15; u.voice = this.pickVoice(true); }
+    else              { u.pitch = 1.45; u.rate = 0.95; u.voice = this.pickVoice(true); }
     u.volume = 0.9;
     speechSynthesis.speak(u);
   },

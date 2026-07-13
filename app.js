@@ -28,8 +28,8 @@ function solvedCount() { return state.solved.filter(Boolean).length; }
 function currentPuzzle() { return state.solved.findIndex(s => !s); } // -1 = all solved
 
 /* ---------- countdown ------------------------------------------ */
-function countdownParts() {
-  const ms = COUNTDOWN_TARGET - new Date();
+function partsUntil(target) {
+  const ms = target - new Date();
   if (ms <= 0) return null;
   const s = Math.floor(ms / 1000);
   return {
@@ -39,18 +39,39 @@ function countdownParts() {
     s: s % 60,
   };
 }
+function countdownParts() { return partsUntil(COUNTDOWN_TARGET); }
+function lockOpen() { return new Date() >= UNLOCK_TARGET; }
 const pad = n => String(n).padStart(2, '0');
+const fmt = p => p ? `${pad(p.d)}:${pad(p.h)}:${pad(p.m)}:${pad(p.s)}` : '00:00:00:00';
 
+let unlockCelebrated = false;
 function tickCountdowns() {
   const p = countdownParts();
-  const big = $('#lock-count');
   const mini = $('#mini-count');
   const doorC = $('#door-count');
-  const txt = p ? `${pad(p.d)}:${pad(p.h)}:${pad(p.m)}:${pad(p.s)}` : '00:00:00:00';
-  if (big) big.textContent = txt;
-  if (mini) mini.textContent = `LOOP CLOSES ${txt}`;
-  if (doorC) doorC.textContent = txt;
+  if (mini) mini.textContent = `LOOP CLOSES ${fmt(p)}`;
+  if (doorC) doorC.textContent = fmt(p);
   if (!p && state.solved[7]) renderDoor(); // zero hour: open the door
+
+  // the lock page runs on its own 7-day clock
+  const big = $('#lock-count');
+  if (big) {
+    const lp = partsUntil(UNLOCK_TARGET);
+    big.textContent = fmt(lp);
+    if (!lp) {
+      const label = $('#lock-count-label');
+      if (label) label.textContent = '🪩 THE DOOR IS AWAKE — KNOCK NINETEEN TIMES 🪩';
+      const psst = $('#lock-psst');
+      if (psst) psst.classList.add('show');
+      const ball = $('#lock-ball');
+      if (ball) ball.title = 'knock knock';
+      if (!unlockCelebrated && !$('#lock').classList.contains('gone')) {
+        unlockCelebrated = true;
+        FX.chime();
+        FX.speak('IT\'S TIME!! knock on the ball!! nineteen times!! GO GO GO!', 'sb');
+      }
+    }
+  }
 }
 setInterval(tickCountdowns, 1000);
 
@@ -64,16 +85,58 @@ const KNOCK_LINES = {
 };
 function setupLock() {
   const lock = $('#lock');
-  if (state.entered) { lock.classList.add('gone'); return; }
+  // The 7-day gate outranks everything — even browsers that entered before.
+  if (state.entered && lockOpen()) { lock.classList.add('gone'); return; }
   const ball = $('#lock-ball');
   const msg  = $('#lock-msg');
-  setTimeout(() => $('#lock-psst').classList.add('show'), 2600);
+
+  const sayLock = ([who, txt]) => {
+    msg.textContent = (who === 'bc' ? 'Bonecrusher: ' : 'skybreaker: ') + txt;
+    FX.speak(txt, who);
+  };
+
+  // rotating maintenance status
+  let statusIdx = Math.floor(Math.random() * LOCK_STATUS.length);
+  const statusEl = $('#lock-status');
+  if (statusEl) {
+    statusEl.textContent = LOCK_STATUS[statusIdx];
+    setInterval(() => {
+      statusIdx = (statusIdx + 1) % LOCK_STATUS.length;
+      statusEl.textContent = LOCK_STATUS[statusIdx];
+    }, 6000);
+  }
+
+  // poking things is encouraged (and unproductive)
+  let pokeFlip = 0;
+  $('.lock-title', lock).addEventListener('click', () => {
+    FX.init(); FX.screenGlitch();
+    sayLock(LOCK_POKE_TITLE[pokeFlip++ % LOCK_POKE_TITLE.length]);
+  });
+  $('#lock-count').addEventListener('click', () => {
+    FX.init(); FX.bleep();
+    sayLock(LOCK_POKE_COUNT[pokeFlip++ % LOCK_POKE_COUNT.length]);
+  });
+
+  // the ball: comedy wall before zero, door after zero
+  let lockClicks = 0, tauntIdx = Math.floor(Math.random() * LOCK_TAUNTS.length);
   ball.addEventListener('click', () => {
     FX.init();
+    ball.classList.remove('bump'); void ball.offsetWidth; ball.classList.add('bump');
+
+    if (!lockOpen()) {
+      FX.buzz();
+      lockClicks++;
+      if (LOCK_MILESTONES[lockClicks]) {
+        sayLock(LOCK_MILESTONES[lockClicks]);
+      } else {
+        sayLock(LOCK_TAUNTS[tauntIdx++ % LOCK_TAUNTS.length]);
+      }
+      return;
+    }
+
     FX.knock();
     state.knocks = (state.knocks || 0) + 1;
     save();
-    ball.classList.remove('bump'); void ball.offsetWidth; ball.classList.add('bump');
     const left = KNOCKS_REQUIRED - state.knocks;
     if (left > 0) {
       const line = KNOCK_LINES[state.knocks];
@@ -91,6 +154,9 @@ function setupLock() {
       setTimeout(() => { lock.classList.add('gone'); renderAll(); }, 1200);
     }
   });
+
+  // if we're pre-unlock, knocks from a previous session shouldn't count yet
+  if (!lockOpen()) { state.knocks = 0; save(); }
 }
 
 /* ---------- navigation ------------------------------------------ */
@@ -540,7 +606,7 @@ $('#rogue-close').addEventListener('click', e => {
 function scheduleRoguePopups() {
   const delay = 40000 + Math.random() * 55000;
   setTimeout(() => {
-    if (state.entered && document.visibilityState === 'visible' &&
+    if (document.visibilityState === 'visible' &&
         $('#rogue-popup').classList.contains('hide')) {
       roguePiece(nextChatterPiece());
     }
@@ -552,7 +618,7 @@ function scheduleRoguePopups() {
 function scheduleGlitches() {
   const delay = 25000 + Math.random() * 50000;
   setTimeout(() => {
-    if (state.entered && document.visibilityState === 'visible') {
+    if (document.visibilityState === 'visible') {
       FX.screenGlitch(Math.random() < 0.25);
     }
     scheduleGlitches();

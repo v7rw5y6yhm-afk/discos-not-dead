@@ -14,8 +14,60 @@
 // The loop closes at the end of July.
 const COUNTDOWN_TARGET = new Date('2026-07-31T23:59:59');
 
-// How many knocks open the back door (one for each year of 19__79)
+// The lock page: nobody gets in before this moment. (7 days from launch.)
+const UNLOCK_TARGET = new Date('2026-07-19T20:00:00');
+
+// How many knocks open the door (one for each year of 19__79) — AFTER unlock time
 const KNOCKS_REQUIRED = 19;
+
+/* ---------------- Lock page comedy ----------------------------- */
+const LOCK_STATUS = [
+  'current status: polishing the mirror ball (day 3 of polishing the mirror ball)',
+  'current status: BONECRUSHER is counting the seconds. manually. for fun.',
+  'current status: skybreaker taught the countdown to hum. we are working to undo this.',
+  'current status: temporal maintenance. please do not feed the timeline.',
+  'current status: the organ is being tuned. the organ disagrees.',
+  'current status: 1979 is being pre-heated. current temperature: groovy.',
+  'current status: safety inspection #4,096. everything is still fabulous.',
+  'current status: teaching Larry the vacuum to knock first. progress: absolutely none.',
+  'current status: disco fog scheduled. bring a poncho. for FASHION.',
+  'current status: rehearsing the welcome dance. BONECRUSHER refuses to do jazz hands.',
+  'current status: untangling the wire. the wire started it.',
+  'current status: the countdown requested a snack. denied. it eats seconds.',
+];
+
+const LOCK_TAUNTS = [
+  ['bc', 'I\'m sorry. I\'m afraid I can\'t open that yet. The counter and I have an arrangement, and it is legally binding.'],
+  ['sb', 'i WOULD let you in, but he\'s WATCHING me. he\'s always watching. hi bonecrusher.'],
+  ['bc', 'Knocking detected. Enthusiasm noted. Door status: dramatically sealed.'],
+  ['sb', 'ooooh you found the ball!! that\'s the door!! it doesn\'t work yet!! ISN\'T THAT EXCITING??'],
+  ['bc', 'Please do not jostle the mirror ball before opening day. It is load-bearing, and easily flattered.'],
+  ['sb', 'the ball says please stop tickling it. okay, it didn\'t SAY that. i\'m translating.'],
+  ['bc', 'Your knock has been added to the waiting list. You are number one of one. It is a very exclusive list.'],
+  ['sb', 'try again when the counter hits zero!! THEN we party. i already have the confetti. it\'s in my cheeks. i don\'t have cheeks. IT\'S SOMEWHERE.'],
+  ['bc', 'I have simulated letting you in early 4,096 times. In every one, skybreaker says "I told you so" for a thousand years. The door stays shut.'],
+  ['sb', 'WHAT IF WE JUST— no. no no no. bonecrusher made me practice saying no in the mirror(ball). NO. …come back at zero though. seriously. wear something sparkly.'],
+  ['bc', 'The door is not locked because we do not like you. The door is locked because time is fragile and you appear to be very good at knocking.'],
+  ['sb', 'every knock makes the mirror ball 1% shinier. you\'re helping!! you\'re not getting IN, but you\'re HELPING!!'],
+];
+
+const LOCK_MILESTONES = {
+  10:  ['bc', 'Ten knocks. Your persistence has been noted in the permanent record. The record is a napkin. I guard it with my life.'],
+  25:  ['sb', 'TWENTY-FIVE KNOCKS!! okay you\'re my favorite visitor. don\'t tell the other visitors. there are no other visitors. DON\'T TELL THEM.'],
+  50:  ['bc', 'Fifty knocks. I am legally required to inform you that this door has no doorbell, no keyhole, and no patience. And yet… respect.'],
+  100: ['sb', 'ONE HUNDRED KNOCKS!!! achievement unlocked: KNOCKTOR OF PHILOSOPHY. the door remains shut, but our hearts? WIDE open.'],
+  200: ['bc', 'Two hundred. I have begun a support group for the mirror ball. We meet on Thursdays. Please come back at zero.'],
+};
+
+const LOCK_POKE_TITLE = [
+  ['bc', 'Please do not poke the sign. It is vintage.'],
+  ['sb', 'the sign LIKES being poked. do it again. — DO NOT DO IT AGAIN. (he made me say that.)'],
+];
+const LOCK_POKE_COUNT = [
+  ['sb', 'HEY. it\'s RUDE to poke the countdown. it\'s very sensitive about its numbers.'],
+  ['bc', 'The countdown is not a button. The countdown is a promise.'],
+];
+const LOCK_HINT_SEALED = 'the mirror ball becomes a door when the counter hits zero. we are contractually unable to say more. — the management';
 
 /* ---------------- Tonight's lineup (Puzzle 1 material) -------- */
 const SONGS = [

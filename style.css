@@ -95,7 +95,22 @@ body::after {
   color: var(--cyan); font-family: var(--mono); font-size: .9rem;
 }
 #lock-psst.show { opacity: 1; }
-#lock-msg { min-height: 1.5em; color: var(--gold); font-family: var(--mono); font-size: .95rem; }
+#lock-msg {
+  min-height: 3em; max-width: 640px; color: var(--gold);
+  font-family: var(--mono); font-size: .95rem; line-height: 1.5;
+}
+#lock-status {
+  color: var(--dim); font-family: var(--mono); font-size: .78rem;
+  min-height: 1.4em; letter-spacing: .04em;
+}
+.lock-sign {
+  margin-top: .6rem; max-width: 560px;
+  border: 1px dashed #3a2560; border-radius: 8px;
+  padding: .7rem 1.1rem;
+  color: var(--dim); font-family: var(--mono); font-size: .74rem; line-height: 1.7;
+}
+.lock-title { cursor: pointer; }
+#lock-count { cursor: pointer; }
 
 /* ================= HEADER ================= */
 header {
@@ -699,3 +714,12 @@ body.shaking { animation: shake-screen .45s 3; }
   #chat-window { height: 60vh; }
   .badge-row { justify-content: center; }
 }
+
+/* ============================================================
+   CASCADE FOOTER — the AIs stay reachable over the lock screen
+   ============================================================ */
+#lock { overflow-y: auto; }
+#chat-launcher { z-index: 120; }
+#chat-window { z-index: 121; }
+#rogue-popup { z-index: 122; }
+#fx-toggles { z-index: 120; }

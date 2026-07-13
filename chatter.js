@@ -497,7 +497,17 @@ const BOT = {
 
     if (has('how old')) return [['sb', 'i\'m forty-seven and ALSO zero!! time is a pretzel!'], ['bc', 'I was born July 12, 1979, in a very loud stadium. By one method of counting I am older than your grandparents. By another, I am eleven. I feel eleven.']];
 
-    if (has('what time', 'countdown', 'how long', 'when does', 'the door')) {
+    if (has('what time', 'countdown', 'how long', 'when does', 'the door', 'open', 'unlock', 'let me in')) {
+      if (!lockOpen()) {
+        const lp = partsUntil(UNLOCK_TARGET);
+        const lt = lp ? `${lp.d} days, ${lp.h} hours, ${lp.m} minutes, and ${lp.s} seconds` : 'any second now';
+        return pickRuntime([
+          [['bc', `The doors unlock in exactly ${lt}. Until then the mirror ball is decorative, the site is sealed, and I am extremely calm about it.`],
+           ['sb', 'when the big counter hits ZERO, knock on the mirror ball NINETEEN times!! practice your knocking. i believe in you.']],
+          [['sb', `${lt}!!! i know. I KNOW. it\'s forever. it\'s also exactly the right amount of time, according to SOMEONE.`],
+           ['bc', 'Time gates protect timelines. Also, the confetti is not ready. Skybreaker keeps eating it.']],
+        ]);
+      }
       const p = countdownParts();
       const t = p ? `${p.d} days, ${p.h} hours, ${p.m} minutes, and ${p.s} seconds` : 'zero. IT IS ZERO. GO TO THE DOOR.';
       return [
