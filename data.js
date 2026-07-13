@@ -312,6 +312,11 @@ const JOURNAL = [
       above — and this summer caught me like a net. June to July, 1979, Seattle. At midnight on
       July 31 the record skips back to June 1.</p>
       <p>Rule Three is my way out. It has to be worked from your end of the wire.</p>
+      <figure class="photo journal-photo">
+        <img src="img/real/jupiter-voyager.jpg" loading="lazy" alt="Voyager photograph of Jupiter with three Galilean moons visible">
+        <figcaption>voyager's own snapshot — jupiter and three of your moons, galileo.
+        nasa developed it. i just kept a copy in my coat.</figcaption>
+      </figure>
       <p>— T.</p>`,
   },
   {
@@ -334,6 +339,11 @@ const JOURNAL = [
       taught me the trick: grace is choosing to be gentle when you have every right to be angry.</p>
       <p>Forgive people when their sky falls on you, kids. Someday yours will fall on
       somebody too.</p>
+      <figure class="photo journal-photo">
+        <img src="img/real/skylab.jpg" loading="lazy" alt="Skylab space station in orbit above the Earth">
+        <figcaption>skylab over the blue earth — the last picture anyone took of it whole.
+        skybreaker keeps a copy and calls it "the baby album."</figcaption>
+      </figure>
       <p>— T.</p>`,
   },
   {
@@ -380,8 +390,9 @@ const JOURNAL = [
       every single day. You four are my constellation.</p>
       <p>Steer by each other.</p>
       <figure class="photo journal-photo">
-        <img src="img/kingdome.svg" alt="the Kingdome at dusk from across Elliott Bay">
-        <figcaption>the concrete moon, from the water — the traveler's own snapshot, july 17.</figcaption>
+        <img src="img/real/kingdome-skyline.jpg" loading="lazy" alt="aerial photograph of the Kingdome with the Seattle skyline behind it">
+        <figcaption>the concrete moon and the whole city. this print is from a few summers
+        up the wire — rule two has its perks.</figcaption>
       </figure>
       <p>— T.</p>`,
   },
