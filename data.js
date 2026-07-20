@@ -395,8 +395,9 @@ const JOURNAL = [
       enormous parade rolling toward Seattle Center. A man in a green satin jacket peeled me off
       the pavement, dusted me down, and said, "Don't worry, friend. Last year we lost it all,
       and look at us now."</p>
-      <p>I checked a newspaper stand. June 4, 1979. I had been aiming for a Tuesday forty-seven
-      years from here, which, for me, counts as close.</p>
+      <p>I chose this summer on purpose. Somewhere in this city, something has been chewing on
+      time, and chewed time leaves marks a traveler can read from very far away. I came to find
+      the tooth marks. The parade was a bonus.</p>
       <p>Here is the first thing this year taught me, and I want you to keep it: the Sonics lost
       the championship in 1978. They went home, laced their shoes, and came back and won
       everything. Losing only ends the story if you stop skating.</p>
@@ -451,9 +452,13 @@ const JOURNAL = [
       <b>Rule Three.</b> The butterfly effect steers the loop. Small actions ripple the whole
       spiral. Someone far in the future can change a summer far in the past without ever
       touching it.</p>
-      <p>I overshot. I swung too far and too fast, because I was showing off (see: light,
-      above), and this summer caught me like a net. June to July, 1979, Seattle. At midnight on
-      July 31 the record skips back to June 1.</p>
+      <p>Now the fine print, and it matters: loops nest. Somewhere in this city there is a
+      little loop, one single night deep, going around and around like a record with a scratch.
+      I came here to find it and stop it. I got close. Too close, maybe, because a bigger loop
+      snapped shut around me: the whole summer, June to July, back to June 1 at every midnight
+      of July 31. A day inside a month. A scratch inside the groove. I ride the big one and go
+      back a month at a time. The people nearest the scratch ride the little one, and live one
+      single night over and over. I will not write where the scratch is. Paper gets read.</p>
       <p>Rule Three is my way out. It has to be worked from your end of the wire.</p>
       <figure class="photo journal-photo">
         <img src="img/real/jupiter-voyager.jpg" loading="lazy" alt="Voyager photograph of Jupiter with three moons visible">
@@ -479,15 +484,14 @@ const JOURNAL = [
       tomorrow. That is a perfectly normal sentence where I come from.</p>
       <p>Now the part I have been putting off writing.</p>
       <p>While the whole beach watched the sky, I watched the parking lot. There was a vacuum
-      cleaner in it. Upright. Alone. Plugged into nothing. Pointed at me. It had followed me
-      from the rink, and it was not the first time I had seen it where no vacuum should be.
-      I know how this sounds. Write it down anyway: I am not stuck in this loop by accident.
-      Something hunted me here, its name is Larry, and it took a thing of mine that every door
-      needs before any door will open. That is as much of the secret as I will put on paper.
-      Paper gets read.</p>
+      cleaner in it. Upright. Alone. Plugged into nothing. Pointed at me. I came to this city
+      hunting a broken loop, and it turns out the loop has a keeper, and the keeper noticed me
+      first. Write this down: I am not stuck by accident. The thing in the parking lot is
+      called Larry. The little loop is his doing, and when I got close to fixing it, he took a
+      thing of mine that every door needs. The taking is what snapped this summer into a circle
+      around me. That is as much of the secret as I will put on paper. Paper gets read.</p>
       <p>I spent tonight forgiving anyway, because Esperance showed me how. NASA, for dropping
-      a sky. My machine, for the overshoot. Myself, for parking a whole summer in the path of a
-      hunter. Grace is choosing to be gentle when you have every right to be angry.</p>
+      a sky. My machine, for the sparks. Myself, for getting close enough to be noticed. Grace is choosing to be gentle when you have every right to be angry.</p>
       <p>Forgive people when their sky falls on you, kids. Someday yours will fall on somebody
       too.</p>
       <figure class="photo journal-photo">
@@ -652,10 +656,15 @@ const RULES_HTML = `
       Someone far in the future can change a summer far in the past without ever touching it.
       <span class="bc">— This is the rule that makes you four the only tools for this job. I calculate our odds of success at 0.00023%. The traveler has instructed me never to say that number again.</span>
       <span class="sb">— HE JUST SAID IT AGAIN.</span></li>
+    <li><b>Loops nest.</b> A small loop can spin inside a big one, a night inside a month, a
+      scratch inside the groove. The traveler rides the month and goes back a whole summer at
+      a time. Something at the rink rides the night.
+      <span class="bc">— Confirmed. We have measured both. The little one is one night deep and extremely stubborn.</span>
+      <span class="sb">— the big one goes JUNE, JULY, SNAP. the little one goes TUESDAY TUESDAY TUESDAY. i get dizzy just listening to it.</span></li>
   </ol>
-  <p>The traveler overshot a jump, swung too far around, and was caught by the summer of 1979 —
-  June to July, Seattle, resetting every year at midnight on July 31. Loop number 48 is running now.
-  The loop is thinnest when the counter reaches zero.</p>`;
+  <p>The traveler came to Seattle to stop the little loop and was caught by the big one:
+  June to July, 1979, resetting at midnight on July 31. Spin number 48 is running now.
+  The big loop is thinnest when the counter reaches zero.</p>`;
 
 /* ---------------- Finale (behind the countdown) ---------------- */
 const FINALE_HTML = `

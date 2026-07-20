@@ -442,7 +442,7 @@ const BOT = {
 
     if (has('traveler', 'traveller', 'doctor', 'time lord')) {
       return pickRuntime([
-        [['sb', 'the traveler is our favorite person in any century!! they built us! they fall down stairs on purpose! they once ate the same corn dog in three different decades!'], ['bc', 'The traveler is currently in 1979, at a roller rink, being brilliant and unwise in equal measure. Solve the transmissions. Read the journal. That is where they live.']],
+        [['sb', 'the traveler is our favorite person in any century!! they built us! they fall down stairs on purpose! they once ate the same corn dog in three different decades!'], ['bc', 'The traveler went to 1979 on purpose, to fix a broken loop. The loop fought back. She now repeats the whole summer, June through July, while the place she is investigating repeats one single night. Solve the transmissions. Read the journal. That is where she lives.']],
         [['bc', 'The traveler\'s name is classified. Even from us. Especially from us. The traveler says names have gravity, and theirs is "still in the shop."'], ['sb', 'i call them T!! or CAPTAIN SPARKLE-SHOES. they only answer to one of those.']],
       ]);
     }
