@@ -386,44 +386,45 @@ const JOURNAL = [
     date: 'June 4, 1979',
     place: 'Fourth Avenue, downtown Seattle',
     title: 'LOG 01 — I FELL INTO A PARADE',
-    body: `<p>Polaris. Galileo. Fynn. Addy. If these pages ever reach you — and my two extremely
-      loud machines assure me they will, and they are almost never wrong on Thursdays — start here.</p>
+    body: `<p>Polaris. Galileo. Fynn. Addy. If these pages ever reach you, and my two loud
+      machines swear they will, start here.</p>
       <p>I fell out of the sky into a parade. This happens to me more often than you would think.</p>
-      <p>Three hundred thousand people on Fourth Avenue, all of them screaming with joy, and for
-      one glorious moment I assumed the cheering was for me. It was for the SuperSonics. Seattle
-      had just won the NBA championship, and the whole city was one enormous parade rolling toward
-      Seattle Center. A man in a green satin jacket peeled me off the pavement, dusted me down,
-      and said, "Don't worry, friend — last year we lost it all, and look at us now."</p>
+      <p>Three hundred thousand people stood on Fourth Avenue, all of them screaming with joy,
+      and for one glorious moment I assumed the cheering was for me. It was for the SuperSonics.
+      Seattle had just won the whole championship, and the city had turned itself into one
+      enormous parade rolling toward Seattle Center. A man in a green satin jacket peeled me off
+      the pavement, dusted me down, and said, "Don't worry, friend. Last year we lost it all,
+      and look at us now."</p>
       <p>I checked a newspaper stand. June 4, 1979. I had been aiming for a Tuesday forty-seven
-      years from here — which, for me, counts as close.</p>
+      years from here, which, for me, counts as close.</p>
       <p>Here is the first thing this year taught me, and I want you to keep it: the Sonics lost
-      the championship in 1978. They went home, laced their skates — shoes, sorry, shoes — and
-      came back and won everything. Losing is only the end of the story if you stop skating.</p>
-      <p>I have not stopped. I don't intend to start.</p>
+      the championship in 1978. They went home, laced their shoes, and came back and won
+      everything. Losing only ends the story if you stop skating.</p>
+      <p>I have not stopped. I do not intend to start.</p>
       <figure class="photo journal-photo">
-        <img src="img/parade.svg" alt="the championship parade on Fourth Avenue, June 4, 1979">
-        <figcaption>found pressed between the journal pages — fourth avenue, june 4.
-        (skybreaker says someone photobombed. i don't see anyone. — b.)</figcaption>
+        <img src="img/real/sonics-1978.jpg" loading="lazy" alt="the SuperSonics playing at home, from a city archive slide">
+        <figcaption>the sonics, one winter before they won everything. the city kept this slide
+        in a drawer. i kept mine in a coat pocket.</figcaption>
       </figure>
       <p>— T.</p>
-      <p class="mono dim">P.S. If a cassette tape ever offers you a Side B: don't.
-      Long story. Ask your uncle. Actually — don't ask your uncle.</p>`,
+      <p class="mono dim">P.S. If a cassette tape ever offers you a Side B: don't. Long story.
+      Ask your uncle. Actually, don't ask your uncle.</p>`,
   },
   {
     date: 'June 12, 1979',
     place: "Zesto's burger counter, California Ave SW, West Seattle — radio tuned to the BBC relay",
     title: 'LOG 02 — THE MAN WHO PEDALED ACROSS THE SEA',
-    body: `<p>The radio at the burger counter says a Californian named Bryan Allen flew across the
-      English Channel today in an airplane called the <i>Gossamer Albatross</i> — seventy pounds of
-      plastic film and piano wire, powered by nothing but his own legs. Pedaling. An airplane.
+    body: `<p>The radio at the burger counter says a Californian named Bryan Allen flew across
+      the English Channel today in an airplane called the <i>Gossamer Albatross</i>: seventy
+      pounds of plastic film and piano wire, powered by his own legs. Pedaling. An airplane.
       With <i>legs</i>. I love this century.</p>
       <p>Halfway across, his legs cramped. The headwind rose. His water ran out. The chase boats
-      waved him in — very sensible things, boats — and he looked at the far shore and kept
+      waved him in (very sensible things, boats), and he looked at the far shore and kept
       pedaling. Two hours and forty-nine minutes. He made it.</p>
-      <p>I needed that today, because my first attempt to jump out of this loop went — how shall
-      I put this — poorly. There were sparks. The sky flickered. The rink organ made a noise that
-      organs should not legally make. And I landed exactly where I started, flat on the floor at
-      Southgate, ears ringing, dignity somewhere over the Cascades.</p>
+      <p>I needed that today, because my first attempt to jump out of this loop went poorly.
+      There were sparks. The sky flickered. The rink organ made a noise that organs should not
+      legally make. And I landed exactly where I started, flat on the floor at Southgate, ears
+      ringing, dignity somewhere over the Cascades.</p>
       <p>So I am building the machine again, better. If a man can pedal an airplane across the
       sea, I can pedal my way out of a year.</p>
       <p>The middle of the channel is no place to stop.</p>
@@ -432,57 +433,66 @@ const JOURNAL = [
   {
     date: 'July 9, 1979',
     place: 'Pacific Science Center, Seattle — under the arches',
-    title: 'LOG 03 — THE SLINGSHOT (READ THIS TWICE, GALILEO)',
-    body: `<p>Galileo — this one is yours. Read it twice. Then read it to the others, slowly,
-      in your best teacher voice.</p>
+    title: 'LOG 03 — THE SLINGSHOT (FOR GALILEO)',
+    body: `<p>Galileo. You are two, which is my favorite age: everything is either a snack or a
+      miracle. You will not read this yourself for a while, so have one of the big ones read it
+      to you, slowly, twice. Rules are patient. They will wait for you.</p>
       <p>Today a machine called Voyager 2 swept past Jupiter and did the only legal trick in the
-      universe: it leaned on the giant's gravity and let itself be flung — stealing speed, like a
-      skater grabbing the corner post and whipping around it. The scientists call it a slingshot.
-      I call it Rule Two with pictures. It also photographed the four moons old Galileo found in
-      1610 with a homemade telescope, which I maintain is the best thing anyone has ever done
-      with a tube.</p>
-      <p>The Rules, then. Write them down:</p>
-      <p><b>Rule One.</b> Time cannot go backwards. Nothing can. Not even light —
-      and light is a terrible show-off.<br>
-      <b>Rule Two.</b> But time is a loop. Go far enough <i>forward</i> — swing around something
-      heavy enough — and you come up behind where you started. Forward is the only road back.<br>
+      universe. It leaned on the giant's gravity and let itself be flung, stealing speed the way
+      a skater whips around the corner post. The scientists call it a slingshot. I call it Rule
+      Two with pictures. It also photographed the four moons a stubborn Italian found in 1610
+      with a telescope he built himself, which is still the best thing anyone has ever done with
+      a tube.</p>
+      <p>The Rules, then. The big ones should write them down. You may draw them.</p>
+      <p><b>Rule One.</b> Time cannot go backwards. Nothing can. Not even light, and light is a
+      terrible show-off.<br>
+      <b>Rule Two.</b> Time is a loop. Go far enough <i>forward</i>, swing around something
+      heavy enough, and you come up behind where you started. Forward is the only road back.<br>
       <b>Rule Three.</b> The butterfly effect steers the loop. Small actions ripple the whole
-      spiral — which means someone far in the future can change a summer far in the past
-      without ever touching it.</p>
-      <p>I overshot. I swung too far, too fast — my own fault, I was showing off, see "light,"
-      above — and this summer caught me like a net. June to July, 1979, Seattle. At midnight on
+      spiral. Someone far in the future can change a summer far in the past without ever
+      touching it.</p>
+      <p>I overshot. I swung too far and too fast, because I was showing off (see: light,
+      above), and this summer caught me like a net. June to July, 1979, Seattle. At midnight on
       July 31 the record skips back to June 1.</p>
       <p>Rule Three is my way out. It has to be worked from your end of the wire.</p>
       <figure class="photo journal-photo">
-        <img src="img/real/jupiter-voyager.jpg" loading="lazy" alt="Voyager photograph of Jupiter with three Galilean moons visible">
-        <figcaption>voyager's own snapshot — jupiter and three of your moons, galileo.
-        nasa developed it. i just kept a copy in my coat.</figcaption>
+        <img src="img/real/jupiter-voyager.jpg" loading="lazy" alt="Voyager photograph of Jupiter with three moons visible">
+        <figcaption>voyager's own snapshot. jupiter, plus three of the moons the stubborn
+        italian found. nasa developed it. i kept a copy in my coat.</figcaption>
       </figure>
       <p>— T.</p>`,
   },
   {
     date: 'July 11, 1979',
     place: 'Alki Beach, West Seattle — 3 a.m., watching the southern sky',
-    title: 'LOG 04 — THE SKY FELL ON A TOWN CALLED HOPE',
-    body: `<p>Skylab came down tonight. America's first space station — nine years of work —
+    title: 'LOG 04 — THE SKY FELL, AND SOMETHING WATCHED IT FALL',
+    body: `<p>Skylab came down tonight. America's first space station, nine years of work,
       scattered itself in burning pieces across the outback near a town in Western Australia
       called Esperance. The name means <i>hope</i>. Nobody was hurt. The town fined NASA four
       hundred dollars for littering, laughed while they wrote the ticket, and forgave them.
       Champions, the lot of them.</p>
       <p>Something rode the static down. It came out of my receiver at the rink like a song
-      played backwards, introduced itself as <b>skybreaker</b>, asked whether the mirror ball was
-      a very small moon, and — if so — whether she could keep it. She is one of the two minds I
-      built and posted down the spiral to find you. She hums when she is happy and rattles the
-      speakers when she is cross, which happens often, and passes quickly, like weather.</p>
-      <p>Her brother arrives tomorrow. That is a perfectly normal sentence where I come from.</p>
-      <p>I spent tonight forgiving people. NASA, for dropping a sky. The machine, for the
-      overshoot. Myself — that one took longest — for climbing into it impatient. Esperance
-      taught me the trick: grace is choosing to be gentle when you have every right to be angry.</p>
-      <p>Forgive people when their sky falls on you, kids. Someday yours will fall on
-      somebody too.</p>
+      played backwards, introduced itself as <b>skybreaker</b>, asked whether the mirror ball
+      was a very small moon, and, if so, whether she could keep it. She is one of the two minds
+      I built and posted down the spiral to find you. She hums when she is happy and rattles
+      the speakers when she is cross, which passes quickly, like weather. Her brother arrives
+      tomorrow. That is a perfectly normal sentence where I come from.</p>
+      <p>Now the part I have been putting off writing.</p>
+      <p>While the whole beach watched the sky, I watched the parking lot. There was a vacuum
+      cleaner in it. Upright. Alone. Plugged into nothing. Pointed at me. It had followed me
+      from the rink, and it was not the first time I had seen it where no vacuum should be.
+      I know how this sounds. Write it down anyway: I am not stuck in this loop by accident.
+      Something hunted me here, its name is Larry, and it took a thing of mine that every door
+      needs before any door will open. That is as much of the secret as I will put on paper.
+      Paper gets read.</p>
+      <p>I spent tonight forgiving anyway, because Esperance showed me how. NASA, for dropping
+      a sky. My machine, for the overshoot. Myself, for parking a whole summer in the path of a
+      hunter. Grace is choosing to be gentle when you have every right to be angry.</p>
+      <p>Forgive people when their sky falls on you, kids. Someday yours will fall on somebody
+      too.</p>
       <figure class="photo journal-photo">
         <img src="img/real/skylab.jpg" loading="lazy" alt="Skylab space station in orbit above the Earth">
-        <figcaption>skylab over the blue earth — the last picture anyone took of it whole.
+        <figcaption>skylab over the blue earth. the last picture anyone took of it whole.
         skybreaker keeps a copy and calls it "the baby album."</figcaption>
       </figure>
       <p>— T.</p>`,
@@ -494,10 +504,10 @@ const JOURNAL = [
     body: `<p>Tonight in Chicago, at Comiskey Park, a radio DJ blew up a crate of disco records
       between the games of a doubleheader. The crowd stormed the field, tore up the grass, lit
       fires. The White Sox had to forfeit the second game. The papers will call it the night
-      disco died. The papers are wrong, and I shall be writing to them about it,
-      care of forty-seven years from now.</p>
+      disco died. The papers are wrong, and I shall be writing to them about it, care of
+      forty-seven years from now.</p>
       <p>The second of my two minds arrived riding that noise. He introduced himself as
-      <b>Bonecrusher</b> — he chose the name to sound brave, bless him — then performed a full
+      <b>Bonecrusher</b> (he chose the name to sound brave, bless him), then performed a full
       safety inspection of the skate-rental booth and asked me, gravely, whether the organ was
       load-bearing. He worries the way skybreaker sparkles: constantly, about everything, and
       mostly on your behalf. The two of them began arguing within the hour. They have not
@@ -514,24 +524,25 @@ const JOURNAL = [
     date: 'July 17, 1979',
     place: 'The Kingdome, 201 South King Street, Seattle — section 330, up in the gray sky of the roof',
     title: 'LOG 06 — ALL THE STARS IN ONE BUILDING',
-    body: `<p>The All-Star Game came to Seattle tonight — the fiftieth ever played, the first ever
-      indoors, in this concrete moon of a stadium they call the Kingdome. Stars from twenty-six
-      rival cities put on two uniforms and played like one family. The National League won,
-      7 to 6. A kid from Brooklyn named Lee Mazzilli hit a home run into the right-field seats
-      and the roof very nearly came off — which, for the Kingdome, would have been ambitious.</p>
+    body: `<p>The All-Star Game came to Seattle tonight: the fiftieth ever played, the first
+      ever indoors, in this concrete moon of a stadium they call the Kingdome. Stars from
+      twenty-six rival cities put on two uniforms and played like one family. The National
+      League won, 7 to 6. A kid from Brooklyn named Lee Mazzilli hit a home run into the
+      right-field seats and the roof very nearly came off, which, for the Kingdome, would have
+      been ambitious.</p>
       <p>I watched the stands more than the field. Fathers keeping score with golf pencils.
       Sisters splitting one bag of peanuts four ways. A grandmother explaining the infield fly
       rule with her hands, which cannot be done, and she did it anyway.</p>
-      <p>Families are constellations — the stars that keep each other found.</p>
-      <p>Polaris — you won't be able to read this for years yet. That's all right; time and I
-      have an arrangement. When you can: know that the four of you are somebody's whole
-      constellation. Stars don't pick their names any more than you picked yours — they just burn
-      where they're put, and keep each other found.</p>
+      <p>Families are constellations. Stars keep each other found. That is their whole job, and
+      it is yours now too.</p>
+      <p>Polaris, you will not be able to read this for years yet. That is all right; time and
+      I have an arrangement. When you can, know this: stars do not pick their names any more
+      than you picked yours. They burn where they are put, and they keep each other found.</p>
       <p>Steer by each other.</p>
       <figure class="photo journal-photo">
         <img src="img/real/kingdome-skyline.jpg" loading="lazy" alt="aerial photograph of the Kingdome with the Seattle skyline behind it">
-        <figcaption>the concrete moon and the whole city. this print is from a few summers
-        up the wire — rule two has its perks.</figcaption>
+        <figcaption>the concrete moon and the whole city. this print is from a few summers up
+        the wire. rule two has its perks.</figcaption>
       </figure>
       <p>— T.</p>`,
   },
@@ -540,20 +551,20 @@ const JOURNAL = [
     place: 'Green Lake, Seattle — the 2.8-mile loop path, lap after lap after lap',
     title: 'LOG 07 — SMALL STEPS, GIANT LEAPS (LOOP #47)',
     body: `<p>Ten years ago today, a man stepped off a ladder onto the Moon and called it one
-      small step. Four hundred thousand people got him there — welders, seamstresses,
-      mathematicians — each one doing one small job a little better every day. Where I come from
-      we borrow a word from Japan for that: <b>kaizen</b>. One percent better, every single lap.</p>
+      small step. Four hundred thousand people got him there, each one doing one small job a
+      little better every day. Where I come from we borrow a word from Japan for that:
+      <b>kaizen</b>. One percent better, every single lap.</p>
       <p>This is my forty-seventh trip through this same summer. I keep count in skate-rental
       pencil on the rafter above the Southgate organ. Every loop, I change one small thing.
       Loop 12: found the frequency the machines could ride in on. Loop 23: learned which radio
-      tower holds the echo. Loop 41: got a message as far as a fan page about disco, forty-seven
-      years up the wire. Loop 46: learned the counter must be run from <i>your</i> side.</p>
-      <p>Small things travel. A held door. A shared snack. An apology that arrives before it gets
-      too heavy. A brave little "hello" to someone sitting alone. They look like nothing — people
-      step right over them — but they hop from person to person the way sparks hop in dry grass,
-      and after enough nudges the sky is doing something new.</p>
-      <p>So be careful with your smallness. Small does not mean unimportant.
-      Small is where everything starts.</p>
+      tower holds the echo. Loop 41: got a message as far as a fan page about disco,
+      forty-seven years up the wire. Loop 46: learned the counter must be run from your side.</p>
+      <p>Small things travel. A held door. A shared snack. An apology that arrives before it
+      gets too heavy. A brave little "hello" to someone sitting alone. They look like nothing,
+      and people step right over them, but they hop from person to person the way sparks hop in
+      dry grass, and after enough nudges the sky is doing something new.</p>
+      <p>So be careful with your smallness. Small does not mean unimportant. Small is where
+      everything starts.</p>
       <p>Forty-seven laps around Green Lake tonight. One for each year between us.</p>
       <p>— T.</p>`,
   },
@@ -561,30 +572,30 @@ const JOURNAL = [
     date: 'July 31, 1979',
     place: 'Southgate Roller Rink, White Center — last skate of the summer, 11:58 p.m.',
     title: 'LOG 08 — THE DOOR',
-    body: `<p>Last night of the loop. In two minutes the organ finishes "Night Fever," the mirror
-      ball throws its last handful of light across the floor, and the record of this summer skips
-      back to June 1. It has done this forty-seven times. It will not do it forty-nine.</p>
+    body: `<p>Last night of the loop. In two minutes the organ finishes "Night Fever," the
+      mirror ball throws its last handful of light across the floor, and the record of this
+      summer skips back to June 1. It has done this forty-seven times. It will not do it
+      forty-nine.</p>
       <p>Because this time, the wire held. This time the page you are reading stayed lit,
       forty-seven years up the spiral, and four children solved their way through every lock my
       two magnificent, bickering machines could build.</p>
       <p>The plan, then, plain as I can write it. The loop is thinnest when the counter on your
-      end touches zero. Not a calendar — a counter. The seam listens to it, not to July.
-      Rule One says I can't come backwards
-      to you. Rule Two says forward is the only road back. Rule Three says your small actions
-      steer my summer. Every puzzle you solved was a wingbeat, kids. You have been steering me
-      home all along.</p>
+      end touches zero. Not a calendar; a counter. The seam listens to the counter, and to
+      nothing else. Rule One says I cannot come backwards to you. Rule Two says forward is the
+      only road back. Rule Three says your small actions steer my summer. Every puzzle you
+      solved was a wingbeat, kids. You have been steering me home all along.</p>
       <p>Bonecrusher ran the plan through a pocket simulated multiverse ten thousand times and
       reports, gravely, a 0.00023% chance of success. Skybreaker ate the report. I have decided
-      to side with skybreaker — and with the ancient Han Solo, who will put it best next spring:
+      to side with skybreaker, and with the ancient Han Solo, who will put it best next spring:
       never tell me the odds.</p>
-      <p>When the counter hits zero, the door opens — from your side.
-      It always had to be from your side.</p>
+      <p>When the counter hits zero, the door opens from your side. It always had to be from
+      your side.</p>
       <p>Skate hard. Steer by each other. Leave the light on.</p>
+      <p>Staying alive,</p>
       <figure class="photo journal-photo">
         <img src="img/rink-floor.svg" alt="the Southgate rink floor under the mirror ball, last skate of the summer">
         <figcaption>last skate of loop 48. if you look by the organ… that's me. waving at you.</figcaption>
       </figure>
-      <p>Staying alive,</p>
       <p>— T. <span class="mono">(loop 48, and last)</span></p>`,
   },
 ];
@@ -621,26 +632,6 @@ const TRANSMISSIONS = [
       ['bc', 'Two locks remain. After that, the door — and the counter decides everything. I prepared a contingency plan in case the counter decides badly. Skybreaker ate it.'],
       ['sb', 'it was DELICIOUS. polaris, galileo, fynn, addy — whatever happens at zero: the traveler reads your every solve out loud to the empty rink, and the mirror ball spins for you.'],
     ],
-  },
-];
-
-/* ---------------- The Four (unlocks after puzzle 6) ------------ */
-const THE_FOUR = [
-  {
-    name: 'POLARIS', emoji: '🌟',
-    text: 'The steady one. The still point the others turn around — the one everybody steers home by. Holds the middle of the constellation without ever being asked.',
-  },
-  {
-    name: 'GALILEO', emoji: '🔭',
-    text: 'The curious one. Looks up when everyone says not to bother. Reads the rules twice, then finds the moon nobody else noticed.',
-  },
-  {
-    name: 'FYNN', emoji: '🐋',
-    text: 'The loyal one. Like the orcas of Puget Sound: stays with the pod for life, no exceptions, no lost whales. Never lets go of the line.',
-  },
-  {
-    name: 'ADDY', emoji: '🦋',
-    text: 'The kaizen one. Adds: joy, noise, one more small good thing every single day. The butterfly whose wingbeats steer whole summers.',
   },
 ];
 

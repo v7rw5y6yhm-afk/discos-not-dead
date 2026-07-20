@@ -256,7 +256,6 @@ const SECTIONS = [
   { id: 'journal', label: 'THE JOURNAL',    unlocked: () => true },
   { id: 'wire',    label: 'THE WIRE',       unlocked: () => solvedCount() >= 2 },
   { id: 'rules',   label: 'RULES OF TIME',  unlocked: () => solvedCount() >= 4 },
-  { id: 'four',    label: 'THE FOUR',       unlocked: () => solvedCount() >= 6 },
   { id: 'door',    label: 'THE DOOR',       unlocked: () => solvedCount() >= 8 },
 ];
 let activeSection = 'home';
@@ -326,11 +325,6 @@ function renderWire() {
 
 /* ---------- rules / the four -------------------------------------- */
 function renderRules() { $('#rules-body').innerHTML = RULES_HTML; }
-function renderFour() {
-  $('#four-list').innerHTML = THE_FOUR.map(k =>
-    `<div class="kid-card"><div class="kid-emoji">${k.emoji}</div>
-     <h3>${k.name}</h3><p>${k.text}</p></div>`).join('');
-}
 
 /* ---------- the door ------------------------------------------------ */
 function renderDoor() {
@@ -451,7 +445,6 @@ function unlockNote(idx) {
   const n = idx + 1;
   if (n === 2) return ' · NEW SECTION: THE WIRE';
   if (n === 4) return ' · NEW SECTION: RULES OF TIME';
-  if (n === 6) return ' · NEW SECTION: THE FOUR';
   if (n === 8) return ' · NEW SECTION: THE DOOR';
   return '';
 }
@@ -1126,7 +1119,7 @@ function scheduleSparkles() {
 /* ---------- boot -------------------------------------------------------- */
 function renderAll() {
   renderNav(); renderBulbs(); renderJournal(); renderWire();
-  renderRules(); renderFour(); renderDoor(); renderPuzzles();
+  renderRules(); renderDoor(); renderPuzzles();
 }
 renderHome();
 setupLock();

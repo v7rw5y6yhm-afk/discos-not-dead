@@ -18,7 +18,7 @@ and Southgate Roller Rink itself).
   virtue: Persistence, Determination, Wisdom, Forgiveness & Grace, Love, Family, Kaizen —
   and the finale braids all seven into Hope.
 - Each solve **decrypts a journal log** and some solves **unlock whole new sections**:
-  THE WIRE (after 2), RULES OF TIME (after 4), THE FOUR (after 6), THE DOOR (after 8).
+  THE WIRE (after 2), RULES OF TIME (after 4), THE DOOR (after 8).
 - THE DOOR stays sealed until the countdown hits zero, then reveals the finale.
 - Progress is saved in the browser (localStorage). "⟲ reset the loop" in the footer wipes it.
 

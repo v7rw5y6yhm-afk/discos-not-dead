@@ -13,6 +13,7 @@ under their original licenses.
 | img/real/space-needle-1979.jpg | [Space Needle, 1979](https://commons.wikimedia.org/wiki/File:Space_Needle_from_near_its_base_in_1979,_before_SkyLine_Level_added.jpg) | Steve Morgan | CC BY-SA 4.0 |
 | img/real/downtown-70s.jpg | [Downtown Seattle, circa 1970s](https://commons.wikimedia.org/wiki/File:Downtown_Seattle_and_Space_Needle,_circa_1970s.jpg) | Seattle Municipal Archives | CC BY 4.0 |
 | img/real/kingdome-skyline.jpg | [Kingdome and skyline, circa 1985](https://commons.wikimedia.org/wiki/File:Kingdome_and_skyline,_circa_1985_-_Flickr_-_Seattle_Municipal_Archives.jpg) | Seattle Municipal Archives | CC BY 2.0 |
+| img/real/sonics-1978.jpg | [Sonics game, probably 1978](https://www.flickr.com/photos/seattlemunicipalarchives/2649837579) | Seattle Municipal Archives | CC BY 2.0 |
 | img/real/jupiter-voyager.jpg | [NASA PIA00358](https://images.nasa.gov/details/PIA00358) — Jupiter and three Galilean satellites, Voyager | NASA/JPL | Public domain |
 | img/real/skylab.jpg | [NASA sl4-143-4706](https://images.nasa.gov/details/sl4-143-4706) — Skylab in orbit | NASA | Public domain |
 
