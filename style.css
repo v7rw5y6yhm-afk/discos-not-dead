@@ -759,3 +759,50 @@ body.shaking { animation: shake-screen .45s 3; }
 @media (prefers-reduced-motion: reduce) {
   .scrambling, .tear-bar, #lock-status.bleed-red { animation: none; }
 }
+
+/* ============================================================
+   SKYBREAKER'S CALENDAR — daily themes, unicorns, glitter
+   ============================================================ */
+#theme-chip, #theme-chip-lock {
+  display: inline-block; margin-top: .6rem;
+  font-size: .78rem; letter-spacing: .12em;
+  color: var(--gold);
+  border: 1px dashed rgba(255,209,102,.45);
+  padding: .25rem .8rem; border-radius: 4px;
+}
+#theme-chip { display: block; width: fit-content; margin: .6rem auto 0; }
+
+/* per-day accent shifts (site + lock page both inherit) */
+body.theme-sun { --pink: #5aa7ff; }
+body.theme-mon { --gold: #e8f1ff; }
+body.theme-tue { --pink: #ff8c42; --cyan: #ffd166; }
+body.theme-wed { --pink: #a56bff; }
+body.theme-thu { --cyan: #e0a458; }
+body.theme-fri { --pink: #ff5ad1; --cyan: #b18cff; --gold: #ffe3f6; }
+body.theme-sat { --pink: #ffd166; }
+
+/* skybreaker's glitter */
+.sparkle {
+  position: fixed; bottom: -2rem; z-index: 94; pointer-events: none;
+  animation: floatup 4.5s ease-out forwards;
+}
+@keyframes floatup {
+  20% { opacity: 1; }
+  to { transform: translateY(-108vh) rotate(50deg); opacity: 0; }
+}
+#unicorn {
+  position: fixed; bottom: 10px; left: -8vw; z-index: 95; pointer-events: none;
+  font-size: 2.3rem;
+  animation: trot 7.5s linear forwards;
+  filter: drop-shadow(0 0 12px rgba(255,90,209,.7));
+}
+@keyframes trot {
+  0%   { left: -8vw;  transform: translateY(0) scaleX(1); }
+  25%  { transform: translateY(-8px) scaleX(1); }
+  50%  { transform: translateY(0) scaleX(1); }
+  75%  { transform: translateY(-8px) scaleX(1); }
+  100% { left: 108vw; transform: translateY(0) scaleX(1); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .sparkle, #unicorn { display: none; }
+}

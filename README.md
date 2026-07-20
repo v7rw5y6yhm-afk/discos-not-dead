@@ -12,8 +12,8 @@ and Southgate Roller Rink itself).
 
 ## How it plays
 
-- The site is **blocked by a countdown** to midnight, July 31 — the moment the loop is
-  thinnest. The back door: knock (click) the mirror ball **19 times**.
+- The site is **blocked by a countdown** — the loop-close date is TBD (the counter,
+  not the calendar, opens the door; see data.js `COUNTDOWN_TARGET`). The back door: knock (click) the mirror ball **19 times**.
 - **8 puzzles ("transmissions")**, solvable strictly one at a time. Each one teaches a
   virtue: Persistence, Determination, Wisdom, Forgiveness & Grace, Love, Family, Kaizen —
   and the finale braids all seven into Hope.

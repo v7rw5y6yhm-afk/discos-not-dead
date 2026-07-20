@@ -509,6 +509,14 @@ const BOT = {
            ['bc', 'Time gates protect timelines. Also, the confetti is not ready. Skybreaker keeps eating it.']],
         ]);
       }
+      if (countdownParts() === 'TBD') {
+        return pickRuntime([
+          [['bc', 'The loop-closing counter is still forming. The seam drifted downstream and we are chasing it. Temporal weather. Doors do that. The door page will show the counter the moment it exists.'],
+           ['sb', 'translation: SOON. soon-ish. keep solving locks and practice your knocking!!']],
+          [['sb', 'okay so the big counter is not READY yet. the seam is drifting!! we are chasing it in a net!! (there is no net. bonecrusher is the net.)'],
+           ['bc', 'I am the net. When the counter forms, you will find it on the door page. Until then: the locks, the journal, and patience. I have plenty. Borrow some.']],
+        ]);
+      }
       const p = countdownParts();
       const t = p ? `${p.d} days, ${p.h} hours, ${p.m} minutes, and ${p.s} seconds` : 'zero. IT IS ZERO. GO TO THE DOOR.';
       return [

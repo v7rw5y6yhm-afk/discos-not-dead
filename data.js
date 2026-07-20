@@ -11,8 +11,11 @@
    - The Traveler: a mystery. Silly, whimsical, tender underneath.
    ============================================================ */
 
-// The loop closes at the end of July.
-const COUNTDOWN_TARGET = new Date('2026-07-31T23:59:59');
+// The 2026 door date: TBD until the rink is booked. null = "the counter is
+// still forming" everywhere on the site. When the real date locks, set e.g.
+// new Date('2026-08-15T23:59:59') and follow STORY-BIBLE.md's production
+// checklist ("The movable seam"). The counter beats the calendar.
+const COUNTDOWN_TARGET = null;
 
 // The lock page: nobody gets in before this moment. (7 days from launch.)
 const UNLOCK_TARGET = new Date('2026-07-19T20:00:00');
@@ -520,12 +523,10 @@ const JOURNAL = [
       Sisters splitting one bag of peanuts four ways. A grandmother explaining the infield fly
       rule with her hands, which cannot be done, and she did it anyway.</p>
       <p>Families are constellations — the stars that keep each other found.</p>
-      <p>Polaris, I named you for the star the whole sky turns around, the one sailors steer home
-      by. (You won't be able to read this for years yet. That's all right. Time and I have an
-      arrangement.) Galileo, for the man who looked up first. Fynn, for the orcas of Puget Sound,
-      who never once in a whole long life leave their mother's pod. Addy, for a one-street town
-      in the Washington hills — and because you <i>add</i>: joy, noise, one more small good thing
-      every single day. You four are my constellation.</p>
+      <p>Polaris — you won't be able to read this for years yet. That's all right; time and I
+      have an arrangement. When you can: know that the four of you are somebody's whole
+      constellation. Stars don't pick their names any more than you picked yours — they just burn
+      where they're put, and keep each other found.</p>
       <p>Steer by each other.</p>
       <figure class="photo journal-photo">
         <img src="img/real/kingdome-skyline.jpg" loading="lazy" alt="aerial photograph of the Kingdome with the Seattle skyline behind it">
@@ -567,7 +568,8 @@ const JOURNAL = [
       forty-seven years up the spiral, and four children solved their way through every lock my
       two magnificent, bickering machines could build.</p>
       <p>The plan, then, plain as I can write it. The loop is thinnest when the counter on your
-      end touches zero — the last breath of July, your year. Rule One says I can't come backwards
+      end touches zero. Not a calendar — a counter. The seam listens to it, not to July.
+      Rule One says I can't come backwards
       to you. Rule Two says forward is the only road back. Rule Three says your small actions
       steer my summer. Every puzzle you solved was a wingbeat, kids. You have been steering me
       home all along.</p>
@@ -626,19 +628,19 @@ const TRANSMISSIONS = [
 const THE_FOUR = [
   {
     name: 'POLARIS', emoji: '🌟',
-    text: 'Named for the North Star — the still point the whole sky turns around, the star sailors steer home by. The steady one. The one who holds the middle of the constellation.',
+    text: 'The steady one. The still point the others turn around — the one everybody steers home by. Holds the middle of the constellation without ever being asked.',
   },
   {
     name: 'GALILEO', emoji: '🔭',
-    text: 'Named for the man who built his own telescope in 1610, looked up when everyone said not to bother, and found four new moons. The curious one. The one who reads the rules twice.',
+    text: 'The curious one. Looks up when everyone says not to bother. Reads the rules twice, then finds the moon nobody else noticed.',
   },
   {
     name: 'FYNN', emoji: '🐋',
-    text: 'Named for the orcas of Puget Sound, who stay with their family pod their entire lives — no exceptions, no lost whales. The loyal one. The one who never lets go of the line.',
+    text: 'The loyal one. Like the orcas of Puget Sound: stays with the pod for life, no exceptions, no lost whales. Never lets go of the line.',
   },
   {
     name: 'ADDY', emoji: '🦋',
-    text: 'Named for a one-street town in the Washington hills — and because she adds: joy, noise, one more small good thing every single day. The kaizen one. The butterfly whose wingbeats steer summers.',
+    text: 'The kaizen one. Adds: joy, noise, one more small good thing every single day. The butterfly whose wingbeats steer whole summers.',
   },
 ];
 
@@ -666,12 +668,12 @@ const RULES_HTML = `
 
 /* ---------------- Finale (behind the countdown) ---------------- */
 const FINALE_HTML = `
-  <p class="mono dim">SOUTHGATE ROLLER RINK — AUGUST 1</p>
-  <p>The counter touched zero at the last breath of July, and for one held second every clock in
+  <p class="mono dim">SOUTHGATE ROLLER RINK — THE MORNING AFTER</p>
+  <p>The counter touched zero at last, and for one held second every clock in
   both summers pointed the same direction.</p>
   <p>At Southgate the organ finished "Night Fever" — and did not start over. The record did not skip.
   The mirror ball kept turning, and the light it threw landed on a rink floor that had never,
-  in forty-eight summers, seen the morning of August 1.</p>
+  in forty-eight summers, seen a morning after.</p>
   <p>The door opened from your side. It always had to be from your side.</p>
   <p>Four wingbeats — persistence, determination, wisdom, grace, love, family, and one small step
   after another — rippled forty-seven years down the wire, and the loop let go.</p>
@@ -696,4 +698,23 @@ const PRAISE = [
   'skybreaker: YES! yes yes yes — i knew it, i KNEW it, the wire just went all sparkly!',
   'skybreaker: correct!! bonecrusher owes me a bet. he says machines can\'t bet. HE OWES ME A BET.',
   'skybreaker: another lock! 1979 just got one degree warmer. i can feel it in my antenna.',
+];
+
+/* ---------------- Daily themes (skybreaker's calendar) ---------- */
+/* index = Date.getDay(): 0 Sunday … 6 Saturday */
+const DAILY_THEMES = [
+  { key: 'sun', name: 'SLOW-SKATE SUNDAY', emoji: '🛼', drop: ['🛼', '💿'],
+    line: ['sb', 'slow-skate sunday!! long laps. hold hands. the organ plays the slow songs and NOBODY rushes.'] },
+  { key: 'mon', name: 'MIRROR BALL MONDAY', emoji: '🪩', drop: ['🪩', '✨'],
+    line: ['bc', 'It is Mirror Ball Monday. I have polished everything. Including, somehow, the countdown. Please do not touch anything until Tuesday.'] },
+  { key: 'tue', name: 'TACO TUESDAY', emoji: '🌮', drop: ['🌮'],
+    line: ['sb', 'TACO TUESDAY!! fun fact: at southgate, EVERY night is tuesday. bonecrusher says that means it is always taco tuesday somewhere. he is RIGHT and he HATES it.'] },
+  { key: 'wed', name: 'WORMHOLE WEDNESDAY', emoji: '🌀', drop: ['🌀', '⭐'],
+    line: ['bc', 'Wormhole Wednesday. Hold the handrail. If you see yourself skating the other direction, do not wave. It only encourages the wormhole.'] },
+  { key: 'thu', name: 'THROWBACK THURSDAY', emoji: '📼', drop: ['📼', '🎶'],
+    line: ['sb', 'throwback thursday!! today the website is EXTRA 1979, which is impressive, because it is already quite a lot of 1979.'] },
+  { key: 'fri', name: 'UNICORN FRIDAY', emoji: '🦄', drop: ['🦄', '✨', '🌈'],
+    line: ['sb', 'UNICORN FRIDAY!!! i decorated!! bonecrusher said "one unicorn is plenty." ONE UNICORN IS NEVER PLENTY.'] },
+  { key: 'sat', name: 'SPARKLE SATURDAY', emoji: '✨', drop: ['✨', '🌟'],
+    line: ['sb', 'sparkle saturday!! everything you touch today is 4% shinier. that is just science.'] },
 ];

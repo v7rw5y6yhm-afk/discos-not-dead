@@ -39,7 +39,9 @@ function partsUntil(target) {
     s: s % 60,
   };
 }
-function countdownParts() { return partsUntil(COUNTDOWN_TARGET); }
+function countdownParts() {
+  return COUNTDOWN_TARGET ? partsUntil(COUNTDOWN_TARGET) : 'TBD';
+}
 function lockOpen() { return new Date() >= UNLOCK_TARGET; }
 const pad = n => String(n).padStart(2, '0');
 const fmt = p => p ? `${pad(p.d)}:${pad(p.h)}:${pad(p.m)}:${pad(p.s)}` : '00:00:00:00';
@@ -49,9 +51,9 @@ function tickCountdowns() {
   const p = countdownParts();
   const mini = $('#mini-count');
   const doorC = $('#door-count');
-  if (mini) mini.textContent = `LOOP CLOSES ${fmt(p)}`;
-  if (doorC) doorC.textContent = fmt(p);
-  if (!p && state.solved[7]) renderDoor(); // zero hour: open the door
+  if (mini) mini.textContent = p === 'TBD' ? 'LOOP CLOSES: [COUNTER STILL FORMING]' : `LOOP CLOSES ${fmt(p)}`;
+  if (doorC) doorC.textContent = p === 'TBD' ? '??:??:??:??' : fmt(p);
+  if (p === null && state.solved[7]) renderDoor(); // zero hour: open the door
 
   // the lock page runs on its own 7-day clock
   const big = $('#lock-count');
@@ -334,15 +336,30 @@ function renderFour() {
 function renderDoor() {
   const body = $('#door-body');
   if (!state.solved[7]) { body.innerHTML = ''; return; }
-  if (countdownParts() === null) {
+  const doorState = countdownParts();
+  if (doorState === null) {
     body.innerHTML = `<div class="finale">${FINALE_HTML}</div>`;
+  } else if (doorState === 'TBD') {
+    body.innerHTML = `
+      <p class="sb">skybreaker: all eight locks are open!! the door is unlocked!! but — okay.
+      small thing. the counter hasn't finished FORMING yet. the seam drifted downstream
+      and we are CHASING it.</p>
+      <p class="bc">Bonecrusher: Temporal weather. Doors do that. The moment the counter forms,
+      it will appear right here, and it — not the calendar, not me, and certainly not
+      skybreaker — decides when this door swings.</p>
+      <div class="door-frame"><div class="door-glow"></div>
+        <p class="mono">SEALED UNTIL THE COUNTER FORMS</p>
+        <p class="door-count mono">??:??:??:??</p>
+        <p class="mono dim">THE SEAM IS DRIFTING · WE ARE CHASING IT</p>
+      </div>
+      <p class="sb">keep your skates by the door. when it forms, you'll know. bring each other —
+      that's the whole trick.</p>`;
   } else {
     body.innerHTML = `
       <p class="sb">skybreaker: all eight locks are open!! the door is unlocked — but a door in
       time only swings when the loop is thinnest. i tried pushing it early once. ONCE.</p>
-      <p class="bc">Bonecrusher: Which is at the last breath of July. I have triple-checked the
-      arithmetic. The counter decides — not me, not you, and certainly not skybreaker,
-      who has already attempted kicking.</p>
+      <p class="bc">Bonecrusher: The counter decides — not me, not you, and certainly not
+      skybreaker, who has already attempted kicking.</p>
       <div class="door-frame"><div class="door-glow"></div>
         <p class="mono">SEALED UNTIL</p>
         <p id="door-count" class="door-count mono">--:--:--:--</p>
@@ -817,7 +834,7 @@ if (dottieSig) dottieSig.addEventListener('click', () => {
     FX.chime();
     roguePiece([
       ['sb', 'THE HIDDEN NOTE!! you triple-clicked!! you absolute LEGEND!!'],
-      ['bc', 'We have never opened the mirror ball. It is not ours to open. On July 31st… perhaps it is yours.'],
+      ['bc', 'We have never opened the mirror ball. It is not ours to open. When the counter reaches zero… perhaps it is yours.'],
     ], '✌️ SECRET FOUND — DOTTIE\'S NOTE');
   }
 });
@@ -837,7 +854,7 @@ if (frame19) frame19.addEventListener('click', () => {
   } else if (frame19Clicks === 3) {
     roguePiece([
       ['sb', 'okay okay listen. the missing half of frame 19 shows WHO the figure is. we can\'t recover it from our side. but the traveler said: "the frame develops when the counter reaches zero."'],
-      ['bc', 'July 31. 11:59 PM. The photograph finishes itself. I have goosebumps, which is remarkable, because I do not have skin.'],
+      ['bc', 'When the counter touches zero, the photograph finishes itself. I have goosebumps, which is remarkable, because I do not have skin.'],
     ], '🖼 FRAME 19 — PARTIAL RECOVERY');
   } else {
     roguePiece([nextChatterPiece()[0]], '🖼 FRAME 19 — STILL STATIC');
@@ -999,6 +1016,113 @@ BOT.reply = function (raw) {
   return BOT.replyBase(raw);
 };
 
+
+/* ========================================================================
+   SKYBREAKER'S CALENDAR — daily themes + unicorns + glitter
+   ======================================================================== */
+function spawnFallingEmoji(char, delay = 0) {
+  if (FX.reduced) return;
+  setTimeout(() => {
+    const b = document.createElement('div');
+    b.className = 'falling-ball';
+    b.textContent = char;
+    b.style.left = Math.random() * 95 + 'vw';
+    b.style.animationDuration = (2.6 + Math.random() * 2.4) + 's';
+    document.body.appendChild(b);
+    setTimeout(() => b.remove(), 6000);
+  }, delay);
+}
+
+let TODAY_THEME = null;
+function applyDailyTheme() {
+  TODAY_THEME = DAILY_THEMES[new Date().getDay()];
+  document.body.classList.add('theme-' + TODAY_THEME.key);
+  const chipText = `${TODAY_THEME.emoji} TODAY IS ${TODAY_THEME.name} ${TODAY_THEME.emoji}`;
+  // chip in the site header
+  const mini = $('#mini-count');
+  if (mini) {
+    const chip = document.createElement('div');
+    chip.id = 'theme-chip';
+    chip.className = 'mono';
+    chip.textContent = chipText;
+    mini.after(chip);
+  }
+  // chip on the lock page too — the party continues even at the sealed door
+  const lockStatus = $('#lock-status');
+  if (lockStatus) {
+    const chip = document.createElement('div');
+    chip.id = 'theme-chip-lock';
+    chip.className = 'mono';
+    chip.textContent = chipText;
+    lockStatus.before(chip);
+  }
+  // the AIs announce the theme once per day per browser
+  let seen = null;
+  try { seen = localStorage.getItem('dnd_theme_seen'); } catch (e) {}
+  const stamp = TODAY_THEME.key + ':' + new Date().toDateString();
+  if (seen !== stamp) {
+    try { localStorage.setItem('dnd_theme_seen', stamp); } catch (e) {}
+    setTimeout(() => roguePiece([TODAY_THEME.line,
+      TODAY_THEME.key === 'fri'
+        ? ['bc', 'One unicorn is plenty. …Two. Two is the ceiling. — Three. FINAL OFFER.']
+        : ['bc', 'The theme was not my vote. There are two of us. I lose every vote 1 to 1, somehow.'],
+    ], `${TODAY_THEME.emoji} TODAY'S THEME — ${TODAY_THEME.name}`), 9000);
+  }
+  scheduleThemeDrops();
+}
+function scheduleThemeDrops() {
+  const friday = TODAY_THEME.key === 'fri';
+  const delay = (friday ? 35000 : 70000) + Math.random() * (friday ? 45000 : 80000);
+  setTimeout(() => {
+    if (document.visibilityState === 'visible') {
+      const n = friday ? 8 : 4;
+      for (let i = 0; i < n; i++) {
+        spawnFallingEmoji(TODAY_THEME.drop[Math.floor(Math.random() * TODAY_THEME.drop.length)], i * 260);
+      }
+    }
+    scheduleThemeDrops();
+  }, delay);
+}
+
+/* skybreaker's freelance glitter (any day; heavier on fridays) */
+function sparkleBurst(x = null) {
+  if (FX.reduced) return;
+  const n = 5 + Math.floor(Math.random() * 6);
+  for (let i = 0; i < n; i++) {
+    const s = document.createElement('div');
+    s.className = 'sparkle';
+    s.textContent = ['✨', '🌟', '⭐'][Math.floor(Math.random() * 3)];
+    s.style.left = (x !== null ? x + (Math.random() * 12 - 6) : Math.random() * 96) + 'vw';
+    s.style.animationDelay = (i * 0.13) + 's';
+    s.style.fontSize = (0.7 + Math.random() * 0.9) + 'rem';
+    document.body.appendChild(s);
+    setTimeout(() => s.remove(), 5200);
+  }
+}
+function unicornTrot() {
+  if (FX.reduced || $('#unicorn')) return;
+  const u = document.createElement('div');
+  u.id = 'unicorn';
+  u.textContent = '🦄';
+  document.body.appendChild(u);
+  const trail = setInterval(() => {
+    const r = u.getBoundingClientRect();
+    if (r.left > 0 && r.left < innerWidth) sparkleBurst((r.left / innerWidth) * 100);
+  }, 900);
+  setTimeout(() => { clearInterval(trail); u.remove(); }, 7600);
+}
+function scheduleSparkles() {
+  const friday = TODAY_THEME && TODAY_THEME.key === 'fri';
+  const delay = (friday ? 40000 : 85000) + Math.random() * (friday ? 50000 : 90000);
+  setTimeout(() => {
+    if (document.visibilityState === 'visible') {
+      if (Math.random() < (friday ? 0.45 : 0.18)) unicornTrot();
+      else sparkleBurst();
+    }
+    scheduleSparkles();
+  }, delay);
+}
+
 /* ---------- boot -------------------------------------------------------- */
 function renderAll() {
   renderNav(); renderBulbs(); renderJournal(); renderWire();
@@ -1012,3 +1136,5 @@ startBleeds();
 refreshToggles();
 scheduleRoguePopups();
 scheduleGlitches();
+applyDailyTheme();
+scheduleSparkles();
