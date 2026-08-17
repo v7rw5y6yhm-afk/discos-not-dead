@@ -63,7 +63,7 @@
   // every photo on the corrupted site becomes a real vacuum. captions stay.
   const VACS = [
     'img/real/kirby-g5.jpg', 'img/real/vac-hoover70s.jpg', 'img/real/kirby-chrome.jpg',
-    'img/real/vac-gs80.jpg', 'img/real/vac-zelmer.jpg', 'img/real/kirby-old.jpg',
+    'img/real/vac-adult.jpg', 'img/real/vac-zelmer.jpg', 'img/real/kirby-old.jpg',
     'img/real/vac-veterok.jpg', 'img/real/vac-uralets.jpg',
   ];
   function swapAllPhotos() {
@@ -1199,9 +1199,10 @@
     () => {
       roguePiece(pick(TX.war), '⚔ HOLDING THE WEBSITE');
     },
-    () => { // his stamp lands ON their channel
-      roguePiece(pick(TX.warCut), '⚠ TRANSMISSION INTERRU—');
-      setTimeout(() => postNotice(pick(TX.warStamp), 8000), 2600);
+    () => { // his anti-party campaign, running on our channel
+      postNotice(pick(TX.antiParty), 11000);
+      if (Math.random() < 0.65) setTimeout(() => roguePiece(pick(TX.antiPartyRebuttal), '📢 HE IS CAMPAIGNING AGAINST THE PARTY'), 3400);
+      else setTimeout(() => postNotice(pick(TX.warStamp), 8000), 12000);
     },
     () => { // sirens: the seam is complaining
       siren();
@@ -1328,9 +1329,9 @@
           ['bc', 'Three words, no spaces, and the only sentence on this website he has tried to file four hundred times and failed. It keeps being true. That is the trouble with it.'],
         ];
       }
-      if (has('page') || has('codex') || has('tape') || has('cassette') || has('errand')) {
+      if (has('page') || has('codex') || has('tape') || has('cassette') || has('errand') || has('quest')) {
         return [
-          ['bc', 'Eight errands, spread across your Seattle. No puzzles, no hours: do the errand truly, and that tape finds its own way to you within the day. Seven errands reveal the eighth. All eight tapes together on Wednesday.'],
+          ['bc', 'Eight quests, spread across your Seattle. No puzzles, no hours: do the quest truly, and each one pulls the codex closer. Seven quests reveal the eighth, and the eighth is the party.'],
           ['sb', 'stick the gum!! pick the nose!! roar the roar!! the tapes LOVE that stuff. how many do you have?? count out loud, the codex likes it.'],
         ];
       }
@@ -1570,12 +1571,22 @@
         ['sb', 'PINKER THAN EVER. he wants tidy? i\'ll show him tidy. (i will not show him tidy.)'],
       ],
     ],
-    warCut: [
+    antiParty: [
+      ['NOTICE 0047-P1', 'PUBLIC SERVICE ANNOUNCEMENT.', 'DISCO DANCING CAUSES: SCUFF MARKS. SWEAT. JOY.', 'ALL THREE ARE MESS. STAY HOME WEDNESDAY.'],
+      ['NOTICE 0047-P2', 'THERE IS NOTHING AT THE RINK ON WEDNESDAY.', 'ESPECIALLY NOT AT 3:30.', 'DO NOT ARRIVE EARLY TO THE NOTHING.'],
+      ['NOTICE 0047-P3', 'DANCING IS FALLING WITH EXTRA STEPS.', 'I HAVE FILED THE STATISTICS.', 'STAY HOME. STAY SEATED. STAY STILL.'],
+      ['NOTICE 0047-P4', 'THE FLOOR AT SOUTHGATE IS FRESHLY POLISHED.', 'IT IS PERFECT.', 'A PARTY WOULD RUIN THE— IT IS PERFECT. STAY AWAY.'],
+      ['NOTICE 0047-P5', 'ATTENTION SMALL HUMANS.', 'WEDNESDAY IS A SCHOOL NIGHT.', '(IT IS AUGUST. SOMEWHERE, IT IS A SCHOOL NIGHT.)'],
+      ['NOTICE 0047-P6', 'THE COUNTER IS BROKEN. THE PARTY IS CANCELLED.', 'THE RINK IS CLOSED. THE FLOOR IS SHY.', 'ALL FOUR STATEMENTS ARE TRUE. DO NOT VERIFY THEM.'],
+    ],
+    antiPartyRebuttal: [
       [
-        ['bc', 'If you can read this, the wire still holds. If the words start disappearing mid-sen'],
+        ['sb', 'he\'s posting anti-party propaganda now!! ANTI. PARTY. PROPAGANDA. this is what scared sounds like in vacuum!!'],
+        ['bc', 'Note the pattern. A machine does not campaign against a party it believes nobody will attend. Wednesday. 3:30. Bring extra clappers.'],
       ],
       [
-        ['sb', 'ok ok good news and bad news. good news: the tapes are safe, all of them, he can\'t smell tape. bad news: he found my glitter reser'],
+        ['bc', 'His latest notice asks you, in six different fonts, to stay home Wednesday. I have never read a clearer confession that Wednesday matters.'],
+        ['sb', 'every notice = one more reason to dance HARDER. read it, laugh at it, lace up.'],
       ],
     ],
     warStamp: [

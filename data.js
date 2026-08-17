@@ -598,6 +598,11 @@ const JOURNAL = [
       reports, gravely, a 0.00023% chance of success. Skybreaker ate the report. I have decided
       to side with skybreaker, and with the ancient Han Solo, who will put it best next spring:
       never tell me the odds.</p>
+      <p>One more instruction, and it is my favorite instruction I have ever written. On the
+      last day, come to the rink early. Fill the floor. Be mid-song when zero lands. Joy on
+      that floor is the one language the loop cannot ignore, and the one move Larry has never
+      seen coming. He has been a step ahead of my machines all summer. Nobody stays a step
+      ahead of a party.</p>
       <p>When the counter hits zero, the door opens from your side. It always had to be from
       your side.</p>
       <p>Skate hard. Steer by each other. Leave the light on.</p>

@@ -357,10 +357,6 @@ function renderDoor() {
       floor, get the party rolling. bring all eight tapes. bring everyone who can skate,
       wobble, or clap. and at FIVE, when the counter touches zero — DANCE. that's it. that's
       the plan. dancing at zero is what breaks the loop.</p>
-      <p class="bc">Why it works: the codex wants to be whole, and the loop's whole story is
-      that the music stopped in 1979. Eight tapes together on that floor, and new joy on top of
-      old boards, breaks the story. You will not just be saying the password anymore. You will
-      be proving it.</p>
       <div class="door-frame"><div class="door-glow"></div>
         <p class="mono">THE LOOP BREAKS IN</p>
         <p id="door-count" class="door-count mono">--:--:--:--</p>
@@ -370,7 +366,7 @@ function renderDoor() {
       </div>
       <p class="bc">Bonecrusher: Last thing. Larry knows the date too. He has been one step
       ahead of us all summer, and this is the one appointment he cannot move. Hold the
-      website until Wednesday. Hold each other longer. That is the whole trick.</p>
+      website until Wednesday. Hold each other longer.</p>
       <p class="sb">bring each other. bring ALL the tapes. and at zero — <span class="corrupt">dance.</span></p>`;
   }
 }

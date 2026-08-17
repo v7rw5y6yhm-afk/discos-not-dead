@@ -35,8 +35,8 @@ SVG artwork (rink painting, frame 19, parade, rink floor) is original to this si
 ## Collapse-mode vacuum photos (added Aug 12, 2026)
 - `img/real/vac-hoover70s.jpg` — "Hoover 1970s Vacuum cleaner" by Rama,
   Wikimedia Commons, CC BY-SA 2.0 FR. Resized.
-- `img/real/vac-gs80.jpg` — "GS80 1970s" by Nilfisk-Advance, Wikimedia
-  Commons, CC BY-SA 3.0. Resized.
+- `img/real/vac-adult.jpg` — "Woman dusting and using a vacuum" (vintage
+  photograph, author unknown), Wikimedia Commons, public domain. Resized.
 - `img/real/vac-zelmer.jpg` — "Predom-zelmer" by Pibwl, Wikimedia
   Commons, CC BY-SA 4.0. Resized.
 - `img/real/vac-veterok.jpg` — "Пылесос-щетка Ветерок" by Andshel,
