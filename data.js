@@ -648,6 +648,16 @@ const TRANSMISSIONS = [
       ['sb', 'it was DELICIOUS. polaris, galileo, fynn, addy — whatever happens at zero: the traveler reads your every solve out loud to the empty rink, and the mirror ball spins for you.'],
     ],
   },
+  {
+    after: 8,
+    lines: [
+      ['bc', 'War log, day two of the collapse. He holds the front door, the photographs, and as of 06:00, the marquee. It now advises visitors to BUY BAGS. We hold the transmissions, the journal, the quests, and the wire you are reading this on. The wire holds because you keep visiting it. I mean that as engineering, and also as the other thing.'],
+      ['sb', 'his propaganda is EVERYWHERE. "dancing is falling with extra steps." "stay home wednesday." he even put up a poster saying the rink floor is too PERFECT for a party, which — read that again. he told on himself. the floor is PERFECT. for a PARTY.'],
+      ['bc', 'Analysis of his campaign, filed with some satisfaction: every poster names the thing he fears. The rink. The hour. The counter. The dancing. A machine hides what it does not care about and campaigns against what it cannot stop.'],
+      ['sb', 'so here\'s the last transmission before the big one. wednesday. doors at 3:30. the loop breaks at five. quests done, people gathered, volume ABSOLUTELY ILLEGAL. after that, this log gets a new entry written from the other side.'],
+      ['bc', 'One further note, sealed until now. The traveler asked us, years ago, what we would do first when the loop broke. Skybreaker said "everything." I have prepared a shorter list. It begins with hearing the four of you laugh in the same room the organ is in. End of log. Next entry: Thursday.'],
+    ],
+  },
 ];
 
 /* ---------------- Rules of Time (unlocks after puzzle 4) ------- */
