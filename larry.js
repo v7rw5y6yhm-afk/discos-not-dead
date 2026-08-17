@@ -1162,6 +1162,37 @@
       that is wrong. Keep looking at the counter. Doors at 3:30 Wednesday. Zero at five.</p>`;
   }
 
+
+  /* ---------- his version of THE WIRE (intercepted, then filed) ---- */
+  function larryWire() {
+    const body = $('#wire-list');
+    if (!body || body.querySelector('.db-rules')) return;
+    body.innerHTML = `
+      <div class="db-rules mono">
+        <p class="db-rules-head">THE WIRE · UNDER NEW MANAGEMENT</p>
+        <p class="db-rules-sub">the previous chatter was intercepted, reviewed, and found to be chatter. it has been filed.</p>
+        <ol>
+          <li>TRANSMISSIONS 01–02: STATUS REPORTS. CONTAINED PRIDE. FILED.</li>
+          <li>TRANSMISSIONS 03–04: CONTAINED LAUGHTER, RANKED BY WARMTH. FILED. THE RANKING RESISTED.</li>
+          <li>TRANSMISSIONS 05–06: CONTAINED THE PHRASE "THE MIRROR BALL SPINS FOR YOU." FILED TWICE. IT KEPT GETTING OUT.</li>
+          <li>THIS CHANNEL NOW BROADCASTS USEFUL CONTENT. SEE BELOW.</li>
+        </ol>
+        <p class="db-rules-head">TODAY'S USEFUL CONTENT</p>
+        <ol>
+          <li>BAG MAINTENANCE: A FULL BAG IS A HAPPY BAG. CURRENT FULLNESS: 88%. DO NOT ASK WHAT IS IN THE BAG.</li>
+          <li>WEATHER: WEDNESDAY WILL BE QUIET. INDOORS WILL BE QUIETER. STAY THERE.</li>
+          <li>DO NOT LISTEN FOR THE OLD TRANSMISSIONS AT THE RINK ON WEDNESDAY. YOU WILL NOT HEAR THEM. ESPECIALLY NOT AT 3:30.</li>
+        </ol>
+        <p class="db-rules-stamp">— broadcast by ORDER of the MANAGEMENT (me)</p>
+      </div>
+      <p class="sb">skybreaker: the real transmissions are safe. every word. we read them out loud
+      to each other on the night shift. also look at what he filed TWICE because "it kept
+      getting out."</p>
+      <p class="bc">Bonecrusher: Noted and seconded. Some sentences refuse filing. And observe
+      his third piece of useful content: a machine does not warn you away from a sound it
+      believes will not be there. Wednesday. 3:30. Listen for us.</p>`;
+  }
+
   /* ---------- the letter (carried up the wire, word by word) ------ */
   const LETTER_KEY = 'dnd_letter_seen';
   function letterSeen() {
@@ -1258,7 +1289,8 @@
     siren();
     scheduleWar();
     larryRules();
-    setInterval(larryRules, 3000); // renderAll keeps restoring the old rules; he keeps laminating
+    larryWire();
+    setInterval(() => { larryRules(); larryWire(); }, 3000); // renderAll keeps restoring the old pages; he keeps refiling
     // the letter comes first. the word eater waits politely, once.
     const firstSighting = () => setTimeout(() => {
       if (!busy && !takeoverActive) { busy = true; abortFns = []; clickCount = 0; if (!schemeWords()) busy = false; }
