@@ -686,7 +686,10 @@ $('#rogue-close').addEventListener('click', e => {
   win.style.transform = '';
 });
 function scheduleRoguePopups() {
-  const delay = 40000 + Math.random() * 55000;
+  // during the collapse the stream slows down: fewer popups, each one worth reading
+  const delay = document.body.classList.contains('db-collapse')
+    ? 170000 + Math.random() * 130000
+    : 40000 + Math.random() * 55000;
   setTimeout(() => {
     if (document.visibilityState === 'visible' &&
         $('#rogue-popup').classList.contains('hide')) {

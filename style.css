@@ -1616,3 +1616,5 @@ body.db-collapse .scrolltext.db-scroll-glitch {
 .db-rules ol { margin: .8rem 0 .6rem 1.4rem; }
 .db-rules li { font-size: .78rem; line-height: 2; letter-spacing: .5px; }
 .db-rules-stamp { font-size: .65rem; text-align: right; color: #8a2b1d; transform: rotate(-1.5deg); }
+
+.db-marquee-sig { color: #29e6ff; font-style: italic; }

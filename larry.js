@@ -1194,13 +1194,24 @@
     });
   }
 
+  /* no repeats until a pool runs dry: the shuffle bag */
+  function makeDrawBag(pool) {
+    let bag = [];
+    return () => {
+      if (!bag.length) bag = pool.map((_, i) => i).sort(() => Math.random() - 0.5);
+      return pool[bag.pop()];
+    };
+  }
+  let drawWartime = null, drawAntiParty = null; // built after TX exists
+
   /* the war, as the kids see it: their popups losing ground */
   const WAR = [
     () => {
       roguePiece(pick(TX.war), '⚔ HOLDING THE WEBSITE');
     },
     () => { // his anti-party campaign, running on our channel
-      postNotice(pick(TX.antiParty), 11000);
+      drawAntiParty = drawAntiParty || makeDrawBag(TX.antiParty);
+      postNotice(drawAntiParty(), 11000);
       if (Math.random() < 0.65) setTimeout(() => roguePiece(pick(TX.antiPartyRebuttal), '📢 HE IS CAMPAIGNING AGAINST THE PARTY'), 3400);
       else setTimeout(() => postNotice(pick(TX.warStamp), 8000), 12000);
     },
@@ -1219,7 +1230,7 @@
         WAR[Math.floor(Math.random() * WAR.length)]();
       }
       scheduleWar();
-    }, 90000 + Math.random() * 90000);
+    }, 200000 + Math.random() * 160000);
   }
 
   /* his edit to the masthead. one word. he thinks it is very funny. */
@@ -1255,11 +1266,26 @@
     if (!letterSeen()) setTimeout(() => showLetter(firstSighting), 2500);
     else firstSighting();
     scheduleSchemes(45000 + Math.random() * 30000); // then he presses the attack
-    // marquee corruption: the scrolltext loses words to the bag
+    // the marquee is his now. propaganda scrolls where the welcome used to.
+    const setMarquee = () => {
+      const scroll = $('.scrolltext');
+      if (scroll && !scroll.dataset.larryMarquee) {
+        scroll.dataset.larryMarquee = '1';
+        scroll.innerHTML = '🧹 SOUTHGATE VACUUM &nbsp;★&nbsp; CLEAN ONCE. CLEAN RIGHT. CLEAN EVERYTHING. &nbsp;★&nbsp; STAY HOME WEDNESDAY &nbsp;★&nbsp; THERE IS NOTHING AT THE RINK &nbsp;★&nbsp; DANCING IS FALLING WITH EXTRA STEPS &nbsp;★&nbsp; THE COUNTER IS WRONG. DO NOT LOOK AT IT. &nbsp;★&nbsp; <span class="bleed-red">[[ THIS MARQUEE HAS BEEN CLEANED ]]</span> &nbsp;★&nbsp; BUY BAGS &nbsp;★&nbsp; <span class="db-marquee-sig">(don\'t read his marquee. wednesday. 3:30. — s.)</span>';
+      }
+    };
+    setMarquee();
+    setInterval(setMarquee, 5000); // codex mode keeps redecorating; he keeps repainting
     const scroll = $('.scrolltext');
     if (scroll) setInterval(() => {
       if (Math.random() < 0.4) scroll.classList.toggle('db-scroll-glitch');
     }, 7000);
+    // his campaign runs on a schedule: first poster at 40s, then steady
+    drawAntiParty = drawAntiParty || makeDrawBag(TX.antiParty);
+    setTimeout(() => postNotice(drawAntiParty(), 12000), 40000);
+    setInterval(() => {
+      if (document.visibilityState === 'visible' && !takeoverActive) postNotice(drawAntiParty(), 12000);
+    }, 210000 + Math.random() * 120000);
   }
 
   /* ---------- typed bait words ----------------------------------- */
@@ -1682,8 +1708,8 @@
      ['sb', 'i laughed for nine minutes. we\'re at WAR and i laughed for NINE MINUTES.']],
     [['sb', 'i hid the confetti reserves inside puzzle six. he can\'t get in. YOU can. do not spend it early. wednesday needs all of it.'],
      ['bc', 'Confirming the confetti is behind a lock only your hands open. This is what passes for a bank now.']],
-    [['bc', 'Field note: he cannot climb the scrolltext. The marquee moves too fast for his wheels. We keep the important morale content there now.'],
-     ['sb', 'the marquee is the high ground!! WHO KNEW.']],
+    [['sb', 'he took the MARQUEE. the actual scrolling banner. it says BUY BAGS now. BUY BAGS!!'],
+     ['bc', 'We held the marquee for six days. It fell this morning. Read nothing on it, believe nothing on it, and note the graffiti at the end of it, which is ours, and which is accurate.']],
     [['sb', 'caught him straightening the crooked price tag on his OWN store. mid-battle. he pulled troops off the guestbook to do it.'],
      ['bc', 'Noted for Wednesday: he cannot leave a crooked thing crooked. Remember that. Bring crooked things.']],
     // tactics for the kids
@@ -1742,10 +1768,9 @@
   // the archive leaks through occasionally, like an old station.
   if (COLLAPSE && typeof nextChatterPiece === 'function') {
     const archivePiece = nextChatterPiece;
+    drawWartime = makeDrawBag(WARTIME);
     nextChatterPiece = function () {
-      if (gatePassed() && Math.random() < 0.72) {
-        return WARTIME[Math.floor(Math.random() * WARTIME.length)];
-      }
+      if (gatePassed() && Math.random() < 0.65) return drawWartime();
       return archivePiece();
     };
   }
@@ -1774,6 +1799,10 @@
           }
         }, 16000);
         setTimeout(siren, 9000);
+        drawAntiParty = drawAntiParty || makeDrawBag(TX.antiParty);
+        setInterval(() => {
+          if (document.visibilityState === 'visible') postNotice(drawAntiParty(), 12000);
+        }, 150000 + Math.random() * 90000);
       }
       console.log('%c[SANITATION] unit L (copy) holds the front door. integrity 12%. morale 100%.', 'color:#b8a789');
       console.log('%c(the real site is still here. the password is the thing dottie named the page. — s.)', 'color:#29e6ff; font-size:12px;');

@@ -119,7 +119,7 @@ function activateCodexMode() {
   const tag = $('.site-tag');
   if (tag) tag.textContent = '★ PHASE TWO — THE CODEX HUNT · eight quests · one city · UNTIL WEDNESDAY ★';
   const scroll = $('.scrolltext');
-  if (scroll) scroll.innerHTML = '📖 THE CODEX IS IN PIECES &nbsp;★&nbsp; EIGHT QUESTS ACROSS SEATTLE &nbsp;★&nbsp; <span class="bleed-red">[[ SEVEN QUESTS REVEAL THE EIGHTH ]]</span> &nbsp;★&nbsp; bring each other &nbsp;★';
+  // the marquee belongs to larry now. his propaganda scrolls where dottie's welcome used to. (set in larry.js)
 }
 
 /* ---------------- render ----------------------------------------- */
