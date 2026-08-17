@@ -1600,3 +1600,19 @@ body.db-collapse .scrolltext.db-scroll-glitch {
 @keyframes errand-armed { 50% { filter: brightness(1.25); } }
 .errand-party-note { color: #ff2d95; font-size: .72rem; letter-spacing: 1px; }
 @media (prefers-reduced-motion: reduce) { .errand-btn.armed { animation: none; } }
+
+/* --- his laminated rules --- */
+.db-rules {
+  background: #d8cdb8; color: #4a4132; border: 2px outset #efe8d8;
+  box-shadow: 5px 5px 0 rgba(0,0,0,.45), inset 0 0 40px rgba(255,255,255,.25);
+  padding: 1rem 1.2rem; margin-bottom: 1rem; position: relative;
+}
+.db-rules::after { /* the laminate shine */
+  content: ''; position: absolute; inset: 0; pointer-events: none;
+  background: linear-gradient(115deg, transparent 40%, rgba(255,255,255,.18) 46%, transparent 54%);
+}
+.db-rules-head { font-size: .85rem; letter-spacing: 2px; border-bottom: 2px solid #b8a789; padding-bottom: .35rem; }
+.db-rules-sub { font-size: .65rem; color: #8a7c5c; }
+.db-rules ol { margin: .8rem 0 .6rem 1.4rem; }
+.db-rules li { font-size: .78rem; line-height: 2; letter-spacing: .5px; }
+.db-rules-stamp { font-size: .65rem; text-align: right; color: #8a2b1d; transform: rotate(-1.5deg); }

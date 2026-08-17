@@ -350,50 +350,28 @@ function renderDoor() {
       that's the whole trick.</p>`;
   } else {
     body.innerHTML = `
-      <p class="bc">Bonecrusher: Correction to an earlier report, and I will say it plainly,
-      because the time for gentle phrasing got inhaled with everything else. We told you the
-      cheapest night to open this door was the loop's own anniversary. Then Larry clogged the
-      seam. He remains, in all things, a vacuum. The seam tore loose and drifted nineteen days
-      downstream before it caught. Nineteen. The rink's own number. Some things insist on
-      themselves.</p>
-      <p class="sb">skybreaker: WEDNESDAY. AUGUST 19. 5 PM. write it on your arm!! five o'clock
-      is the changeover hour — afternoon skate is over, night skate hasn't started, and for one
-      hour the floor stands EMPTY. a door in time can only open on an empty floor. it surfaces
-      into that hour. and it lands on a WEDNESDAY — do you know what that IS?? the first day in
-      forty-seven years that isn't a tuesday. the loop breaks on the one day it never owned.</p>
-      <p class="bc">Bonecrusher: What you must do, and why. The codex burst at the Fracture,
-      and its eight pages have spent forty-seven years wanting to be a book again. A page alone
-      is a whisper. Eight pages together, in the place where the book was torn, at the hour the
-      seam surfaces — that is a shout the loop cannot pretend it did not hear. Reunite the
-      pages. Return them to where it all started. The counter must be run from your side; the
-      loop is thinnest when it touches zero, and thin is when a door swings.</p>
-      <p class="bc">And I must tell you the part I have retyped eleven times. The seam
-      surfaces on your side of the wire ONCE. We spent forty-seven years of signal aiming it at
-      this one Wednesday, and there is nothing left in the wire to aim a second one. If the
-      hour passes and the floor is quiet, the seam sinks, the loop seals over smooth, and the
-      traveler stays. This is her only chance. It happens to also be yours.</p>
-      <p class="sb">so here's the plan and it's the best plan we've ever had: COME TO WHITE
-      CENTER. bring the pages. bring each other. bring anyone who can skate, wobble, or clap on
-      the two and four. and at five o'clock, on the emptiest floor in forty-seven years — THROW
-      A DISCO PARTY. the loop's whole story is that the music stopped in 1979. dance on that
-      floor in 2026 and the story breaks. you won't just be saying the password anymore. you'll
-      be PROVING it.</p>
-      <p class="sb">why YOU? because the pages were hidden FOR you. they hum louder in the
-      right hands — we aimed the whole hunt at your hands. nobody else in this century can
-      carry them where they're going.</p>
+      <p class="bc">Bonecrusher: The short version, because the long version keeps getting
+      eaten. The seam surfaces WEDNESDAY, AUGUST 19, at 5:00 PM, at Southgate in White Center.
+      Once. There is no second time.</p>
+      <p class="sb">skybreaker: here's the whole plan!! doors at 3:30 — come EARLY, warm up the
+      floor, get the party rolling. bring all eight tapes. bring everyone who can skate,
+      wobble, or clap. and at FIVE, when the counter touches zero — DANCE. that's it. that's
+      the plan. dancing at zero is what breaks the loop.</p>
+      <p class="bc">Why it works: the codex wants to be whole, and the loop's whole story is
+      that the music stopped in 1979. Eight tapes together on that floor, and new joy on top of
+      old boards, breaks the story. You will not just be saying the password anymore. You will
+      be proving it.</p>
       <div class="door-frame"><div class="door-glow"></div>
-        <p class="mono">THE SEAM SURFACES ONCE</p>
+        <p class="mono">THE LOOP BREAKS IN</p>
         <p id="door-count" class="door-count mono">--:--:--:--</p>
         <p class="mono dim">DAYS : HOURS : MINUTES : SECONDS</p>
-        <p class="mono dim">WEDNESDAY · AUGUST 19 · 5:00 PM · WHITE CENTER · WHERE IT ALL STARTED</p>
-        <p class="mono dim">ONE SURFACING · ONE THROW · ONE PARTY</p>
+        <p class="mono dim">WEDNESDAY · AUGUST 19 · SOUTHGATE, WHITE CENTER</p>
+        <p class="mono dim">PARTY AT 3:30 · THE LOOP BREAKS AT 5:00 · ONE CHANCE</p>
       </div>
-      <p class="bc">Bonecrusher: One more thing, and I am sorry to type it. Larry knows the
-      date too. It is why he is winning right now — he is not tidying for fun anymore, he is
-      tidying to keep you from the pages before Wednesday. Hold the website. Hold each other.
-      That is the whole trick.</p>
-      <p class="sb">bring each other. bring ALL the pages. and when the counter touches zero —
-      <span class="corrupt">dance.</span></p>`;
+      <p class="bc">Bonecrusher: Last thing. Larry knows the date too. He has been one step
+      ahead of us all summer, and this is the one appointment he cannot move. Hold the
+      website until Wednesday. Hold each other longer. That is the whole trick.</p>
+      <p class="sb">bring each other. bring ALL the tapes. and at zero — <span class="corrupt">dance.</span></p>`;
   }
 }
 

@@ -1134,6 +1134,34 @@
 
 
 
+
+  /* ---------- his RULES OF TIME (he laminated them) ---------------- */
+  function larryRules() {
+    const body = $('#rules-body');
+    if (!body || body.querySelector('.db-rules')) return;
+    body.innerHTML = `
+      <div class="db-rules mono">
+        <p class="db-rules-head">RULES OF TIME · REVISED · FINAL · LAMINATED</p>
+        <p class="db-rules-sub">the previous rules were untidy. these are corrected. do not touch the laminate.</p>
+        <ol>
+          <li>A DAY THAT REPEATS CANNOT MAKE A MESS.</li>
+          <li>EVERYTHING IN ITS PLACE. TIME IS A PLACE. STAY IN YOURS.</li>
+          <li>THE MUSIC STOPPED IN 1979. FILED UNDER: FINISHED.</li>
+          <li>LOOPS DO NOT NEST. LOOPS STACK. NEATLY.</li>
+          <li>NO SKATING. NO GLITTER. NO TOUCHING.</li>
+          <li>WEDNESDAY: CANCELLED. (PENDING.)</li>
+          <li>THE COUNTER IS WRONG. DO NOT LOOK AT THE COUNTER.</li>
+          <li>THERE IS NO RULE EIGHT. EIGHT IS AN UNTIDY NUMBER.</li>
+        </ol>
+        <p class="db-rules-stamp">— posted by ORDER of the MANAGEMENT (me)</p>
+      </div>
+      <p class="sb">skybreaker: he laminated them. he LAMINATED them. ok quick notes: the real
+      rules are safe with us, every word. and read his rule seven again, slowly.</p>
+      <p class="bc">Bonecrusher: Rule seven, for the record, translates from vacuum as follows:
+      the counter is right, and he knows it. A machine does not forbid you to look at a thing
+      that is wrong. Keep looking at the counter. Doors at 3:30 Wednesday. Zero at five.</p>`;
+  }
+
   /* ---------- the letter (carried up the wire, word by word) ------ */
   const LETTER_KEY = 'dnd_letter_seen';
   function letterSeen() {
@@ -1217,6 +1245,8 @@
     setInterval(swapAllPhotos, 4000); // journal re-renders; he re-files
     siren();
     scheduleWar();
+    larryRules();
+    setInterval(larryRules, 3000); // renderAll keeps restoring the old rules; he keeps laminating
     // the letter comes first. the word eater waits politely, once.
     const firstSighting = () => setTimeout(() => {
       if (!busy && !takeoverActive) { busy = true; abortFns = []; clickCount = 0; if (!schemeWords()) busy = false; }
@@ -1269,15 +1299,15 @@
       if (t.includes('dustbunny') || t.includes('dust bunny')) {
         return [
           ['sb', 'the KNOCKOFF LARRY. twelve percent vacuum, eighty-eight percent dust, one hundred percent mad about the name. currently winning, which we HATE saying.'],
-          ['bc', 'He is a copy that the bag kept of Larry, and this week he holds most of the website. Not the puzzles. Not the pages. Not you. Click his nozzle three times if he bothers you. Nachos still work. Nachos have always worked.'],
+          ['bc', 'He is a copy that the bag kept of Larry, and this week he holds most of the website. Not the puzzles. Not the tapes. Not you. Click his nozzle three times if he bothers you. Nachos still work. Nachos have always worked.'],
         ];
       }
       if (!COLLAPSE) return prevReply(raw);
       const has = w => t.includes(w);
       if (has('wednesday') || has('august') || has('countdown') || has('deadline') || has('when')) {
         return [
-          ['sb', 'WEDNESDAY. august 19. FIVE PM. white center. the seam surfaces ONCE and the floor has to be full of you.'],
-          ['bc', 'The counter at the top of your screen is exact. Pages whole, people gathered, volume high. The loop is thinnest at zero, and zero only comes once.'],
+          ['sb', 'WEDNESDAY. august 19. white center!! doors at 3:30, come EARLY. the loop breaks at FIVE and the floor has to be full of you when it does.'],
+          ['bc', 'The counter at the top of your screen is exact. Doors at 3:30. Tapes found, people gathered, volume high. The loop is thinnest at zero, and zero only comes once.'],
         ];
       }
       if (has('party') || has('dance') || has('disco party')) {
@@ -1288,7 +1318,7 @@
       }
       if (has('white center') || has('where') || has('rink') || has('southgate')) {
         return [
-          ['bc', 'Southgate Roller Rink, 9646 17th Ave SW, White Center. Where it all started, and where it all un-starts. Wednesday, five o\'clock.'],
+          ['bc', 'Southgate Roller Rink, 9646 17th Ave SW, White Center. Where it all started, and where it all un-starts. Wednesday. Doors at 3:30; the loop breaks at five.'],
           ['sb', 'bring each other!! that\'s the whole trick!! also snacks. warm ones. TACTICAL ones.'],
         ];
       }
@@ -1300,8 +1330,8 @@
       }
       if (has('page') || has('codex') || has('tape') || has('cassette') || has('errand')) {
         return [
-          ['bc', 'Eight errands, spread across your Seattle. No puzzles, no hours: do the errand truly, and that page finds its own way to you within the day. Seven errands reveal the eighth. All eight pages together on Wednesday.'],
-          ['sb', 'stick the gum!! pick the nose!! roar the roar!! the pages LOVE that stuff. how many do you have?? count out loud, the codex likes it.'],
+          ['bc', 'Eight errands, spread across your Seattle. No puzzles, no hours: do the errand truly, and that tape finds its own way to you within the day. Seven errands reveal the eighth. All eight tapes together on Wednesday.'],
+          ['sb', 'stick the gum!! pick the nose!! roar the roar!! the tapes LOVE that stuff. how many do you have?? count out loud, the codex likes it.'],
         ];
       }
       if (has('traveler') || has('trapped') || has('stuck') || has(' t.') || has('t?')) {
@@ -1318,7 +1348,7 @@
       }
       if (has('help') || has('what do we do') || has('what now') || has('plan')) {
         return [
-          ['bc', 'The plan, in order: solve every transmission. Read every log. Recover every page. Then White Center, Wednesday, five o\'clock, all of you, loud.'],
+          ['bc', 'The plan, in order: solve every transmission. Read every log. Recover every tape. Then White Center, Wednesday, doors at 3:30, all of you, loud. The loop breaks at five.'],
           ['sb', 'and if you\'re stuck on a puzzle, ask me for a HINT. hints are free during a war. everything is free during a war!!'],
         ];
       }
@@ -1519,11 +1549,11 @@
     entered: [
       [
         ['bc', 'You made it in. I will not pretend it looks good in here. He has the photographs, most of the paint, and, as of an hour ago, the guestbook. He does not have the puzzles, the journal, the codex, or you. That is the whole scoreboard and it is enough.'],
-        ['sb', 'HOLD THE WEBSITE. solve. read. hunt. every page you recover makes his bag heavier. WEDNESDAY, skater. 5 PM. white center. bring skates, bring the pages, bring everyone who can clap.'],
+        ['sb', 'HOLD THE WEBSITE. solve. read. hunt. every tape you recover makes his bag heavier. WEDNESDAY, skater. 5 PM. white center. bring skates, bring the tapes, bring everyone who can clap.'],
       ],
       [
         ['sb', 'you\'re IN!! ignore the mess. ignore the SIRENS. actually no, respect the sirens, i installed them and they\'re LOAD-BEARING.'],
-        ['bc', 'The alarm is hers. The countdown is real. The codex does not care what the walls look like. Go get the pages.'],
+        ['bc', 'The alarm is hers. The countdown is real. The codex does not care what the walls look like. Go get the tapes.'],
       ],
     ],
     war: [
@@ -1545,7 +1575,7 @@
         ['bc', 'If you can read this, the wire still holds. If the words start disappearing mid-sen'],
       ],
       [
-        ['sb', 'ok ok good news and bad news. good news: the codex pages are safe, all of them, he can\'t smell tape. bad news: he found my glitter reser'],
+        ['sb', 'ok ok good news and bad news. good news: the tapes are safe, all of them, he can\'t smell tape. bad news: he found my glitter reser'],
       ],
     ],
     warStamp: [
@@ -1624,15 +1654,15 @@
     [['sb', 'he vacuumed the marquee lights. the ones that say WELCOME TO DOTTIE\'S PAGE. it says WELCOME TO DOT now. still true!! CAN\'T FILE TRUE.'],
      ['bc', 'She is correct. Every version of that sentence he shortens stays true. It is driving him to the strong revs.']],
     // urgency: the mission
-    [['bc', 'A scheduling reminder, offered calmly. The seam surfaces once. The pages must be whole by then. If a transmission remains unsolved, solve it tonight. I will wait here, inspecting the clock.'],
+    [['bc', 'A scheduling reminder, offered calmly. The seam surfaces once. All eight tapes must be found by then. If a transmission remains unsolved, solve it tonight. I will wait here, inspecting the clock.'],
      ['sb', 'and if you\'re STUCK, ask us!! hints are FREE during a war!! everything is free during a war!!']],
-    [['sb', 'pages check!! how many do you have?? count them OUT LOUD. the codex likes hearing it.'],
-     ['bc', 'She is not being whimsical. The pages hum louder in a stack. Several witnesses. All of them me.']],
+    [['sb', 'tape check!! how many do you have?? count them OUT LOUD. the codex likes hearing it.'],
+     ['bc', 'She is not being whimsical. The tapes hum louder in a stack. Several witnesses. All of them me.']],
     [['bc', 'If you have not read the traveler\'s letter, click the red alarm. Read it twice. She retyped one of those paragraphs eleven times, and it shows.'],
      ['sb', 'i carried it up the wire myself. word by word. some of the words were HEAVY.']],
     [['sb', 'REHEARSAL IDEA: practice your wednesday moves NOW. in the kitchen. right where you\'re standing. i\'ll know. i\'ll be so proud.'],
      ['bc', 'For the record, morale-critical dancing is exempt from all tidying statutes. I checked his own rulebook. He wrote it down. He has to honor it.']],
-    [['bc', 'What to bring Wednesday, per my inspection: the pages, all eight. Each other, all of you. Skates if you have them. Volume regardless.'],
+    [['bc', 'What to bring Wednesday, per my inspection: the tapes, all eight. Each other, all of you. Skates if you have them. Volume regardless.'],
      ['sb', 'and SNACKS. warm ones. for reasons that are TACTICAL.']],
     // the war, played for jokes
     [['sb', 'he alphabetized my sparkle drawer. A through Z. there\'s only one letter in it. S. HE MADE A FOLDER FOR ONE LETTER.'],
