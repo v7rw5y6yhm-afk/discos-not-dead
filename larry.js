@@ -1149,12 +1149,14 @@
       '<p class="dnd-letter-carrier mono">📨 CARRIED 47 YEARS UP THE WIRE · DELIVERED WORD FOR WORD · READ, THEN GO</p>' +
       '<div class="dnd-letter-body">' +
       '<p>Polaris. Galileo. Fynn. Addy.</p>' +
-      '<p>You have seen what happened to the website. I will give it to you straight, because you four have earned straight. The vacuum got in. He is winning. He took the pictures first, and he is eating the words while you read these ones. A loop is what he wants for everything: one clean day, filed forever, nobody allowed to make a tomorrow.</p>' +
-      '<p>Here is what he cannot reach. The transmissions. The journal. The eight pages. You.</p>' +
-      '<p>On Wednesday, August 19, at five o\'clock, the seam surfaces at the rink in White Center. It surfaces once. The machines spent forty-seven years aiming it at that single hour, and there is nothing left in the wire for a second throw. If the hour passes and the floor stands quiet, the loop seals over smooth, and I stay inside it with the tidiest roommate in history.</p>' +
-      '<p>The counter runs from your side of the wire. It always has. Your hands are the only ones it answers to, which is why everything on this website was aimed at them.</p>' +
-      '<p>So finish the transmissions. All eight, before Wednesday. Read every log. Find every page. Then come to White Center at five o\'clock and fill that empty floor with the loudest, least filed thing your century can produce. Dance badly. Dance anyway. The music has been waiting forty-seven years for somebody to drop the needle.</p>' +
-      '<p>Bring each other. That is the whole trick. I learned it from four children I have never met.</p>' +
+      '<p>Hello! Yes, you. All four of you, crowded round one glowing rectangle, probably arguing about whose turn it is to hold it. Wonderful. Keep arguing. It means you\'re standing close together, and standing close together is ninety percent of saving the world. The other ten percent is snacks.</p>' +
+      '<p>Introductions, quickly, because time is short and I am long: I collect summers. I fix broken time, mostly on purpose. I have been stuck inside one single July for forty-seven years, and before you feel sorry for me, know this: the corn dogs here are perfect every single night, I can now skate backwards eleven different ways, and I am winning a very slow argument with a jukebox. You take the good with the bad.</p>' +
+      '<p>The bad is a vacuum cleaner. You\'ve met. He found your website, painted it beige, and hung up pictures of himself, which tells you everything: he\'s the sort of machine that thinks a museum is a party that finally calmed down. He is winning at the moment, and he is TERRIBLY pleased about it. Let him be pleased. Pleased machines get sloppy, and sloppy machines clog.</p>' +
+      '<p>Now the important bit. Put your listening ears on, the ones you save for fire drills and grandmothers. Wednesday. The nineteenth. Five o\'clock. The rink in White Center. Time goes thin there, thin as the skin on top of cocoa, and on Wednesday, for one hour only, there\'s a door in it. One door. One hour. I\'ll be minding it from my side. Mind it from yours.</p>' +
+      '<p>The machines have set you errands, and I want them done the way you four do everything: loudly, together, at least one shoe untied. Gum. Noses. Roaring at the sky. It looks like silliness, and it is, and that is precisely the science of it. Joy is the one thing in this universe he cannot keep hold of. Ask his bag.</p>' +
+      '<p>Forty-seven years is a long time to keep listening for a knock. I always knew somebody would come. I just never guessed I\'d be this lucky about who.</p>' +
+      '<p>So: Wednesday. Five. Bring your skates, bring your tapes, bring each other. That last one is the whole trick. The rest is decoration. And when the counter touches zero, dance like the floor owes you money.</p>' +
+      '<p>First one to spot me gets a corn dog.</p>' +
       '<p class="dnd-letter-sig">— T.</p>' +
       '</div>' +
       '<button type="button" class="dnd-letter-btn mono">WE\'RE COMING →</button>' +
