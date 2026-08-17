@@ -1178,7 +1178,7 @@
       '<div class="dnd-letter-body">' +
       '<p>Polaris. Galileo. Fynn. Addy.</p>' +
       '<p>No time for a proper letter, so here is an improper one. Things are going badly. All summer, every clever move we made, Larry was one move ahead of it. He still is. You have seen the website. Beige is what winning looks like when he does it.</p>' +
-      '<p>Wednesday. Five o\'clock. White Center. The door opens once, for one hour, and there is no next time after it. This is my last chance. I would rather it be a party than a rescue, so bring your tapes, bring your skates, and when the counter touches zero, dance like the floor owes you money.</p>' +
+      '<p>Wednesday. White Center. The party starts at 3:30, and at five o\'clock the loop breaks, once, with no next time after it. This is my last chance. I would rather it be a party than a rescue, so come early, bring your tapes, bring your skates, and when the counter touches zero, dance like the floor owes you money.</p>' +
       '<p>Don\'t be late. First one to spot me gets a corn dog.</p>' +
       '<p class="dnd-letter-sig">— T.</p>' +
       '</div>' +
