@@ -18,3 +18,28 @@ under their original licenses.
 | img/real/skylab.jpg | [NASA sl4-143-4706](https://images.nasa.gov/details/sl4-143-4706) — Skylab in orbit | NASA | Public domain |
 
 SVG artwork (rink painting, frame 19, parade, rink floor) is original to this site.
+
+## Vacuum store takeover photos (img/real/, added Aug 12 2026)
+- kirby-chrome.jpg — "Kirby Chrome" by Don Dearing (Vilano Beach, FLA), CC BY-SA 2.0, via Wikimedia Commons
+- kirby-g5.jpg — "Kirby G5 upright vacuum cleaner" by Thrapston2, CC BY-SA 4.0, via Wikimedia Commons
+- kirby-old.jpg — "Oldkirby" by Hedman, public domain, via Wikimedia Commons
+
+## Vacuum store takeover photos (added Aug 12, 2026)
+- `img/real/kirby-chrome.jpg` — "Kirby Chrome" by Don Dearing (Flickr),
+  via Wikimedia Commons, CC BY-SA 2.0. Cropped/resized.
+- `img/real/kirby-g5.jpg` — "Kirby G5 upright vacuum cleaner" by
+  Thrapston2, via Wikimedia Commons, CC BY-SA 4.0. Resized.
+- `img/real/kirby-old.jpg` — "Oldkirby" by Hedman, via Wikimedia
+  Commons, public domain. Resized.
+
+## Collapse-mode vacuum photos (added Aug 12, 2026)
+- `img/real/vac-hoover70s.jpg` — "Hoover 1970s Vacuum cleaner" by Rama,
+  Wikimedia Commons, CC BY-SA 2.0 FR. Resized.
+- `img/real/vac-gs80.jpg` — "GS80 1970s" by Nilfisk-Advance, Wikimedia
+  Commons, CC BY-SA 3.0. Resized.
+- `img/real/vac-zelmer.jpg` — "Predom-zelmer" by Pibwl, Wikimedia
+  Commons, CC BY-SA 4.0. Resized.
+- `img/real/vac-veterok.jpg` — "Пылесос-щетка Ветерок" by Andshel,
+  Wikimedia Commons, CC BY-SA 4.0. Resized.
+- `img/real/vac-uralets.jpg` — "Пылесос Уралец" by GennadyL, Wikimedia
+  Commons, CC0. Resized.

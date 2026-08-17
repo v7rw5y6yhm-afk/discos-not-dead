@@ -15,7 +15,13 @@
 // still forming" everywhere on the site. When the real date locks, set e.g.
 // new Date('2026-08-15T23:59:59') and follow STORY-BIBLE.md's production
 // checklist ("The movable seam"). The counter beats the calendar.
-const COUNTDOWN_TARGET = null;
+// LOCKED Aug 16, 2026: the seam surfaces Wednesday, August 19, 2026,
+// 5:00 PM Pacific — 19 days downstream of the loop's anniversary
+// (Larry clogged the seam; 19 is the rink's own number), at the
+// changeover hour: the one hour a rink floor stands empty between
+// afternoon and night sessions. A door can only open on an empty
+// floor. The kids' job is to fill it. ONE surfacing, one throw.
+const COUNTDOWN_TARGET = new Date('2026-08-19T17:00:00-07:00');
 
 // The lock page: nobody gets in before this moment. (7 days from launch.)
 const UNLOCK_TARGET = new Date('2026-07-19T20:00:00');

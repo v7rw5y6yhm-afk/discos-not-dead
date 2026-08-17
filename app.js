@@ -350,16 +350,50 @@ function renderDoor() {
       that's the whole trick.</p>`;
   } else {
     body.innerHTML = `
-      <p class="sb">skybreaker: all eight locks are open!! the door is unlocked — but a door in
-      time only swings when the loop is thinnest. i tried pushing it early once. ONCE.</p>
-      <p class="bc">Bonecrusher: The counter decides — not me, not you, and certainly not
-      skybreaker, who has already attempted kicking.</p>
+      <p class="bc">Bonecrusher: Correction to an earlier report, and I will say it plainly,
+      because the time for gentle phrasing got inhaled with everything else. We told you the
+      cheapest night to open this door was the loop's own anniversary. Then Larry clogged the
+      seam. He remains, in all things, a vacuum. The seam tore loose and drifted nineteen days
+      downstream before it caught. Nineteen. The rink's own number. Some things insist on
+      themselves.</p>
+      <p class="sb">skybreaker: WEDNESDAY. AUGUST 19. 5 PM. write it on your arm!! five o'clock
+      is the changeover hour — afternoon skate is over, night skate hasn't started, and for one
+      hour the floor stands EMPTY. a door in time can only open on an empty floor. it surfaces
+      into that hour. and it lands on a WEDNESDAY — do you know what that IS?? the first day in
+      forty-seven years that isn't a tuesday. the loop breaks on the one day it never owned.</p>
+      <p class="bc">Bonecrusher: What you must do, and why. The codex burst at the Fracture,
+      and its eight pages have spent forty-seven years wanting to be a book again. A page alone
+      is a whisper. Eight pages together, in the place where the book was torn, at the hour the
+      seam surfaces — that is a shout the loop cannot pretend it did not hear. Reunite the
+      pages. Return them to where it all started. The counter must be run from your side; the
+      loop is thinnest when it touches zero, and thin is when a door swings.</p>
+      <p class="bc">And I must tell you the part I have retyped eleven times. The seam
+      surfaces on your side of the wire ONCE. We spent forty-seven years of signal aiming it at
+      this one Wednesday, and there is nothing left in the wire to aim a second one. If the
+      hour passes and the floor is quiet, the seam sinks, the loop seals over smooth, and the
+      traveler stays. This is her only chance. It happens to also be yours.</p>
+      <p class="sb">so here's the plan and it's the best plan we've ever had: COME TO WHITE
+      CENTER. bring the pages. bring each other. bring anyone who can skate, wobble, or clap on
+      the two and four. and at five o'clock, on the emptiest floor in forty-seven years — THROW
+      A DISCO PARTY. the loop's whole story is that the music stopped in 1979. dance on that
+      floor in 2026 and the story breaks. you won't just be saying the password anymore. you'll
+      be PROVING it.</p>
+      <p class="sb">why YOU? because the pages were hidden FOR you. they hum louder in the
+      right hands — we aimed the whole hunt at your hands. nobody else in this century can
+      carry them where they're going.</p>
       <div class="door-frame"><div class="door-glow"></div>
-        <p class="mono">SEALED UNTIL</p>
+        <p class="mono">THE SEAM SURFACES ONCE</p>
         <p id="door-count" class="door-count mono">--:--:--:--</p>
         <p class="mono dim">DAYS : HOURS : MINUTES : SECONDS</p>
+        <p class="mono dim">WEDNESDAY · AUGUST 19 · 5:00 PM · WHITE CENTER · WHERE IT ALL STARTED</p>
+        <p class="mono dim">ONE SURFACING · ONE THROW · ONE PARTY</p>
       </div>
-      <p class="sb">come back when it touches zero. bring each other. that's the whole trick.</p>`;
+      <p class="bc">Bonecrusher: One more thing, and I am sorry to type it. Larry knows the
+      date too. It is why he is winning right now — he is not tidying for fun anymore, he is
+      tidying to keep you from the pages before Wednesday. Hold the website. Hold each other.
+      That is the whole trick.</p>
+      <p class="sb">bring each other. bring ALL the pages. and when the counter touches zero —
+      <span class="corrupt">dance.</span></p>`;
   }
 }
 
@@ -547,8 +581,8 @@ function mountStarmap(box) {
     FX.warp();
     setTimeout(() => line.remove(), 1200);
     roguePiece([
-      ['sb', 'YOU FOUND MY WISHING STAR!!! nobody EVER finds my wishing star!!'],
-      ['bc', 'For the record, wishes filed via that star have a 100% delivery rate. I do not know how. It is not in my documentation. Make it count.'],
+      ['sb', 'YOU FOUND MY WISHING STAR!!! he\'s vacuumed this corner nine times and NEVER FOUND IT.'],
+      ['bc', 'Wishes filed via that star still deliver at one hundred percent, war or no war. It is not in my documentation and he cannot file it. Make this one count. You know what week it is.'],
     ], '⭐ SECRET FOUND — THE WISHING STAR');
   });
 }
@@ -620,31 +654,7 @@ $('#reset').addEventListener('click', e => {
    THE ROGUE LAYER — popups, chat, voices, glitches, easter eggs
    ======================================================================== */
 
-/* ---------- fx preference persistence ---------- */
-(function loadFxPrefs() {
-  try {
-    const p = JSON.parse(localStorage.getItem('dnd_fx') || '{}');
-    if (typeof p.sound === 'boolean') FX.soundOn = p.sound;
-    if (typeof p.voice === 'boolean') FX.voiceOn = p.voice;
-  } catch (e) { /* defaults stand */ }
-})();
-function saveFxPrefs() {
-  try { localStorage.setItem('dnd_fx', JSON.stringify({ sound: FX.soundOn, voice: FX.voiceOn })); }
-  catch (e) { /* fine */ }
-}
-function refreshToggles() {
-  $('#toggle-sound').classList.toggle('off', !FX.soundOn);
-  $('#toggle-voice').classList.toggle('off', !FX.voiceOn);
-  $('#toggle-sound').textContent = FX.soundOn ? '🔊' : '🔇';
-}
-$('#toggle-sound').addEventListener('click', () => {
-  FX.init(); FX.soundOn = !FX.soundOn; saveFxPrefs(); refreshToggles();
-  if (FX.soundOn) FX.bleep();
-});
-$('#toggle-voice').addEventListener('click', () => {
-  FX.init(); FX.voiceOn = !FX.voiceOn; saveFxPrefs(); refreshToggles();
-  if (FX.voiceOn) FX.speak('voices on!', 'sb'); else FX.hush();
-});
+/* ---------- audio: always on. the wire does not have a mute button. */
 document.addEventListener('pointerdown', () => FX.init(), { once: true });
 
 /* ---------- rogue popup ---------- */
@@ -759,8 +769,8 @@ $('#chat-launcher').addEventListener('click', () => {
     if (!chatGreeted) {
       chatGreeted = true;
       botRespond([
-        ['bc', 'Connection established. You have reached the TIME-WIRE. Two minds are present. One of us is very excited.'],
-        ['sb', 'IT\'S ME. I\'M THE EXCITED ONE. hi!!! ask us anything!! try "hint" or "joke" or tell us your NAME!'],
+        ['bc', 'Connection established. You have reached the TIME-WIRE, which is still ours, whatever the rest of the walls are doing. Two minds present. Both at war. One of us remains very excited.'],
+        ['sb', 'STILL ME!!! hi!!! ask about WEDNESDAY. or the PASSWORD. or the PAGES. or just tell us your name — hearing your names is the best part of the whole day.'],
       ]);
     }
   }
@@ -786,8 +796,8 @@ $('#visitor-counter').addEventListener('click', () => {
   counterClicks++;
   if (counterClicks === COUNTER_VALUES.length) {
     roguePiece([
-      ['sb', 'you found the counter game!! it counts whatever it WANTS. we respect it.'],
-      ['bc', 'For accuracy: you are visitor number one. You are always visitor number one. That is the point of the whole website.'],
+      ['sb', 'you found the counter game!! he zeroed this thing TWICE today. we keep putting you back. we will ALWAYS put you back.'],
+      ['bc', 'For accuracy, and he can file this if he can catch it: you are visitor number one. You are always visitor number one. That is the point of the whole website, and it is why he cannot win.'],
     ], '🔢 SECRET FOUND — THE FREE-SPIRITED COUNTER');
   }
 });
@@ -826,8 +836,8 @@ if (dottieSig) dottieSig.addEventListener('click', () => {
     dottieSig.closest('.card').after(card);
     FX.chime();
     roguePiece([
-      ['sb', 'THE HIDDEN NOTE!! you triple-clicked!! you absolute LEGEND!!'],
-      ['bc', 'We have never opened the mirror ball. It is not ours to open. When the counter reaches zero… perhaps it is yours.'],
+      ['sb', 'THE HIDDEN NOTE!! you triple-clicked!! you absolute LEGEND!! even mid-war you\'re finding SECRETS. this is why we\'re going to win.'],
+      ['bc', 'We have never opened the mirror ball. It is not ours to open. The counter touches zero on Wednesday at five. Then, perhaps, it is yours.'],
     ], '✌️ SECRET FOUND — DOTTIE\'S NOTE');
   }
 });
@@ -841,13 +851,13 @@ if (frame19) frame19.addEventListener('click', () => {
   FX.screenGlitch(frame19Clicks >= 3);
   if (frame19Clicks === 1) {
     roguePiece([
-      ['bc', 'Please stop touching frame 19. We have been trying to recover it for eleven loops. The static bites.'],
-      ['sb', 'it doesn\'t BITE, it NIBBLES. touch it again. see what happens.'],
+      ['bc', 'Please stop touching frame 19. Eleven loops of recovery work, and now a war on top. For the record, HE has tried to inhale this frame four times this week. It shocked him every time. Good frame.'],
+      ['sb', 'it doesn\'t bite KIDS, it only bites VACUUMS. touch it again. see what happens.'],
     ], '🖼 FRAME 19 — DO NOT TOUCH');
   } else if (frame19Clicks === 3) {
     roguePiece([
-      ['sb', 'okay okay listen. the missing half of frame 19 shows WHO the figure is. we can\'t recover it from our side. but the traveler said: "the frame develops when the counter reaches zero."'],
-      ['bc', 'When the counter touches zero, the photograph finishes itself. I have goosebumps, which is remarkable, because I do not have skin.'],
+      ['sb', 'okay okay listen. the missing half of frame 19 shows WHO the figure is. we can\'t recover it from our side. but the traveler said: "the frame develops when the counter reaches zero." that\'s WEDNESDAY. FIVE PM. we finally get to SEE.'],
+      ['bc', 'Three more days and the photograph finishes itself. I have goosebumps, which is remarkable, because I do not have skin, and inconvenient, because there is a war on.'],
     ], '🖼 FRAME 19 — PARTIAL RECOVERY');
   } else {
     roguePiece([nextChatterPiece()[0]], '🖼 FRAME 19 — STILL STATIC');
@@ -859,8 +869,8 @@ let sideBWarned = false;
 $('#cassette').addEventListener('click', () => {
   FX.init();
   roguePiece([
-    ['bc', 'You found the cassette. Side A is a lovely rink organ groove. Side B is labeled, in the traveler\'s handwriting: "ABSOLUTELY NOT."'],
-    ['sb', 'play side A!! (type "side a" or "side b" in the TIME-WIRE messenger. i\'m not allowed to press them myself anymore.)'],
+    ['bc', 'You found the cassette, which we defend in shifts now. Side A is a lovely rink organ groove. Side B is labeled, in the traveler\'s handwriting: "ABSOLUTELY NOT."'],
+    ['sb', 'play side A!! LOUD!! consider it rehearsal for wednesday!! (type "side a" or "side b" in the TIME-WIRE. i\'m not allowed to press them myself anymore. especially not during a war.)'],
   ], '📼 SECRET FOUND — THE CASSETTE');
 });
 const _origReply = BOT.reply.bind(BOT);
@@ -868,8 +878,8 @@ BOT.reply = function (raw) {
   const m = (raw || '').toLowerCase();
   if (m.includes('side a')) {
     FX.discoRiff();
-    return [['sb', '🎵 side A!! crank it!! the organ groove of 1979!! 🎵'],
-            ['bc', 'A certified bop, as recorded live at Southgate. Note the structural integrity of that bassline.']];
+    return [['sb', '🎵 side A!! crank it!! the organ groove of 1979!! somewhere in the walls a vacuum just did the ANGRY rev!! 🎵'],
+            ['bc', 'A certified bop, recorded live at Southgate. Note the structural integrity of that bassline. This is the sound we are restoring on Wednesday. Consider it a preview.']];
   }
   if (m.includes('side b')) {
     if (!sideBWarned) {
@@ -898,7 +908,7 @@ $('#do-not-press').addEventListener('click', () => {
   dnpCount++;
   if (dnpCount === 1) {
     FX.buzz();
-    roguePiece([['bc', 'You pressed it. The button said DO NOT PRESS, and you pressed it. I have logged this with a mixture of disappointment and deep, deep understanding.']], '🔴 INCIDENT REPORT #001');
+    roguePiece([['bc', 'You pressed it. The button said DO NOT PRESS, and you pressed it. I have logged this with disappointment, deep understanding, and, this week, gratitude. He hates this button. Press it whenever morale dips.']], '🔴 INCIDENT REPORT #001');
   } else if (dnpCount === 2) {
     roguePiece([['sb', 'press it again. i dare you. i DOUBLE-DISCO-DARE you.']], '🔴 INCIDENT REPORT #002');
   } else if (dnpCount === 3) {
@@ -908,7 +918,7 @@ $('#do-not-press').addEventListener('click', () => {
   } else if (dnpCount === 4) {
     for (let i = 0; i < 15; i++) spawnFallingBall(i * 120);
     FX.chime();
-    roguePiece([['bc', 'FINE. Fine. It is a party button now. It was always a party button. The label was a test of character, which you failed magnificently.']], '🎉 INCIDENT UPGRADED TO PARTY');
+    roguePiece([['bc', 'FINE. Fine. It is a party button now. It was always a party button. The label was a test of character, which you failed magnificently. Log it as training. Wednesday is the live performance.']], '🎉 INCIDENT UPGRADED TO PARTY');
   } else {
     FX.bleep();
     roguePiece([nextChatterPiece()[0]], '🔴 INCIDENT REPORT #00' + dnpCount);
@@ -941,9 +951,9 @@ function summonLarry() {
   setTimeout(() => document.body.classList.remove('shaking'), 1400);
   setTimeout(() => larry.remove(), 4600);
   setTimeout(() => roguePiece([
-    ['sb', 'LARRY!!! WHO SAID HIS NAME?? WHO SAID IT??'],
-    ['bc', 'Remain calm. He cannot inhale a website. …He cannot inhale a website, correct? Skybreaker. CORRECT?'],
-    ['sb', 'he took three pixels and a comma. THIS MEANS WAR.'],
+    ['sb', 'LARRY?? WHICH ONE. the REAL one is in 1979 with the traveler. the LINT one is IN OUR WALLS, holding OUR front door.'],
+    ['bc', 'Clarification, from an old report of mine that has not aged well: "he cannot inhale a website." The copy is currently disproving that at scale. I stand corrected, and I stand at war.'],
+    ['sb', 'it already meant war. it means MORE WAR. wednesday can\'t come fast enough.'],
   ], '🌀 UNSCHEDULED VACUUM EVENT'), 4700);
 }
 function discoMode() {
@@ -954,8 +964,8 @@ function discoMode() {
   setTimeout(() => FX.discoRiff(), 1500);
   FX.speak('Unauthorized disco mode detected. I have decided to allow it.', 'bc');
   roguePiece([
-    ['sb', 'THE OLD CODE!!! YOU KNOW THE OLD CODE!!! DISCO MODE ENGAGED!!!'],
-    ['bc', 'Thirty seconds of sanctioned chaos, beginning now. I will be over here, gently bobbing.'],
+    ['sb', 'THE OLD CODE!!! YOU KNOW THE OLD CODE!!! DISCO MODE ENGAGED!!! every second of this physically pains him and i am COUNTING THEM.'],
+    ['bc', 'Thirty seconds of sanctioned chaos, beginning now. Consider it a drill. Wednesday is the live performance. I will be over here, gently bobbing, tactically.'],
   ], '🕺 SECRET FOUND — THE OLD CODE');
   setTimeout(() => document.body.classList.remove('disco-mode'), 30000);
 }
@@ -977,17 +987,17 @@ document.addEventListener('keydown', e => {
     typedBuf = '';
     FX.screenGlitch();
     roguePiece([
-      ['bc', 'You typed the word. They know you typed the word. Eight feet tall, part platypus, part human, all business. They work for Larry.'],
-      ['sb', 'their beaks are VELVETY and i want to boop one SO BAD.'],
-      ['bc', 'Do not boop the platypus people. It resets the handshake. All 45 minutes of it.'],
+      ['bc', 'You typed the word. They know you typed the word. Eight feet tall, part platypus, part human, all business. They work for Larry — though intelligence notes neither has reported for duty since the collapse began. Even hired trackers read a room eventually.'],
+      ['sb', 'chad left a kazoo by our door. no note. i choose to believe it means "good luck" in platypus.'],
+      ['bc', 'Do not boop the platypus people if encountered. It resets the handshake. All 45 minutes of it. Although this week, frankly, we could use the 45 quiet minutes.'],
     ], '🦆 CLASSIFIED FILE — THE PLATYPUS PEOPLE');
   }
   else if (typedBuf.endsWith('1979')) {
     typedBuf = '';
     FX.warp(); FX.screenGlitch(true);
     roguePiece([
-      ['sb', 'you typed the YEAR. the wire heard you. somewhere, an organ just played one extra note.'],
-      ['bc', 'Confirmed. The traveler looked up from a corn dog and smiled at nothing. That was you. That is how the wire works.'],
+      ['sb', 'you typed the YEAR. the wire heard you. somewhere, an organ just played one extra note, and a vacuum in a rink parking lot did a furious little rev.'],
+      ['bc', 'Confirmed. The traveler looked up from a corn dog and smiled at nothing. That was you. She knows you are coming Wednesday. She has known for forty-seven years.'],
     ], '⏳ TEMPORAL ECHO DETECTED');
   }
 });
@@ -1003,8 +1013,8 @@ if (CHATTER.length >= 1000) console.log(`%c[TIME-WIRE] ${CHATTER.length} convers
 BOT.replyBase = BOT.reply.bind(BOT);
 BOT.reply = function (raw) {
   if ((raw || '').toLowerCase().includes('marshmallow')) {
-    return [['sb', 'THE PASSWORD!!! you found the console!!! you\'re officially WIRE-CREW!! your duties include: snacks, courage, and telling bonecrusher his cape looks great.'],
-            ['bc', 'I do not have a cape. …I have ordered a cape.']];
+    return [['sb', 'THE OLD PASSWORD!!! you found the console!!! you\'re officially WIRE-CREW, wartime division!! duties: snacks, courage, showing up wednesday, and telling bonecrusher his cape looks great.'],
+            ['bc', 'I do not have a cape. …I ordered a cape. It arrives Tuesday. The timing is not an accident.']];
   }
   return BOT.replyBase(raw);
 };
@@ -1126,7 +1136,6 @@ setupLock();
 renderAll();
 tickCountdowns();
 startBleeds();
-refreshToggles();
 scheduleRoguePopups();
 scheduleGlitches();
 applyDailyTheme();
