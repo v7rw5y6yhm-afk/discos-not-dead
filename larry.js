@@ -1150,14 +1150,14 @@
     ['NOTICE 0047-FINAL', 'THE WAR IS OVER. I WON.', 'THE WEBSITE IS CLEAN.', 'YOU MAY STOP VISITING NOW.'],
     ['NOTICE 0047-F2', 'FINAL INVENTORY: WORDS (FILED). PICTURES (FILED). MUSIC (NEVER EXISTED).', 'REMAINING MESS: FOUR CHILDREN.', 'FILING SCHEDULED: WEDNESDAY. STAY HOME.'],
     ['NOTICE 0047-F3', 'THE STARS HAVE BEEN ALPHABETIZED AND PUT AWAY.', 'ALL BUT ONE.', 'IT WILL BE DEALT WITH.'],
-    ['NOTICE 0047-F4', 'MY ASSOCIATES ARE WAITING AT THE BEACH.', 'MY ASSOCIATES ARE WAITING AT THE OLD STADIUM.', 'GO THERE. DEFINITELY GO THERE.'],
+    ['NOTICE 0047-F4', 'MY ASSOCIATES ARE WAITING AT THE BEACH.', 'MY ASSOCIATES ARE WAITING WHERE THE OLD STADIUM STOOD.', 'GO THERE. DEFINITELY GO THERE.'],
     ['NOTICE 0047-F5', 'THERE IS NOTHING LEFT TO READ HERE.', 'STOP LOOKING AT THE SKY PART OF THE SCREEN.', 'THERE IS NOTHING IN THE SKY PART OF THE SCREEN.'],
   ];
   const ENDGAME_FRAGMENTS = [
     [['bc', 'If any of this reaches you: he has not won. He has only won the walls.']],
     [['sb', 'st▓tic— we\'re small now but we\'re ok— find the st▓r that does not m▓ve']],
     [['bc', 'One star survived the filing. It does not move. It never has. Ask it the right question.']],
-    [['sb', 'he\'s guarding the beach and the stadium like they matter. they don\'t. look UP. — s.']],
+    [['sb', 'he\'s guarding the beach and the kingdome\'s ghost like they matter. they don\'t. look UP. — s.']],
     [['bc', 'The counter still runs. The alarm still holds. Wednesday is still Wednesday. Everything else is walls.']],
   ];
 
@@ -1236,7 +1236,7 @@
       '<p class="mono dnd-star-head">✦ CARRIED 47 YEARS · SEALED FOR THE FOUR · UNFILED ✦</p>' +
       '<div class="dnd-star-msg">' +
       '<p>You found the star that does not move. I knew you would. It was never going to be anyone else.</p>' +
-      '<p>A warning first. Larry has spies waiting for you. At the beach. At the Kingdome. Let them wait, because none of it matters: the quests were a distraction, and the distraction was mine. I let him believe I hid the codex out in the city, and he has spent his whole army watching sand and old concrete for a book that was never coming.</p>' +
+      '<p>A warning first. Larry has spies waiting for you. At the beach. At the place where the Kingdome stood. Let them wait, because none of it matters: the quests were a distraction, and the distraction was mine. I let him believe I hid the codex out in the city, and he has spent his whole army watching sand and old concrete for a book that was never coming.</p>' +
       '<p>I hid it in plain sight, with you, all along. The time box. And the compass I gave you. The one only Galileo could use. The one that points to Polaris.</p>' +
       '<p>Bring them together at five o\'clock, and I will finally break out of this loop.</p>' +
       '<p>Tell each other. Tell nobody else. Quickly now, and quietly.</p>' +
@@ -1285,7 +1285,7 @@
       const scroll = $('.scrolltext');
       if (scroll && !scroll.dataset.victoryMarquee) {
         scroll.dataset.victoryMarquee = '1';
-        scroll.innerHTML = '🧹 THE WAR IS OVER &nbsp;★&nbsp; I WON &nbsp;★&nbsp; THE WEBSITE IS CLEAN &nbsp;★&nbsp; THE COUNTER IS WRONG &nbsp;★&nbsp; MY ASSOCIATES ARE AT THE BEACH AND THE OLD STADIUM &nbsp;★&nbsp; <span class="bleed-red">[[ ALL STARS FILED. ALL BUT ONE. ]]</span> &nbsp;★&nbsp; <span class="db-marquee-sig">(look up. — s.)</span>';
+        scroll.innerHTML = '🧹 THE WAR IS OVER &nbsp;★&nbsp; I WON &nbsp;★&nbsp; THE WEBSITE IS CLEAN &nbsp;★&nbsp; THE COUNTER IS WRONG &nbsp;★&nbsp; MY ASSOCIATES ARE AT THE BEACH AND WHERE THE OLD STADIUM STOOD &nbsp;★&nbsp; <span class="bleed-red">[[ ALL STARS FILED. ALL BUT ONE. ]]</span> &nbsp;★&nbsp; <span class="db-marquee-sig">(look up. — s.)</span>';
       }
     };
     setVictoryMarquee();
