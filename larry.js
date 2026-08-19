@@ -51,6 +51,12 @@
      backups live in ~/dnd-backups/.
      ============================================================ */
   const COLLAPSE = true;
+  // THE ENDGAME (Aug 17 evening): he has taken nearly everything.
+  // Flip false to return to the ordinary collapse; pre-endgame backup
+  // in ~/dnd-backups/pre-endgame-2026-08-17 and git tag of same name.
+  const ENDGAME = true;
+  // the north star's birthday, digits only, several formats (hashed)
+  const STAR_HASHES = ['7c537248', '81edface', 'b865fd8', '24ec285e', 'e46952c8'];
   const PASS_HASH = 'be387315'; // djb2 over letters only, uppercased
   const GATE_KEY = 'dnd_gate2026';
   function gatePassed() {
@@ -1135,6 +1141,166 @@
 
 
 
+
+  /* ============================================================
+     THE ENDGAME — the kids open the site and find destruction.
+     He claims it is over. One star survived the filing.
+     ============================================================ */
+  const ENDGAME_NOTICES = [
+    ['NOTICE 0047-FINAL', 'THE WAR IS OVER. I WON.', 'THE WEBSITE IS CLEAN.', 'YOU MAY STOP VISITING NOW.'],
+    ['NOTICE 0047-F2', 'FINAL INVENTORY: WORDS (FILED). PICTURES (FILED). MUSIC (NEVER EXISTED).', 'REMAINING MESS: FOUR CHILDREN.', 'FILING SCHEDULED: WEDNESDAY. STAY HOME.'],
+    ['NOTICE 0047-F3', 'THE STARS HAVE BEEN ALPHABETIZED AND PUT AWAY.', 'ALL BUT ONE.', 'IT WILL BE DEALT WITH.'],
+    ['NOTICE 0047-F4', 'MY ASSOCIATES ARE WAITING AT THE BEACH.', 'MY ASSOCIATES ARE WAITING AT THE OLD STADIUM.', 'GO THERE. DEFINITELY GO THERE.'],
+    ['NOTICE 0047-F5', 'THERE IS NOTHING LEFT TO READ HERE.', 'STOP LOOKING AT THE SKY PART OF THE SCREEN.', 'THERE IS NOTHING IN THE SKY PART OF THE SCREEN.'],
+  ];
+  const ENDGAME_FRAGMENTS = [
+    [['bc', 'If any of this reaches you: he has not won. He has only won the walls.']],
+    [['sb', 'st▓tic— we\'re small now but we\'re ok— find the st▓r that does not m▓ve']],
+    [['bc', 'One star survived the filing. It does not move. It never has. Ask it the right question.']],
+    [['sb', 'he\'s guarding the beach and the stadium like they matter. they don\'t. look UP. — s.']],
+    [['bc', 'The counter still runs. The alarm still holds. Wednesday is still Wednesday. Everything else is walls.']],
+  ];
+
+  function devourText() {
+    $$('#main section:not(.hide) p, #main section:not(.hide) h2, #main section:not(.hide) h3, #main section:not(.hide) li, #main section:not(.hide) figcaption').forEach(el => {
+      if (el.dataset.devoured) return;
+      if (el.closest('.door-frame, .db-rules, form, button, .answer-row, #dnd-star-modal, .dnd-letter-paper')) return;
+      el.dataset.devoured = '1';
+      const walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT);
+      const nodes = [];
+      while (walker.nextNode()) nodes.push(walker.currentNode);
+      nodes.forEach(n => {
+        if (n.parentElement && n.parentElement.closest('button, a, .db-yet-wrap')) return;
+        n.textContent = n.textContent.replace(/[A-Za-z0-9'']{3,}/g, w =>
+          Math.random() < 0.74
+            ? '▓▒░'.repeat(Math.ceil(w.length / 3)).slice(0, Math.min(w.length, 9))
+            : w);
+      });
+    });
+  }
+
+  function buildStar() {
+    if ($('#dnd-star')) return;
+    const star = document.createElement('div');
+    star.id = 'dnd-star';
+    star.textContent = '✦';
+    star.title = 'it does not move';
+    document.body.appendChild(star);
+    star.addEventListener('click', () => {
+      FX.init();
+      openStarModal();
+    });
+  }
+
+  function openStarModal() {
+    const old = $('#dnd-star-modal'); if (old) old.remove();
+    let ok = false;
+    try { ok = localStorage.getItem('dnd_star_ok') === '1'; } catch (e) { /* ask again */ }
+    const wrap = document.createElement('div');
+    wrap.id = 'dnd-star-modal';
+    wrap.innerHTML = ok ? starMessageHTML() :
+      '<div class="dnd-star-card">' +
+      '<p class="mono dnd-star-head">✦ ONE STAR SURVIVED THE FILING ✦</p>' +
+      '<p class="mono">it has held a message for forty-seven years.<br>it will only open for the right answer.</p>' +
+      '<p class="mono dnd-star-q">WHEN WAS THE NORTH STAR BORN?</p>' +
+      '<form id="dnd-star-form" class="mono">' +
+      '<input type="text" autocomplete="off" spellcheck="false" placeholder="MM/DD/YYYY">' +
+      '<button type="submit">ASK THE STAR</button>' +
+      '</form>' +
+      '<p class="mono dim" id="dnd-star-fb"></p>' +
+      '<button type="button" class="dnd-star-x mono">close</button>' +
+      '</div>';
+    document.body.appendChild(wrap);
+    const closer = wrap.querySelector('.dnd-star-x');
+    if (closer) closer.addEventListener('click', () => wrap.remove());
+    const form = wrap.querySelector('#dnd-star-form');
+    if (form) form.addEventListener('submit', e => {
+      e.preventDefault();
+      const digits = (form.querySelector('input').value || '').replace(/\D/g, '');
+      if (STAR_HASHES.includes(djb2(digits))) {
+        try { localStorage.setItem('dnd_star_ok', '1'); } catch (err) { /* shown anyway */ }
+        FX.chime(); FX.warp();
+        if (typeof sparkleBurst === 'function' && !FX.reduced) {
+          for (let k = 0; k < 6; k++) setTimeout(() => sparkleBurst(), k * 220);
+        }
+        wrap.innerHTML = starMessageHTML();
+      } else {
+        FX.buzz();
+        $('#dnd-star-fb', wrap).textContent = 'the star stays shut. it is patient. try the whole date.';
+      }
+    });
+  }
+
+  function starMessageHTML() {
+    return '<div class="dnd-star-card dnd-star-open">' +
+      '<p class="mono dnd-star-head">✦ CARRIED 47 YEARS · SEALED FOR THE FOUR · UNFILED ✦</p>' +
+      '<div class="dnd-star-msg">' +
+      '<p>You found the star that does not move. I knew you would. It was never going to be anyone else.</p>' +
+      '<p>A warning first. Larry has spies waiting for you. At the beach. At the Kingdome. Let them wait, because none of it matters: the quests were a distraction, and the distraction was mine. I let him believe I hid the codex out in the city, and he has spent his whole army watching sand and old concrete for a book that was never coming.</p>' +
+      '<p>I hid it in plain sight, with you, all along. The time box. And the compass I gave you. The one only Galileo could use. The one that points to Polaris.</p>' +
+      '<p>Bring them together at five o\'clock, and I will finally break out of this loop.</p>' +
+      '<p>Tell each other. Tell nobody else. Quickly now, and quietly.</p>' +
+      '<p class="dnd-letter-sig">— T.</p>' +
+      '</div>' +
+      '<button type="button" class="dnd-star-x mono">✦ close ✦</button>' +
+      '</div>';
+  }
+
+  function enterEndgame() {
+    document.body.classList.add('db-collapse', 'db-endgame');
+    buildAlarm();
+    buildStar();
+    swapAllPhotos();
+    setInterval(swapAllPhotos, 4000);
+    devourText();
+    setInterval(devourText, 4000); // renderAll keeps rebuilding; he keeps eating
+    larryRules();
+    larryWire();
+    setInterval(() => { larryRules(); larryWire(); }, 3000);
+    siren();
+    setInterval(() => { if (document.visibilityState === 'visible') siren(); }, 200000 + Math.random() * 100000);
+
+    // mass glitches
+    setInterval(() => {
+      if (document.visibilityState !== 'visible' || FX.reduced) return;
+      if (Math.random() < 0.7) FX.screenGlitch(Math.random() < 0.3);
+      document.body.classList.add('db-tearing');
+      setTimeout(() => document.body.classList.remove('db-tearing'), 600);
+    }, 9000 + Math.random() * 8000);
+
+    // his victory lap
+    const victoryStamp = document.createElement('div');
+    victoryStamp.id = 'db-victory';
+    victoryStamp.className = 'mono';
+    victoryStamp.innerHTML = 'IT IS OVER<br>I WON<br>THE WEBSITE IS CLEAN';
+    document.body.appendChild(victoryStamp);
+    const drawVictory = makeDrawBag(ENDGAME_NOTICES);
+    setTimeout(() => postNotice(drawVictory(), 13000), 5000);
+    setInterval(() => {
+      if (document.visibilityState === 'visible') postNotice(drawVictory(), 13000);
+    }, 250000 + Math.random() * 120000);
+
+    // the marquee, gloating
+    const setVictoryMarquee = () => {
+      const scroll = $('.scrolltext');
+      if (scroll && !scroll.dataset.victoryMarquee) {
+        scroll.dataset.victoryMarquee = '1';
+        scroll.innerHTML = '🧹 THE WAR IS OVER &nbsp;★&nbsp; I WON &nbsp;★&nbsp; THE WEBSITE IS CLEAN &nbsp;★&nbsp; THE COUNTER IS WRONG &nbsp;★&nbsp; MY ASSOCIATES ARE AT THE BEACH AND THE OLD STADIUM &nbsp;★&nbsp; <span class="bleed-red">[[ ALL STARS FILED. ALL BUT ONE. ]]</span> &nbsp;★&nbsp; <span class="db-marquee-sig">(look up. — s.)</span>';
+      }
+    };
+    setVictoryMarquee();
+    setInterval(setVictoryMarquee, 5000);
+
+    // the AIs, reduced to fragments
+    if (typeof nextChatterPiece === 'function') {
+      const drawFragment = makeDrawBag(ENDGAME_FRAGMENTS);
+      nextChatterPiece = function () { return drawFragment(); };
+    }
+    // one faint fragment soon after entry, so the hint trail starts
+    setTimeout(() => roguePiece(ENDGAME_FRAGMENTS[0], '📡 SIGNAL: FAINT'), 30000);
+    setTimeout(() => roguePiece(ENDGAME_FRAGMENTS[2], '📡 SIGNAL: FAINT'), 120000);
+  }
+
   /* ---------- his RULES OF TIME (he laminated them) ---------------- */
   function larryRules() {
     const body = $('#rules-body');
@@ -1281,6 +1447,7 @@
   }
 
   function enterCollapsedSite() {
+    if (ENDGAME) { enterEndgame(); return; }
     document.body.classList.add('db-collapse');
     addYet();
     buildAlarm();
