@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>404 — not found</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📼</text></svg>">
+<link rel="stylesheet" href="/style.css">
+<style>
+  body { display: flex; flex-direction: column; align-items: center; justify-content: center;
+         min-height: 100vh; text-align: center; padding: 1.5rem; gap: 1.1rem; }
+
+  /* ---- the 404 face ---- */
+  #notfound { display: flex; flex-direction: column; align-items: center; gap: 1.1rem; }
+  #notfound.gone { display: none; }
+  .nf-code {
+    font-family: var(--mono); font-size: clamp(4rem, 18vw, 8rem); color: #4b3572;
+    letter-spacing: .1em; text-shadow: 0 0 30px rgba(75,53,114,.5);
+  }
+  .nf-msg { color: var(--dim); font-family: var(--mono); font-size: .9rem; letter-spacing: .1em; }
+  .nf-notice {
+    color: #8a95a8; font-family: var(--mono); font-size: .75rem; line-height: 1.8;
+    border: 1px dashed #3a2560; border-radius: 6px; padding: .7rem 1.2rem; max-width: 460px;
+  }
+  .nf-sub { color: #4b3572; font-family: var(--mono); font-size: .72rem; max-width: 420px; line-height: 1.7; }
+  #nf-form input {
+    background: #0b0714; color: var(--cyan); border: 1px solid #241638; border-radius: 6px;
+    font-family: var(--mono); font-size: 1rem; padding: .6rem 1rem; text-align: center;
+    letter-spacing: .2em; text-transform: uppercase; width: min(300px, 78vw);
+  }
+  #nf-form input:focus { outline: none; border-color: var(--cyan); box-shadow: 0 0 12px rgba(41,230,255,.3); }
+  .nf-fb { color: var(--red); font-family: var(--mono); font-size: .82rem; min-height: 1.4em; }
+  .nf-home { color: #4b3572; font-family: var(--mono); font-size: .75rem; text-decoration: none; margin-top: .6rem; }
+  .nf-home:hover { color: var(--pink); }
+
+  /* ---- the tape ---- */
+  #tape { display: none; flex-direction: column; align-items: center; gap: 1.1rem; }
+  #tape.here { display: flex; }
+  .tp-warn {
+    color: var(--gold); font-family: var(--mono); font-size: .85rem; letter-spacing: .15em;
+    border: 1px solid rgba(255,209,102,.5); border-radius: 6px; padding: .4rem 1rem;
+    text-shadow: 0 0 10px rgba(255,209,102,.5);
+  }
+  #tape h1 {
+    font-size: clamp(1.3rem, 5vw, 2.3rem); color: var(--pink); letter-spacing: .06em;
+    text-shadow: 0 0 16px rgba(255,45,149,.5); max-width: 640px; text-wrap: balance;
+  }
+  .tp-sub { color: var(--dim); font-family: var(--mono); font-size: .8rem; max-width: 520px; line-height: 1.7; }
+  #cassette-btn { background: none; border: none; cursor: pointer; transition: transform .15s; }
+  #cassette-btn:hover { transform: scale(1.04) rotate(-1deg); }
+  #cassette-btn:active { transform: scale(.98); }
+  .cassette-svg { width: min(420px, 88vw); filter: drop-shadow(0 8px 30px rgba(41,230,255,.25)); }
+  .reel-spokes { transform-origin: center; transform-box: fill-box; }
+  .playing .reel-spokes { animation: reelspin 1.6s linear infinite; }
+  @keyframes reelspin { to { transform: rotate(360deg); } }
+  #play-hint { color: var(--cyan); font-family: var(--mono); font-size: .9rem; min-height: 1.4em; }
+</style>
+</head>
+<body>
+
+<div id="notfound">
+  <div class="nf-code">404</div>
+  <div class="nf-msg">PAGE NOT FOUND</div>
+  <div class="nf-notice">
+    SANITATION NOTICE No. 47<br>
+    1. THERE IS NOTHING HERE.<br>
+    2. THERE WAS NEVER ANYTHING HERE.<br>
+    3. VACATE.<br>
+    4. THIS NOTICE HAS BEEN STRAIGHTENED 3 TIMES. BECAUSE OF YOU.
+  </div>
+  <p class="nf-sub">funny thing about his bag, though. one thing never fit.
+  the strongest force there is. say it, and the page he ate comes back.</p>
+  <form id="nf-form">
+    <input type="text" id="nf-input" autocomplete="off" spellcheck="false" placeholder="say it" autofocus>
+  </form>
+  <div class="nf-fb" id="nf-fb"></div>
+  <a class="nf-home" href="/">← back to the rink</a>
+</div>
+
+<div id="tape">
+  <div class="tp-warn">⚠ RECOVERED FROM THE BAG · ONE COPY · PLAYS AT THE PARTY ⚠</div>
+  <h1>THE LAST TUESDAY</h1>
+  <p class="tp-sub">for Fin · Addy · Galileo · Polaris. stand on the rink floor.
+  box to dead center. volume all the way up. when she says sing — SING.</p>
+
+  <button type="button" id="cassette-btn" aria-label="play The Last Tuesday">
+    <svg class="cassette-svg" id="cassette" viewBox="0 0 460 290" xmlns="http://www.w3.org/2000/svg">
+      <rect x="6" y="6" width="448" height="278" rx="18" fill="#1c1030" stroke="#3a2560" stroke-width="4"/>
+      <rect x="26" y="26" width="408" height="120" rx="10" fill="#f2e6c9"/>
+      <text x="230" y="62" text-anchor="middle" font-family="Menlo, monospace" font-size="24" font-weight="bold" fill="#c0392b" letter-spacing="5">THE LAST TUESDAY</text>
+      <text x="230" y="92" text-anchor="middle" font-family="Comic Sans MS, cursive" font-size="15" fill="#5a3620">southgate roller rink · wednesday, 5 o'clock</text>
+      <text x="230" y="120" text-anchor="middle" font-family="Menlo, monospace" font-size="11" fill="#8a6a45">— T. (see you on the other side)</text>
+      <rect x="120" y="160" width="220" height="76" rx="38" fill="#0b0714" stroke="#3a2560" stroke-width="3"/>
+      <g class="reel-spokes">
+        <circle cx="165" cy="198" r="26" fill="#241638" stroke="#8a95a8" stroke-width="4"/>
+        <line x1="165" y1="176" x2="165" y2="220" stroke="#8a95a8" stroke-width="4"/>
+        <line x1="143" y1="198" x2="187" y2="198" stroke="#8a95a8" stroke-width="4"/>
+      </g>
+      <g class="reel-spokes">
+        <circle cx="295" cy="198" r="26" fill="#241638" stroke="#8a95a8" stroke-width="4"/>
+        <line x1="295" y1="176" x2="295" y2="220" stroke="#8a95a8" stroke-width="4"/>
+        <line x1="273" y1="198" x2="317" y2="198" stroke="#8a95a8" stroke-width="4"/>
+      </g>
+      <circle cx="60" cy="256" r="7" fill="#3a2560"/>
+      <circle cx="400" cy="256" r="7" fill="#3a2560"/>
+      <text x="230" y="264" text-anchor="middle" font-family="Menlo, monospace" font-size="13" fill="#9b8bb4">▶ CLICK TO PLAY</text>
+    </svg>
+  </button>
+  <div id="play-hint">there is a quiet part in the middle. it is supposed to be there. hold on through it.</div>
+
+  <audio id="tape-audio" src="/audio/last-tuesday.mp3" preload="none"></audio>
+  <a class="nf-home" href="/">← back to the rink</a>
+</div>
+
+<script>
+(function () {
+  const notfound = document.getElementById('notfound');
+  const tape = document.getElementById('tape');
+  const input = document.getElementById('nf-input');
+  const fb = document.getElementById('nf-fb');
+  const DENIALS = [
+    'the bag stays shut.',
+    'no. it beats a vacuum. it beat THE vacuum, today, at this rink.',
+    'still shut. four kids sang it through a closing door an hour ago.',
+    'you already know it. it has four letters and you had it before you did anything at all.',
+  ];
+  let denyIdx = 0;
+  function open() {
+    notfound.classList.add('gone');
+    tape.classList.add('here');
+    try { sessionStorage.setItem('dnd_tape_ok', '1'); } catch (e) {}
+  }
+  try { if (sessionStorage.getItem('dnd_tape_ok') === '1') open(); } catch (e) {}
+  function tryPassword() {
+    const guess = input.value.toUpperCase().replace(/[^A-Z]/g, '');
+    if (guess === 'LOVE') {
+      open();
+    } else if (guess) {
+      fb.textContent = DENIALS[denyIdx++ % DENIALS.length];
+      input.value = '';
+    }
+  }
+  document.getElementById('nf-form').addEventListener('submit', e => {
+    e.preventDefault();
+    tryPassword();
+  });
+
+  const audio = document.getElementById('tape-audio');
+  const btn = document.getElementById('cassette-btn');
+  const cassette = document.getElementById('cassette');
+  const hint = document.getElementById('play-hint');
+  btn.addEventListener('click', () => {
+    if (audio.paused) {
+      audio.play();
+      cassette.classList.add('playing');
+      hint.textContent = '▶ playing… hands ready. she can hear you.';
+    } else {
+      audio.pause();
+      cassette.classList.remove('playing');
+      hint.textContent = '⏸ paused. she has waited 47 years. she can wait one more minute.';
+    }
+  });
+  audio.addEventListener('ended', () => {
+    cassette.classList.remove('playing');
+    hint.textContent = 'end of tape. the rest happens on the floor.';
+    audio.currentTime = 0;
+  });
+})();
+</script>
+</body>
+</html>
