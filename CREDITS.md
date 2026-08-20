@@ -12,6 +12,5 @@ Drawn pictures (`img/*.svg`) are original artwork for this site.
 
 - `img/real/southgate-rink.jpg` — "Southgate Roller Rink White Center"
   by Lumpytrout, Wikimedia Commons, CC BY-SA 3.0. Resized.
-- `img/real/ridge-rink-1956.jpg` — "Ridge Roller Rink, 1956" by
-  Seattle Municipal Archives, CC BY 2.0, via Wikimedia Commons.
-  Resized.
+- `img/real/southgate-rink-2.jpg` — "Southgate Skate Center" (White
+  Center, WA), Wikimedia Commons, CC BY-SA 3.0. Resized.
